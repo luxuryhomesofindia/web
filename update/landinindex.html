@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxury Homes of India – New Website Launch</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: linear-gradient(to right, #1c1c1c, #333);
+      color: #fff;
+      text-align: center;
+      padding: 50px 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      color: #f4cc70;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    .timer {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .timer div {
+      background: #444;
+      padding: 20px;
+      border-radius: 10px;
+      min-width: 80px;
+    }
+    .launch-info {
+      margin-top: 40px;
+      font-size: 1rem;
+      color: #bbb;
+    }
+    .logo {
+      max-width: 180px;
+      margin-bottom: 30px;
+    }
+    .contact {
+      margin-top: 50px;
+      font-size: 1rem;
+      color: #aaa;
+    }
+    .contact h4 {
+      margin-bottom: 10px;
+      color: #f4cc70;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="logo.png" alt="Luxury Homes of India Logo" class="logo">
+    <h1>New Digital Experience Launching at 6 PM</h1>
+    <p>Luxury meets innovation. Our all-new digital platform is launching soon. Explore the finest residences, curated for elite living in India.</p>
+    <div class="timer">
+      <div><span id="hours">00</span><br>Hours</div>
+      <div><span id="minutes">00</span><br>Minutes</div>
+      <div><span id="seconds">00</span><br>Seconds</div>
+    </div>
+    <div class="launch-info">
+      Discover prime locations, exclusive interiors, and unmatched real estate expertise.<br>
+      Visit: <strong><a href="https://www.luxuryhomesofindia.com" style="color: #f4cc70; text-decoration: none;">www.luxuryhomesofindia.com</a></strong>
+    </div>
+    <div class="contact">
+      <h4>Contact Us</h4>
+      <p>📍 #85, 4th Floor, Lotus Tower, Guindy, Chennai - 600032, India</p>
+      <p>📞 +91 90922 76222</p>
+      <p>📧 info@luxuryhomesofindia.com</p>
+    </div>
+  </div>
+
+  <script>
+    const launchTime = new Date();
+    launchTime.setHours(18, 0, 0, 0); // Today at 6 PM
+
+    function updateTimer() {
+      const now = new Date();
+      let timeLeft = launchTime - now;
+
+      if (timeLeft <= 0) {
+        document.querySelector('.timer').innerHTML = '<h2 style="color: #f4cc70;">We Are Now Live! Visit the Site 🚀</h2>';
+        return;
+      }
+
+      const hours = String(Math.floor((timeLeft / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+      const minutes = String(Math.floor((timeLeft / (1000 * 60)) % 60)).padStart(2, '0');
+      const seconds = String(Math.floor((timeLeft / 1000) % 60)).padStart(2, '0');
+
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+  </script>
+</body>
+</html>

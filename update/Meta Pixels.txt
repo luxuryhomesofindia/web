@@ -1,0 +1,48 @@
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1910302372848977');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1910302372848977&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Luxury Homes of India",
+  "url": "https://luxuryhomesofindia.in/",
+  "logo": "https://luxuryhomesofindia.in/assets/images/logo/logo_dark.png",
+  "email": "info@luxuryhomesofindia.in",
+  "telephone": "+919092276222",
+  "sameAs": [
+    "https://www.instagram.com/luxuryhomesofindia?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    "https://www.facebook.com/profile.php?id=61581903999441#"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"AboutPage",
+    "url":"https://luxuryhomesofindia.in/about",
+    "name":"About Luxury Homes of India",
+    "mainEntity":{
+      "@type":"Organization",
+      "name":"Luxury Homes of India",
+      "url":"https://luxuryhomesofindia.in/"
+    }
+  }
+  </script>
+

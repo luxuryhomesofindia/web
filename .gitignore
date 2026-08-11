@@ -1,0 +1,5 @@
+# Secrets & Local Configurations
+config.local.php
+.env
+*.env
+*.log

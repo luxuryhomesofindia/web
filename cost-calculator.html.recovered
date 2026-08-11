@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Turnkey Villa Construction Cost Calculator | Luxury Homes of India</title>
+  <meta name="description" content="Calculate your luxury villa construction cost in Chennai live. Customize plot area, floors, finish packages, and smart home add-ons for instant estimates." />
+  <link rel="canonical" href="https://luxuryhomesofindia.in/cost-calculator.html" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="keywords" content="Construction Cost Calculator Chennai, Turnkey Villa Pricing, House Construction Cost Tamil Nadu, Luxury Home Cost Estimator" />
+
+  <!-- OG / Twitter -->
+  <meta property="og:title" content="Turnkey Villa Construction Cost Calculator | Luxury Homes of India" />
+  <meta property="og:description" content="Get an instant itemized estimate for your custom luxury villa construction in Chennai based on local soil and Vastu preferences." />
+  <meta property="og:url" content="https://luxuryhomesofindia.in/cost-calculator.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://luxuryhomesofindia.in/assets/images/logo/logo_dark.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17674541365"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17674541365');
+  </script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1910302372848977');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1910302372848977&ev=PageView&noscript=1" /></noscript>
+
+  <!-- Assets -->
+  <link rel="stylesheet preload" href="assets/css/plugins/fontawesome.css" as="style">
+  <link rel="stylesheet preload" href="assets/css/plugins/swiper.css" as="style">
+  <link rel="stylesheet preload" href="assets/css/plugins/metismenu.css" as="style">
+  <link rel="stylesheet preload" href="assets/css/vendor/bootstrap.min.css" as="style">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&amp;display=swap" rel="stylesheet preload" as="style">
+  <link rel="stylesheet preload" href="assets/css/style.css" as="style">
+  <link rel="stylesheet" href="assets/css/premium-popup.css">
+
+  <style>
+    :root {
+      --pearl-white: #FAF8F5;
+      --ivory-white: #F5F1EB;
+      --text-dark: #1A1A1A;
+      --text-secondary: #555555;
+      --champagne-gold: #D4AF37;
+      --rich-crimson: #ED2F39;
+      --border-light: #E5DEC9;
+      --card-bg-light: #FFFFFF;
+      --shadow-luxury: 0 20px 40px rgba(0, 0, 0, 0.05);
+      --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+    }
+
+    body {
+      background-color: var(--pearl-white);
+      color: var(--text-dark);
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .calculator-hero {
+      background: var(--text-dark);
+      color: var(--pearl-white);
+      padding: 140px 0 80px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .calculator-hero h1 {
+      font-family: 'Red Hat Display', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+
+    .calculator-hero h1 span {
+      color: var(--champagne-gold);
+    }
+
+    .calculator-hero p {
+      font-size: 1.1rem;
+      color: #b0b0b0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .calculator-layout {
+      margin-top: -40px;
+      position: relative;
+      z-index: 10;
+      padding-bottom: 100px;
+    }
+
+    .calc-card {
+      background: var(--card-bg-light);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      box-shadow: var(--shadow-luxury);
+      padding: 40px;
+      height: 100%;
+    }
+
+    .calc-section-title {
+      font-family: 'Red Hat Display', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+      border-bottom: 2px solid var(--ivory-white);
+      padding-bottom: 10px;
+      color: var(--text-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .calc-section-title span {
+      color: var(--champagne-gold);
+      font-size: 0.9rem;
+      font-weight: 400;
+    }
+
+    /* Slider styling */
+    .slider-container {
+      margin-bottom: 35px;
+    }
+
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .slider-label {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+    }
+
+    .slider-value {
+      font-family: 'Red Hat Display', sans-serif;
+      font-weight: 800;
+      color: var(--rich-crimson);
+      font-size: 1.2rem;
+    }
+
+    .custom-range {
+      width: 100%;
+      height: 6px;
+      background: var(--ivory-white);
+      border-radius: 3px;
+      outline: none;
+      -webkit-appearance: none;
+      box-shadow: var(--shadow-inset);
+    }
+
+    .custom-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--rich-crimson);
+      cursor: pointer;
+      border: 2px solid var(--pearl-white);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+      transition: transform 0.1s ease;
+    }
+
+    .custom-range::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+
+    /* Package Options cards */
+    .option-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      margin-bottom: 35px;
+    }
+
+    @media (min-width: 768px) {
+      .option-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .option-card {
+      border: 1px solid var(--border-light);
+      background: var(--pearl-white);
+      border-radius: 8px;
+      padding: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .option-card:hover {
+      border-color: var(--champagne-gold);
+      transform: translateY(-2px);
+    }
+
+    .option-card.active {
+      border-color: var(--rich-crimson);
+      background: #FFF5F5;
+      box-shadow: 0 4px 12px rgba(237, 47, 57, 0.08);
+    }
+
+    .option-card input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .option-card h4 {
+      font-family: 'Red Hat Display', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text-dark);
+    }
+
+    .option-card .price-tag {
+      font-weight: 800;
+      color: var(--rich-crimson);
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .option-card p {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+      margin-bottom: 0;
+    }
+
+    /* Floor cards */
+    .floor-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 35px;
+    }
+
+    .floor-card {
+      border: 1px solid var(--border-light);
+      background: var(--pearl-white);
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .floor-card:hover {
+      border-color: var(--champagne-gold);
+    }
+
+    .floor-card.active {
+      border-color: var(--rich-crimson);
+      background: #FFF5F5;
+      font-weight: 700;
+    }
+
+    .floor-card input {
+      display: none;
+    }
+
+    .floor-card h5 {
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    .floor-card span {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    /* Add-ons checkboxes */
+    .addon-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    @media (min-width: 576px) {
+      .addon-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .addon-item {
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      background: var(--pearl-white);
+      transition: all 0.3s ease;
+    }
+
+    .addon-item:hover {
+      border-color: var(--champagne-gold);
+    }
+
+    .addon-item.active {
+      border-color: var(--rich-crimson);
+      background: #FFF5F5;
+    }
+
+    .addon-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .addon-info i {
+      color: var(--champagne-gold);
+      font-size: 1.1rem;
+      width: 20px;
+      text-align: center;
+    }
+
+    .addon-text h6 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+      color: var(--text-dark);
+    }
+
+    .addon-text p {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-bottom: 0;
+    }
+
+    .addon-checkbox {
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--border-light);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      background: #fff;
+    }
+
+    .addon-item.active .addon-checkbox {
+      background: var(--rich-crimson);
+      border-color: var(--rich-crimson);
+    }
+
+    .addon-checkbox i {
+      color: #fff;
+      font-size: 0.65rem;
+      display: none;
+    }
+
+    .addon-item.active .addon-checkbox i {
+      display: block;
+    }
+
+    /* Output card styling */
+    .estimate-card {
+      background: var(--text-dark);
+      color: var(--pearl-white);
+      border-radius: 12px;
+      padding: 40px;
+      position: sticky;
+      top: 100px;
+    }
+
+    .estimate-title {
+      font-family: 'Red Hat Display', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--champagne-gold);
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .estimate-value-box {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid #2d2d2d;
+    }
+
+    .estimate-number {
+      font-family: 'Red Hat Display', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--pearl-white);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .estimate-sub-label {
+      font-size: 0.85rem;
+      color: #888888;
+    }
+
+    .breakdown-list {
+      margin-bottom: 30px;
+    }
+
+    .breakdown-row {
+      margin-bottom: 20px;
+    }
+
+    .breakdown-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      margin-bottom: 6px;
+    }
+
+    .breakdown-name {
+      color: #b0b0b0;
+    }
+
+    .breakdown-val {
+      font-weight: 700;
+      color: var(--pearl-white);
+    }
+
+    .breakdown-bar {
+      height: 4px;
+      background: #2d2d2d;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .breakdown-progress {
+      height: 100%;
+      background: var(--champagne-gold);
+      border-radius: 2px;
+      width: 0;
+      transition: width 0.6s ease;
+    }
+
+    .breakdown-progress.crimson {
+      background: var(--rich-crimson);
+    }
+
+    .estimate-cta {
+      display: block;
+      width: 100%;
+      background: var(--rich-crimson);
+      color: var(--pearl-white);
+      border: none;
+      padding: 16px;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 6px;
+      text-align: center;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .estimate-cta:hover {
+      background: #d1242d;
+      color: var(--pearl-white);
+      box-shadow: 0 8px 24px rgba(237, 47, 57, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .estimate-note {
+      font-size: 0.75rem;
+      color: #777777;
+      text-align: center;
+      margin-top: 15px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;">Turnkey Villa Construction Cost Calculator Chennai</h1>
+  <div id="master-header"></div>
+
+  <!-- HERO SECTION -->
+  <section class="calculator-hero">
+    <div class="container">
+      <h1>Luxury Villa <span>Cost Calculator</span></h1>
+      <p>Estimate the turnkey construction cost of your custom premium villa in Chennai. Adjust areas, layouts, and high-end add-ons dynamically.</p>
+    </div>
+  </section>
+
+  <!-- CALCULATOR SECTION -->
+  <section class="calculator-layout">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Input controls column -->
+        <div class="col-lg-7">
+          <div class="calc-card">
+            <!-- Section 1: Dimensions -->
+            <div class="slider-container">
+              <div class="calc-section-title">
+                1. Project Dimensions <span>Plot size & Built-up area</span>
+              </div>
+              <div class="slider-header">
+                <span class="slider-label">Target Built-up Area</span>
+                <span class="slider-value" id="areaValueDisplay">2,500 Sq.Ft</span>
+              </div>
+              <input type="range" class="custom-range" id="builtUpAreaInput" min="1200" max="10000" step="50" value="2500">
+              <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--text-secondary); margin-top:8px;">
+                <span>1,200 Sq.Ft</span>
+                <span>10,000 Sq.Ft</span>
+              </div>
+            </div>
+
+            <!-- Section 2: Floor Structure -->
+            <div class="slider-container">
+              <div class="calc-section-title">
+                2. Vertical Structure <span>Number of floor layouts</span>
+              </div>
+              <div class="floor-grid">
+                <label class="floor-card active" id="floor_g1">
+                  <input type="radio" name="floorsInput" value="g1" checked>
+                  <h5>Ground + 1</h5>
+                  <span>Factor: 1.0x</span>
+                </label>
+                <label class="floor-card" id="floor_g2">
+                  <input type="radio" name="floorsInput" value="g2">
+                  <h5>Ground + 2</h5>
+                  <span>Factor: 1.05x</span>
+                </label>
+                <label class="floor-card" id="floor_s3">
+                  <input type="radio" name="floorsInput" value="s3">
+                  <h5>Stilt + 3</h5>
+                  <span>Factor: 1.12x</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Section 3: Material Package -->
+            <div class="slider-container">
+              <div class="calc-section-title">
+                3. Premium Finish Package <span>Select your design tier</span>
+              </div>
+              <div class="option-grid">
+                <label class="option-card" id="pkg_classic">
+                  <input type="radio" name="packageInput" value="classic">
+                  <h4>Classic Elegance</h4>
+                  <div class="price-tag">₹2,250 / Sq.Ft</div>
+                  <p>Premium local materials, standard Italian marble, classic engineered doors, and Vastu-compliant layout shell.</p>
+                </label>
+                <label class="option-card active" id="pkg_luxury">
+                  <input type="radio" name="packageInput" value="luxury" checked>
+                  <h4>Luxury Elite</h4>
+                  <div class="price-tag">₹2,450 / Sq.Ft</div>
+                  <p>Imported Italian marble, advanced soundproofing CPVC pipes, luxury sanitaryware, and modular modular kitchen fittings.</p>
+                </label>
+                <label class="option-card" id="pkg_royal">
+                  <input type="radio" name="packageInput" value="royal">
+                  <h4>LHI Royal Signature</h4>
+                  <div class="price-tag">₹2,650 / Sq.Ft</div>
+                  <p>Statuario marble, structural steel pillars, double-glazed fenestration, premium automation pre-wiring, and teak gateways.</p>
+                </label>
+              </div>
+            </div>
+
+            <!-- Section 4: Premium Modules -->
+            <div class="slider-container">
+              <div class="calc-section-title">
+                4. Bespoke Add-on Modules <span>Incorporate signature features</span>
+              </div>
+              <div class="addon-list">
+                <div class="addon-item" id="addon_smart">
+                  <div class="addon-info">
+                    <i class="fas fa-home"></i>
+                    <div class="addon-text">
+                      <h6>Smart Automation</h6>
+                      <p>Full IoT pre-fit & lighting controls</p>
+                    </div>
+                  </div>
+                  <div class="addon-checkbox"><i class="fas fa-check"></i></div>
+                </div>
+
+                <div class="addon-item" id="addon_solar">
+                  <div class="addon-info">
+                    <i class="fas fa-solar-panel"></i>
+                    <div class="addon-text">
+                      <h6>5kW Solar Grid</h6>
+                      <p>Lithium backup net-metering</p>
+                    </div>
+                  </div>
+                  <div class="addon-checkbox"><i class="fas fa-check"></i></div>
+                </div>
+
+                <div class="addon-item" id="addon_theater">
+                  <div class="addon-info">
+                    <i class="fas fa-film"></i>
+                    <div class="addon-text">
+                      <h6>Bespoke Home Cinema</h6>
+                      <p>Acoustic paneling & 4K laser setup</p>
+                    </div>
+                  </div>
+                  <div class="addon-checkbox"><i class="fas fa-check"></i></div>
+                </div>
+
+                <div class="addon-item" id="addon_pool">
+                  <div class="addon-info">
+                    <i class="fas fa-swimming-pool"></i>
+                    <div class="addon-text">
+                      <h6>Cantilever Pool</h6>
+                      <p>Reinforced concrete filtration deck</p>
+                    </div>
+                  </div>
+                  <div class="addon-checkbox"><i class="fas fa-check"></i></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Output results column -->
+        <div class="col-lg-5">
+          <div class="estimate-card">
+            <div class="estimate-title">Estimated Project Value</div>
+            <div class="estimate-value-box">
+              <div class="estimate-number" id="grandTotalDisplay">₹0.00 Cr</div>
+              <div class="estimate-sub-label" id="costPerSqftLabel">Based on 2,500 Sq.Ft @ ₹2,450/Sq.Ft</div>
+            </div>
+
+            <div class="estimate-title" style="text-align: left; margin-bottom: 20px;">Cost Breakdown</div>
+            <div class="breakdown-list">
+              <!-- Row 1: Civil -->
+              <div class="breakdown-row">
+                <div class="breakdown-header">
+                  <span class="breakdown-name">Civil & Structural Shell (50%)</span>
+                  <span class="breakdown-val" id="civilVal">₹0.00 L</span>
+                </div>
+                <div class="breakdown-bar">
+                  <div class="breakdown-progress" id="civilProgress"></div>
+                </div>
+              </div>
+
+              <!-- Row 2: Finishing -->
+              <div class="breakdown-row">
+                <div class="breakdown-header">
+                  <span class="breakdown-name">Finishing, Flooring & MEP (35%)</span>
+                  <span class="breakdown-val" id="finishingVal">₹0.00 L</span>
+                </div>
+                <div class="breakdown-bar">
+                  <div class="breakdown-progress" id="finishingProgress"></div>
+                </div>
+              </div>
+
+              <!-- Row 3: Interiors -->
+              <div class="breakdown-row">
+                <div class="breakdown-header">
+                  <span class="breakdown-name">Bespoke Woodwork & Interiors (15%)</span>
+                  <span class="breakdown-val" id="woodworkVal">₹0.00 L</span>
+                </div>
+                <div class="breakdown-bar">
+                  <div class="breakdown-progress" id="woodworkProgress"></div>
+                </div>
+              </div>
+
+              <!-- Row 4: Add-ons -->
+              <div class="breakdown-row">
+                <div class="breakdown-header">
+                  <span class="breakdown-name">Signature Add-on Modules</span>
+                  <span class="breakdown-val" id="addonsVal">₹0.00 L</span>
+                </div>
+                <div class="breakdown-bar">
+                  <div class="breakdown-progress crimson" id="addonsProgress"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CTA Button -->
+            <a href="#" class="estimate-cta" id="submitCalculatorEstimateBtn">Request detailed BOQ</a>
+            
+            <p class="estimate-note">
+              *Estimates are calculated using current Chennai material index and DTCP/CMDA standard setback factors. Soil piling variables are calculated upon soil boring test execution.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="master-footer"></div>
+
+  <!-- Scripts -->
+  <script src="assets/js/plugins/jquery.js"></script>
+  <script src="assets/js/plugins/bootstrap.min.js"></script>
+  <script src="assets/js/plugins/metismenu.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/popup-trigger.js"></script>
+  <script src="assets/js/analytics-tracking.js"></script>
+
+  <!-- CALCULATOR SCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Load Header dynamically
+      fetch("header.html")
+        .then(res => res.text())
+        .then(data => {
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = data;
+          document.getElementById('master-header').innerHTML = tempDiv.innerHTML;
+          
+          if (window.rtsJs && typeof window.rtsJs.sideMenu === 'function') {
+            window.rtsJs.sideMenu();
+          }
+        });
+
+      // Load Footer dynamically
+      fetch("footer.html")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('master-footer').innerHTML = data;
+        });
+
+      // State variables
+      const inputs = {
+        area: 2500,
+        pkg: "luxury",
+        floors: "g1",
+        smart: false,
+        solar: false,
+        theater: false,
+        pool: false
+      };
+
+      const prices = {
+        packages: {
+          classic: 2250,
+          luxury: 2450,
+          royal: 2650
+        },
+        floors: {
+          g1: 1.0,
+          g2: 1.05,
+          s3: 1.12
+        },
+        addons: {
+          smart: 450000,
+          solar: 450000,
+          theater: 600000,
+          pool: 800000
+        }
+      };
+
+      // Select DOM Elements
+      const areaInput = document.getElementById("builtUpAreaInput");
+      const areaValue = document.getElementById("areaValueDisplay");
+      const costPerSqftLabel = document.getElementById("costPerSqftLabel");
+      const grandTotalDisplay = document.getElementById("grandTotalDisplay");
+
+      const civilVal = document.getElementById("civilVal");
+      const civilProgress = document.getElementById("civilProgress");
+      const finishingVal = document.getElementById("finishingVal");
+      const finishingProgress = document.getElementById("finishingProgress");
+      const woodworkVal = document.getElementById("woodworkVal");
+      const woodworkProgress = document.getElementById("woodworkProgress");
+      const addonsVal = document.getElementById("addonsVal");
+      const addonsProgress = document.getElementById("addonsProgress");
+
+      // Format currency
+      function formatCurrency(amt) {
+        if (amt >= 10000000) {
+          return "₹" + (amt / 10000000).toFixed(2) + " Cr";
+        }
+        return "₹" + (amt / 100000).toFixed(2) + " L";
+      }
+
+      // Calculation logic
+      function calculateEstimate() {
+        const baseRate = prices.packages[inputs.pkg];
+        const floorMultiplier = prices.floors[inputs.floors];
+        
+        // Base Turnkey Cost
+        const baseTurnkeyCost = inputs.area * baseRate * floorMultiplier;
+        
+        // Breakdown calculations
+        const civilAmount = baseTurnkeyCost * 0.50;
+        const finishingAmount = baseTurnkeyCost * 0.35;
+        const woodworkAmount = baseTurnkeyCost * 0.15;
+        
+        // Add-ons calculation
+        let addonsAmount = 0;
+        if (inputs.smart) {
+          // Smart home cost scales with built up size
+          addonsAmount += inputs.area < 3000 ? 300000 : (inputs.area < 6000 ? 500000 : 700000);
+        }
+        if (inputs.solar) addonsAmount += prices.addons.solar;
+        if (inputs.theater) addonsAmount += prices.addons.theater;
+        if (inputs.pool) addonsAmount += prices.addons.pool;
+
+        const grandTotal = baseTurnkeyCost + addonsAmount;
+
+        // Render values
+        grandTotalDisplay.innerText = formatCurrency(grandTotal);
+        costPerSqftLabel.innerText = `Based on ${inputs.area.toLocaleString()} Sq.Ft @ ₹${baseRate.toLocaleString()}/Sq.Ft (${inputs.floors.toUpperCase()})`;
+
+        civilVal.innerText = formatCurrency(civilAmount);
+        finishingVal.innerText = formatCurrency(finishingAmount);
+        woodworkVal.innerText = formatCurrency(woodworkAmount);
+        addonsVal.innerText = formatCurrency(addonsAmount);
+
+        // Update progress bars (relative to the grand total)
+        civilProgress.style.width = ((civilAmount / grandTotal) * 100) + "%";
+        finishingProgress.style.width = ((finishingAmount / grandTotal) * 100) + "%";
+        woodworkProgress.style.width = ((woodworkAmount / grandTotal) * 100) + "%";
+        addonsProgress.style.width = ((addonsAmount / grandTotal) * 100) + "%";
+      }
+
+      // Event listeners - Sliders
+      areaInput.addEventListener("input", function (e) {
+        inputs.area = parseInt(e.target.value);
+        areaValue.innerText = inputs.area.toLocaleString() + " Sq.Ft";
+        calculateEstimate();
+      });
+
+      // Event listeners - Finish Packages
+      document.querySelectorAll("input[name='packageInput']").forEach(radio => {
+        radio.addEventListener("change", function (e) {
+          inputs.pkg = e.target.value;
+          document.querySelectorAll(".option-card").forEach(c => c.classList.remove("active"));
+          document.getElementById("pkg_" + inputs.pkg).classList.add("active");
+          calculateEstimate();
+        });
+      });
+
+      // Floor card clicks
+      document.querySelectorAll("input[name='floorsInput']").forEach(radio => {
+        radio.addEventListener("change", function (e) {
+          inputs.floors = e.target.value;
+          document.querySelectorAll(".floor-card").forEach(c => c.classList.remove("active"));
+          document.getElementById("floor_" + inputs.floors).classList.add("active");
+          calculateEstimate();
+        });
+      });
+
+      // Add-ons toggles
+      const addonIds = {
+        smart: "addon_smart",
+        solar: "addon_solar",
+        theater: "addon_theater",
+        pool: "addon_pool"
+      };
+
+      Object.keys(addonIds).forEach(key => {
+        const item = document.getElementById(addonIds[key]);
+        item.addEventListener("click", function () {
+          inputs[key] = !inputs[key];
+          if (inputs[key]) {
+            item.classList.add("active");
+          } else {
+            item.classList.remove("active");
+          }
+          calculateEstimate();
+        });
+      });
+
+      // Pre-fill popup logic on CTA click
+      const ctaBtn = document.getElementById("submitCalculatorEstimateBtn");
+      ctaBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        
+        // Build summary message
+        const selectedAddons = [];
+        if (inputs.smart) selectedAddons.push("Smart Automation");
+        if (inputs.solar) selectedAddons.push("Solar Grid");
+        if (inputs.theater) selectedAddons.push("Home Cinema");
+        if (inputs.pool) selectedAddons.push("Cantilever Pool");
+        
+        const addonText = selectedAddons.length > 0 ? selectedAddons.join(", ") : "None";
+        const messageText = `Requesting turnkey villa BOQ for:\n- Area: ${inputs.area} sqft\n- Package: ${inputs.pkg.toUpperCase()}\n- Floors: ${inputs.floors.toUpperCase()}\n- Add-ons: ${addonText}\n- Estimate: ${grandTotalDisplay.innerText}`;
+        
+        // Find requirements box in consult form and fill it
+        const requirementsBox = document.getElementById("requirements");
+        if (requirementsBox) {
+          requirementsBox.value = messageText;
+        }
+
+        // Open the global popup form
+        const triggerBtn = document.getElementById("trigger-consultation-popup");
+        if (triggerBtn) {
+          triggerBtn.click();
+        } else {
+          // Fallback if global trigger not found: open the popup element directly
+          const popup = document.getElementById("consultation-popup");
+          if (popup) {
+            popup.classList.add("open");
+            document.body.style.overflow = "hidden";
+          }
+        }
+      });
+
+      // Initial execution
+      calculateEstimate();
+    });
+  </script>
+</body>
+
+</html>

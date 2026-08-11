@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boq | Luxury Homes of India</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#b08d57; --gold-dark:#9a7943; --gold-light:#c9a96a;
+  --cream:#faf8f5; --paper:#ffffff; --ink:#2c2925; --muted:#8a8175;
+  --line:#ece6dd; --soft:#f4efe8; --green:#3f7d57; --shadow:0 10px 30px rgba(60,45,20,.08);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,.serif{font-family:'Playfair Display',Georgia,'Times New Roman',serif}
+.text-gold{color:var(--gold)}
+.bg-soft{background:var(--soft)}
+
+/* Top bar */
+.lhi-topbar{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:1030}
+.lhi-logo{font-family:'Playfair Display',serif;font-weight:800;font-size:1.6rem;letter-spacing:1px;color:var(--gold);line-height:1}
+.lhi-logo small{display:block;font-family:'Inter',sans-serif;font-weight:600;font-size:.55rem;letter-spacing:3px;color:var(--muted);margin-top:2px}
+.lhi-divider{width:1px;height:34px;background:var(--line)}
+
+/* Buttons */
+.btn-gold{background:var(--gold);border:1px solid var(--gold);color:#fff;font-weight:600}
+.btn-gold:hover{background:var(--gold-dark);border-color:var(--gold-dark);color:#fff}
+.btn-outline-gold{border:1px solid var(--gold);color:var(--gold-dark);background:#fff;font-weight:600}
+.btn-outline-gold:hover{background:var(--gold);color:#fff}
+.btn-ghost{border:1px solid var(--line);background:#fff;color:var(--ink);font-weight:600}
+.btn-ghost:hover{background:var(--soft)}
+
+/* Hero / input */
+.hero{background:linear-gradient(135deg,#fffdf9,#f6efe4);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
+.eyebrow{font-size:.7rem;font-weight:700;letter-spacing:3px;color:var(--gold);text-transform:uppercase}
+.input-tile{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.input-tile label{font-size:.62rem;font-weight:700;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin:0}
+.input-tile input,.input-tile select{border:0;outline:0;font-size:1.05rem;font-weight:700;color:var(--ink);width:100%;background:transparent}
+.big-cost{font-family:'Playfair Display',serif;font-weight:800;color:var(--gold);line-height:1}
+
+/* Cards */
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+.section-title{font-size:.72rem;font-weight:700;letter-spacing:2.5px;color:var(--muted);text-transform:uppercase}
+.cat-card{cursor:pointer;border:1px solid var(--line);border-radius:14px;background:#fff;transition:.18s;padding:14px 16px}
+.cat-card:hover{transform:translateY(-2px);border-color:var(--gold-light);box-shadow:var(--shadow)}
+.cat-ico{width:42px;height:42px;border-radius:11px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex:none}
+.cat-pct{font-weight:800;color:var(--gold);font-family:'Playfair Display',serif}
+
+/* Summary list rows */
+.sum-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px dashed var(--line)}
+.sum-row:last-child{border-bottom:0}
+.sum-row .lbl{color:var(--muted);font-size:.9rem}
+.sum-row .val{font-weight:700}
+.total-strip{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#fff;border-radius:14px}
+
+/* BOQ grid */
+.boq-wrap{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.boq-scroll{max-height:62vh;overflow:auto}
+table.boq{width:100%;border-collapse:separate;border-spacing:0;font-size:.9rem}
+table.boq thead th{position:sticky;top:0;z-index:5;background:var(--ink);color:#fff;font-weight:600;font-size:.7rem;letter-spacing:1px;text-transform:uppercase;padding:12px 14px;text-align:left;white-space:nowrap}
+table.boq thead th.num{text-align:right}
+table.boq tbody td{padding:9px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
+table.boq tbody td.num{text-align:right;font-variant-numeric:tabular-nums}
+table.boq tbody tr:hover{background:#fdfbf7}
+.cat-head td{background:var(--soft);font-weight:700;color:var(--gold-dark);font-family:'Playfair Display',serif;letter-spacing:.3px;border-top:1px solid var(--line)}
+.cat-head .sub{float:right;color:var(--ink);font-family:'Inter',sans-serif;font-weight:700;font-size:.85rem}
+.subtotal-row td{background:#fcf8f1;font-weight:700;border-bottom:2px solid var(--line)}
+.grand-row td{background:var(--ink);color:#fff;font-weight:800;font-size:1rem}
+.grand-row td .big{font-family:'Playfair Display',serif}
+.cell-input{width:100%;max-width:120px;border:1px solid transparent;border-radius:7px;padding:5px 8px;text-align:right;font-variant-numeric:tabular-nums;background:#fbf7f0;font-weight:600}
+.cell-input:focus{outline:0;border-color:var(--gold);background:#fff}
+.qty-input{max-width:90px}
+.unit-pill{font-size:.72rem;color:var(--muted);background:var(--soft);padding:2px 9px;border-radius:20px;white-space:nowrap}
+
+/* Insights */
+.insight{display:flex;gap:9px;align-items:flex-start;font-size:.85rem;color:var(--ink);padding:7px 0}
+.insight .tick{color:var(--green);font-weight:800}
+
+/* Donut legend */
+.legend-dot{width:10px;height:10px;border-radius:3px;display:inline-block;margin-right:7px}
+.legend-row{display:flex;justify-content:space-between;align-items:center;font-size:.85rem;padding:5px 0}
+
+/* Views */
+.view{display:none}
+.view.active{display:block}
+.back-btn{cursor:pointer}
+.toast-save{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(40px);background:var(--ink);color:#fff;padding:11px 22px;border-radius:30px;font-size:.85rem;font-weight:600;opacity:0;transition:.3s;z-index:2000;box-shadow:var(--shadow)}
+.toast-save.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.badge-cat{font-size:.62rem;letter-spacing:1px;background:var(--soft);color:var(--gold-dark);font-weight:700;padding:3px 10px;border-radius:20px;text-transform:uppercase}
+@media (max-width:576px){.big-cost{font-size:2rem!important}.boq-scroll{max-height:55vh}}
+</style>
+  <meta name="description" content="Learn more about Boq options at Luxury Homes of India, crafting high-end premium residential spaces and turnkey villas.">
+  <link rel="canonical" href="https://luxuryhomesofindia.in/boq.html" />
+    <link rel="stylesheet" href="assets/css/premium-popup.css">
+  <meta name="robots" content="noindex, nofollow" />
+</head>
+<body>
+<!-- TOP BAR -->
+<header class="lhi-topbar">
+  <div class="container-xl d-flex align-items-center justify-content-between py-2 flex-wrap gap-2">
+    <div class="d-flex align-items-center gap-3">
+      <div class="lhi-logo">LHI<small>LUXURY HOMES OF INDIA</small></div>
+      <div class="lhi-divider d-none d-md-block"></div>
+      <div class="d-none d-md-block">
+        <div class="section-title" style="font-size:.6rem">Material Estimate &amp; Costing</div>
+        <div class="serif fw-bold" style="font-size:1.05rem">Bill of Quantities Estimator</div>
+      </div>
+    </div>
+    <div class="d-flex align-items-center gap-2">
+      <button class="btn btn-sm btn-ghost" id="btnSave">💾 Save</button>
+      <button class="btn btn-sm btn-outline-gold" id="btnExcel">↓ Excel</button>
+      <button class="btn btn-sm btn-gold" id="btnPdf">↓ PDF</button>
+    </div>
+  </div>
+</header>
+
+<main class="container-xl py-4">
+
+  <!-- ============ SUMMARY VIEW ============ -->
+  <section id="summaryView" class="view active">
+    <!-- HERO INPUT -->
+    <div class="hero p-4 p-lg-5 mb-4">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <div class="eyebrow mb-2">Thumb Rule Calculator</div>
+          <h1 class="mb-2" style="font-size:2.4rem;line-height:1.05">Estimate Your Project<br><span class="text-gold">Cost in Seconds</span></h1>
+          <p class="text-muted mb-4" style="max-width:520px">Enter the built-up area and instantly generate a detailed, item-wise Bill of Quantities across 20 work categories. Edit any quantity or rate to fine-tune your estimate.</p>
+          <div class="row g-3">
+            <div class="col-sm-5">
+              <div class="input-tile">
+                <label>Built-up Area (Sq.ft)</label>
+                <input type="number" id="areaInput" min="100" step="50" value="2000">
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="input-tile">
+                <label>Construction Grade</label>
+                <select id="gradeInput">
+                  <option value="1">Standard</option>
+                  <option value="1.15" selected>Premium</option>
+                  <option value="1.35">Luxury</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-3 d-grid">
+              <button class="btn btn-gold h-100" id="btnCalc">Calculate</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="panel p-4 text-center">
+            <div class="section-title mb-1">Total Estimated Cost</div>
+            <div class="big-cost" id="heroTotal" style="font-size:2.8rem">₹0</div>
+            <div class="text-muted small mb-3" id="heroPerSqft">₹0 / sq.ft · 30+ items</div>
+            <div class="total-strip py-2 px-3 d-flex justify-content-between align-items-center">
+              <span class="small fw-semibold">Base Construction</span>
+              <span class="fw-bold" id="heroBase">₹0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- LEFT: project cost summary + breakdown -->
+      <div class="col-lg-4">
+        <div class="panel p-4 mb-4">
+          <div class="section-title mb-3">Project Cost Summary</div>
+          <div class="sum-row"><span class="lbl">Material Cost (~60%)</span><span class="val" id="sMaterial">—</span></div>
+          <div class="sum-row"><span class="lbl">Labour Cost (~40%)</span><span class="val" id="sLabour">—</span></div>
+          <div class="sum-row"><span class="lbl">Base Construction Cost</span><span class="val" id="sBase">—</span></div>
+          <div class="sum-row"><span class="lbl">Contractor Margin <input type="number" id="pMargin" value="10" style="width:46px;border:1px solid var(--line);border-radius:6px;text-align:center">%</span><span class="val" id="sMargin">—</span></div>
+          <div class="sum-row"><span class="lbl">Contingency <input type="number" id="pConting" value="5" style="width:46px;border:1px solid var(--line);border-radius:6px;text-align:center">%</span><span class="val" id="sConting">—</span></div>
+          <div class="sum-row"><span class="lbl">GST <input type="number" id="pGst" value="18" style="width:46px;border:1px solid var(--line);border-radius:6px;text-align:center">%</span><span class="val" id="sGst">—</span></div>
+          <div class="total-strip mt-3 p-3 d-flex justify-content-between align-items-center">
+            <span class="fw-semibold">Total Estimated Cost</span>
+            <span class="serif fw-bold" id="sGrand" style="font-size:1.25rem">₹0</span>
+          </div>
+        </div>
+
+        <div class="panel p-4 mb-4">
+          <div class="section-title mb-3">Cost Breakdown</div>
+          <div class="d-flex align-items-center gap-3">
+            <div id="donut" style="width:120px;height:120px;border-radius:50%;flex:none"></div>
+            <div class="flex-grow-1" id="legend"></div>
+          </div>
+        </div>
+
+        <div class="panel p-4">
+          <div class="section-title mb-3">LHI Insights</div>
+          <div id="insights"></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: categories + BOQ grid -->
+      <div class="col-lg-8">
+        <div class="panel p-4 mb-4">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="section-title">Material Categories</div>
+            <span class="text-muted small">Tap a card for the detailed view</span>
+          </div>
+          <div class="row g-3" id="catGrid"></div>
+        </div>
+
+        <div class="panel p-4">
+          <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+            <div class="section-title">Complete Bill of Quantities</div>
+            <div class="btn-group btn-group-sm" role="group">
+              <button class="btn btn-outline-gold active" id="tabWorks">Works (1–20)</button>
+              <button class="btn btn-outline-gold" id="tabMaterials">Material List</button>
+            </div>
+          </div>
+          <div class="boq-wrap">
+            <div class="boq-scroll">
+              <table class="boq">
+                <thead>
+                  <tr>
+                    <th style="min-width:220px">Item</th>
+                    <th>Unit</th>
+                    <th class="num">Qty</th>
+                    <th class="num">Rate (₹)</th>
+                    <th class="num">Amount (₹)</th>
+                  </tr>
+                </thead>
+                <tbody id="boqBody"></tbody>
+              </table>
+            </div>
+          </div>
+          <p class="text-muted small mt-2 mb-0">💡 Quantities and rates are editable — totals recalculate instantly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DETAIL VIEW ============ -->
+  <section id="detailView" class="view">
+    <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
+      <div class="d-flex align-items-center gap-3">
+        <button class="btn btn-ghost back-btn" id="backBtn">← Back to Summary</button>
+        <div>
+          <div class="badge-cat" id="detailBadge">Category</div>
+          <h2 class="mb-0 mt-1" id="detailTitle" style="font-size:1.5rem">Category</h2>
+        </div>
+      </div>
+      <div class="panel px-4 py-2 text-end">
+        <div class="section-title" style="font-size:.6rem">Category Subtotal</div>
+        <div class="serif fw-bold text-gold" id="detailSubtotal" style="font-size:1.4rem">₹0</div>
+      </div>
+    </div>
+    <div class="panel p-4">
+      <div class="boq-wrap">
+        <div class="boq-scroll">
+          <table class="boq">
+            <thead>
+              <tr>
+                <th style="min-width:220px">Item</th>
+                <th>Unit</th>
+                <th class="num">Qty</th>
+                <th class="num">Rate (₹)</th>
+                <th class="num">Amount (₹)</th>
+              </tr>
+            </thead>
+            <tbody id="detailBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="text-center text-muted small py-4">
+  LHI · Luxury Homes of India — BOQ Estimator. Figures are indicative; verify rates before procurement.
+</footer>
+
+<div class="toast-save" id="toast">Saved locally ✓</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script>
+// ============================================================
+// LHI BOQ ESTIMATOR - BILL OF QUANTITIES DATASET
+// Each item: [name, unit, rate(INR), factor, isFixed]
+//   qty = isFixed ? factor : round(factor * area)
+//   amount = qty * rate
+// Material Procurement list is informational (excluded from grand total)
+// ============================================================
+const CATEGORIES = [
+  { id:'c1', name:'Preliminaries & Site Preparation', icon:'\uD83D\uDEA7', items:[
+    ['Site clearing','Sq.ft',8,1,false],
+    ['Bush removal','Sq.ft',6,0.4,false],
+    ['Debris removal','Trips',2500,4,true],
+    ['Site leveling','Sq.ft',12,1,false],
+    ['Temporary fencing','Rft',180,200,true],
+    ['Site office setup','L.S.',35000,1,true],
+    ['Temporary electrical connection','L.S.',15000,1,true],
+    ['Temporary water connection','L.S.',12000,1,true],
+    ['Site storage shed','L.S.',25000,1,true],
+    ['Layout marking','Sq.ft',5,1,false],
+    ['Benchmark establishment','L.S.',8000,1,true],
+    ['Surveying','L.S.',15000,1,true],
+  ]},
+  { id:'c2', name:'Earthwork & Foundation', icon:'\u26CF\uFE0F', items:[
+    ['Excavation for footing','Cu.m',280,0.05,false],
+    ['Excavation for column pits','Cu.m',300,0.03,false],
+    ['Excavation for septic tank','Cu.m',320,25,true],
+    ['Excavation for sump','Cu.m',320,18,true],
+    ['Excavation for rainwater pits','Cu.m',350,8,true],
+    ['Dewatering','L.S.',18000,1,true],
+    ['Disposal of excavated soil','Cu.m',250,0.06,false],
+    ['Backfilling','Cu.m',180,0.04,false],
+    ['Compaction','Sq.ft',8,1,false],
+    ['Sand filling','Cu.m',1800,0.03,false],
+    ['Gravel filling','Cu.m',1400,0.025,false],
+    ['PCC below footing','Cu.m',5500,0.015,false],
+    ['Anti-termite treatment','Sq.ft',18,1,false],
+  ]},
+  { id:'c3', name:'RCC Foundation Works', icon:'\uD83C\uDFD7\uFE0F', items:[
+    ['Footing reinforcement','Kg',72,0.6,false],
+    ['Footing concrete','Cu.m',7200,0.02,false],
+    ['Pedestal reinforcement','Kg',72,0.25,false],
+    ['Pedestal concrete','Cu.m',7200,0.008,false],
+    ['Column starter reinforcement','Kg',72,0.15,false],
+    ['Foundation shuttering','Sq.ft',220,0.4,false],
+    ['Foundation curing','L.S.',8000,1,true],
+  ]},
+  { id:'c4', name:'RCC Superstructure', icon:'\uD83C\uDFE2', items:[
+    ['Column reinforcement','Kg',72,0.7,false],
+    ['Column shuttering','Sq.ft',240,0.6,false],
+    ['Column concreting','Cu.m',7400,0.012,false],
+    ['Plinth beam reinforcement','Kg',72,0.4,false],
+    ['Plinth beam shuttering','Sq.ft',240,0.3,false],
+    ['Plinth beam concreting','Cu.m',7200,0.01,false],
+    ['Ground floor beam reinforcement','Kg',72,0.5,false],
+    ['Ground floor beam concreting','Cu.m',7400,0.012,false],
+    ['Ground floor slab reinforcement','Kg',72,0.45,false],
+    ['Ground floor slab concreting','Cu.m',7400,0.02,false],
+    ['First floor beam reinforcement','Kg',72,0.5,false],
+    ['First floor beam concreting','Cu.m',7400,0.012,false],
+    ['First floor slab reinforcement','Kg',72,0.45,false],
+    ['First floor slab concreting','Cu.m',7400,0.02,false],
+    ['Head room slab reinforcement','Kg',72,0.08,false],
+    ['Head room slab concreting','Cu.m',7400,0.004,false],
+    ['Sunshade reinforcement','Kg',72,0.05,false],
+    ['Sunshade concreting','Cu.m',7400,0.003,false],
+    ['Staircase reinforcement','Kg',72,0.12,false],
+    ['Staircase concreting','Cu.m',7600,0.006,false],
+    ['Lift pit RCC (if applicable)','L.S.',45000,1,true],
+    ['Water tank RCC','Cu.m',8500,6,true],
+    ['RCC lintels','Cu.m',7600,0.004,false],
+    ['RCC lofts','Sq.ft',320,0.08,false],
+    ['RCC chajjas','Sq.ft',340,0.06,false],
+  ]},
+  { id:'c5', name:'Masonry Works', icon:'\uD83E\uDDF1', items:[
+    ['External wall blockwork','Sq.ft',95,0.9,false],
+    ['Internal wall blockwork','Sq.ft',85,0.7,false],
+    ['Parapet wall masonry','Sq.ft',90,0.15,false],
+    ['Septic tank masonry','Cu.m',6500,6,true],
+    ['Sump masonry','Cu.m',6500,5,true],
+    ['Compound wall masonry','Sq.ft',75,1200,true],
+    ['Dado masonry','Sq.ft',80,0.1,false],
+    ['Block cutting and shaping','L.S.',15000,1,true],
+  ]},
+  { id:'c6', name:'Plastering Works', icon:'\uD83E\uDDF0', items:[
+    ['Internal plaster','Sq.ft',28,2.2,false],
+    ['External plaster','Sq.ft',32,1.3,false],
+    ['Ceiling plaster','Sq.ft',30,1.0,false],
+    ['Waterproof plaster','Sq.ft',38,0.3,false],
+    ['Staircase plaster','Sq.ft',30,0.2,false],
+    ['Parapet plaster','Sq.ft',32,0.25,false],
+    ['Compound wall plaster','Sq.ft',28,2000,true],
+  ]},
+  { id:'c7', name:'Waterproofing Works', icon:'\uD83D\uDCA7', items:[
+    ['Terrace waterproofing','Sq.ft',75,0.55,false],
+    ['Toilet waterproofing','Sq.ft',95,0.12,false],
+    ['Balcony waterproofing','Sq.ft',85,0.08,false],
+    ['Sunk slab waterproofing','Sq.ft',90,0.1,false],
+    ['Water tank waterproofing','Sq.ft',110,250,true],
+    ['Sump waterproofing','Sq.ft',110,180,true],
+    ['External wall waterproof coating','Sq.ft',22,1.3,false],
+  ]},
+  { id:'c8', name:'Flooring Works', icon:'\uD83E\uDEA8', items:[
+    ['Floor screed concrete','Sq.ft',35,1.0,false],
+    ['Living room tiles','Sq.ft',120,0.25,false],
+    ['Bedroom tiles','Sq.ft',95,0.3,false],
+    ['Kitchen tiles','Sq.ft',110,0.08,false],
+    ['Balcony tiles','Sq.ft',85,0.06,false],
+    ['Staircase granite','Sq.ft',220,0.05,false],
+    ['Landing granite','Sq.ft',220,0.03,false],
+    ['Terrace tiles','Sq.ft',65,0.5,false],
+    ['Parking flooring','Sq.ft',75,0.15,false],
+    ['Skirting','Rft',45,0.4,false],
+    ['Tile adhesive','Bags',450,0.05,false],
+    ['Tile grouting','Kg',80,0.05,false],
+  ]},
+  { id:'c9', name:'Door Works', icon:'\uD83D\uDEAA', items:[
+    ['Main door','Nos',45000,1,true],
+    ['Bedroom doors','Nos',12000,4,true],
+    ['Toilet doors','Nos',8500,4,true],
+    ['Utility doors','Nos',7500,2,true],
+    ['WPC doors','Nos',9500,3,true],
+    ['Door frames','Nos',4500,10,true],
+    ['Door shutters','Nos',6500,10,true],
+    ['Door hardware','Set',1800,10,true],
+    ['Door locks','Nos',2200,10,true],
+    ['Door stoppers','Nos',250,10,true],
+  ]},
+  { id:'c10', name:'Window Works', icon:'\uD83E\uDE9F', items:[
+    ['UPVC windows','Sq.ft',650,0.1,false],
+    ['Aluminium windows','Sq.ft',550,0.05,false],
+    ['Sliding windows','Sq.ft',700,0.06,false],
+    ['Fixed glazing','Sq.ft',750,0.04,false],
+    ['Ventilators','Nos',4500,6,true],
+    ['Window grills','Sq.ft',320,0.12,false],
+    ['Mosquito mesh','Sq.ft',180,0.1,false],
+    ['Window hardware','Set',1200,12,true],
+  ]},
+  { id:'c11', name:'Steel & Fabrication', icon:'\u2699\uFE0F', items:[
+    ['Staircase handrails','Rft',850,40,true],
+    ['Balcony railings','Rft',750,60,true],
+    ['Safety grills','Sq.ft',320,0.1,false],
+    ['Gates','Nos',28000,1,true],
+    ['Compound gate','Nos',45000,1,true],
+    ['MS supports','Kg',95,0.05,false],
+    ['Structural steel fabrication','Kg',110,0.08,false],
+  ]},
+  { id:'c12', name:'Plumbing Works', icon:'\uD83D\uDEBF', items:[
+    ['Water supply piping','Rft',85,0.5,false],
+    ['Internal plumbing','Points',1800,0.02,false],
+    ['External plumbing','Rft',95,0.2,false],
+    ['Hot water piping','Rft',120,0.15,false],
+    ['CPVC piping','Rft',95,0.3,false],
+    ['UPVC piping','Rft',85,0.25,false],
+    ['Sewer line','Rft',180,0.2,false],
+    ['Inspection chambers','Nos',6500,4,true],
+    ['Floor traps','Nos',450,12,true],
+    ['Gully traps','Nos',850,4,true],
+    ['Manholes','Nos',4500,3,true],
+    ['Septic tank connections','L.S.',18000,1,true],
+    ['Rainwater down take pipes','Rft',95,0.15,false],
+    ['Rainwater harvesting system','L.S.',65000,1,true],
+  ]},
+  { id:'c13', name:'Sanitary Fixtures', icon:'\uD83D\uDEBD', items:[
+    ['Water closets','Nos',9500,4,true],
+    ['Wash basins','Nos',5500,4,true],
+    ['Health faucets','Nos',850,4,true],
+    ['Shower mixers','Nos',4500,4,true],
+    ['Sink mixers','Nos',3200,2,true],
+    ['Kitchen sink','Nos',8500,1,true],
+    ['Floor drains','Nos',650,10,true],
+    ['Angle valves','Nos',450,16,true],
+    ['Mirrors','Nos',2200,4,true],
+    ['Soap holders','Nos',550,6,true],
+    ['Towel rods','Nos',850,4,true],
+    ['Accessories','Set',12000,1,true],
+  ]},
+  { id:'c14', name:'Electrical Works', icon:'\u26A1', items:[
+    ['Concealed conduits','Rft',45,1.2,false],
+    ['Wiring','Rft',38,1.5,false],
+    ['Switch boxes','Nos',350,0.03,false],
+    ['Modular switches','Nos',280,0.06,false],
+    ['Light points','Nos',650,0.04,false],
+    ['Fan points','Nos',750,0.012,false],
+    ['Exhaust fan points','Nos',700,0.004,false],
+    ['5A socket points','Nos',550,0.02,false],
+    ['15A socket points','Nos',650,0.015,false],
+    ['AC points','Nos',1800,0.0025,false],
+    ['Geyser points','Nos',1500,0.0025,false],
+    ['Motor points','Nos',1800,2,true],
+    ['Distribution boards','Nos',6500,2,true],
+    ['MCBs','Nos',650,16,true],
+    ['RCCB','Nos',3500,2,true],
+    ['Earthing','Nos',4500,3,true],
+    ['Lightning arrestor (if required)','L.S.',25000,1,true],
+    ['Meter board','Nos',12000,1,true],
+  ]},
+  { id:'c15', name:'Painting Works', icon:'\uD83C\uDFA8', items:[
+    ['Wall putty','Sq.ft',22,3.2,false],
+    ['Interior primer','Sq.ft',12,3.2,false],
+    ['Exterior primer','Sq.ft',14,1.5,false],
+    ['Interior emulsion','Sq.ft',28,3.2,false],
+    ['Exterior weather coat','Sq.ft',38,1.5,false],
+    ['Enamel paint','Sq.ft',32,0.3,false],
+    ['Metal primer','Sq.ft',18,0.2,false],
+    ['Metal paint','Sq.ft',30,0.2,false],
+    ['Wood polish','Sq.ft',45,0.15,false],
+  ]},
+  { id:'c16', name:'False Ceiling & Interiors', icon:'\uD83D\uDECB\uFE0F', items:[
+    ['Gypsum ceiling','Sq.ft',95,0.4,false],
+    ['Grid ceiling','Sq.ft',75,0.1,false],
+    ['Cove lighting provisions','Rft',120,0.15,false],
+    ['Loft shutters','Sq.ft',850,0.08,false],
+    ['Wardrobe provisions','Sq.ft',1200,0.2,false],
+    ['Kitchen platform','Rft',1800,18,true],
+    ['Granite countertop','Sq.ft',220,60,true],
+    ['Backsplash dado','Sq.ft',120,80,true],
+  ]},
+  { id:'c17', name:'External Development', icon:'\uD83C\uDF33', items:[
+    ['Compound wall','Rft',1200,160,true],
+    ['Compound wall plaster','Sq.ft',28,2000,true],
+    ['Compound wall paint','Sq.ft',22,2000,true],
+    ['Gate installation','L.S.',15000,1,true],
+    ['Paver blocks','Sq.ft',65,800,true],
+    ['Driveway','Sq.ft',85,400,true],
+    ['Walkway','Sq.ft',75,300,true],
+    ['Landscaping','L.S.',85000,1,true],
+    ['Garden piping','Rft',65,150,true],
+    ['External lighting','Nos',2500,12,true],
+  ]},
+  { id:'c18', name:'Water Management', icon:'\uD83D\uDEB0', items:[
+    ['Underground sump','L.S.',85000,1,true],
+    ['Overhead tank','Ltr',12,2000,true],
+    ['Borewell connection','L.S.',95000,1,true],
+    ['Pump room','L.S.',35000,1,true],
+    ['Water level controller','Nos',4500,1,true],
+    ['Pump installation','Nos',18000,2,true],
+  ]},
+  { id:'c19', name:'Miscellaneous', icon:'\uD83D\uDCCB', items:[
+    ['Name board','Nos',8500,1,true],
+    ['Building numbering','Nos',2500,1,true],
+    ['Terrace access ladder','Nos',12000,1,true],
+    ['Cloth drying arrangements','Set',4500,2,true],
+    ['Utility area fittings','L.S.',15000,1,true],
+    ['Cleaning','Sq.ft',6,1,false],
+    ['Final snag rectification','L.S.',25000,1,true],
+    ['Testing & commissioning','L.S.',18000,1,true],
+    ['Handover documentation','L.S.',8000,1,true],
+    ['As-built drawings','L.S.',15000,1,true],
+  ]},
+  { id:'c20', name:'Statutory & Approval Related', icon:'\uD83D\uDCDC', items:[
+    ['Soil test','L.S.',18000,1,true],
+    ['Structural design','Sq.ft',12,1,false],
+    ['Architectural drawings','Sq.ft',15,1,false],
+    ['Corporation approval','L.S.',65000,1,true],
+    ['CMDA/DTCP approval','L.S.',85000,1,true],
+    ['EB application','L.S.',25000,1,true],
+    ['Water connection approval','L.S.',18000,1,true],
+    ['Completion certificate','L.S.',15000,1,true],
+    ['Occupancy certificate','L.S.',18000,1,true],
+  ]},
+];
+
+// Material Procurement Master List (informational - not added to works grand total)
+const MATERIALS = { id:'mat', name:'Material Procurement Master List', icon:'\uD83D\uDCE6', material:true, items:[
+    ['Cement','Bags',450,0.4,false],
+    ['Steel','Kg',68,2.6,false],
+    ['M-Sand','Cu.ft',55,1.2,false],
+    ['P-Sand','Cu.ft',60,0.5,false],
+    ['Aggregate 20 mm','Cu.ft',50,0.8,false],
+    ['Aggregate 12 mm','Cu.ft',52,0.4,false],
+    ['AAC Blocks / Bricks','Nos',55,0.55,false],
+    ['Concrete Admixtures','Ltr',120,0.05,false],
+    ['Waterproofing Chemicals','Ltr',180,0.08,false],
+    ['Tile Adhesive','Bags',450,0.05,false],
+    ['Grout','Kg',80,0.05,false],
+    ['Putty','Kg',25,0.5,false],
+    ['Primer','Ltr',180,0.12,false],
+    ['Paint','Ltr',320,0.15,false],
+    ['Doors','Nos',8500,14,true],
+    ['Frames','Nos',4500,14,true],
+    ['Windows','Sq.ft',600,0.2,false],
+    ['Glass','Sq.ft',180,0.15,false],
+    ['CPVC Pipes','Rft',95,0.3,false],
+    ['UPVC Pipes','Rft',85,0.25,false],
+    ['Electrical Wires','Rft',38,1.5,false],
+    ['Conduits','Rft',45,1.2,false],
+    ['Switches','Nos',280,0.06,false],
+    ['MCBs','Nos',650,16,true],
+    ['DBs','Nos',6500,2,true],
+    ['Sanitary Ware','Set',85000,1,true],
+    ['CP Fittings','Set',65000,1,true],
+    ['Granite','Sq.ft',220,0.1,false],
+    ['Tiles','Sq.ft',95,0.8,false],
+    ['Railings','Rft',750,100,true],
+    ['Structural Steel','Kg',110,0.1,false],
+    ['Water Tanks','Ltr',12,3000,true],
+    ['Pumps','Nos',18000,2,true],
+]};
+
+// ============================================================
+// LHI BOQ ESTIMATOR - APPLICATION LOGIC (Vanilla JS)
+// ============================================================
+const LS_KEY = 'lhi_boq_state_v1';
+const CHART = ['#b08d57','#c9a96a','#9a7943','#d8c3a0','#7d6440','#e3d2b3','#bfa172','#8c7150'];
+
+let state = {
+  area: 2000,
+  grade: 1.15,
+  margin: 10, conting: 5, gst: 18,
+  overrides: {}   // key "catId|index" -> {qty?, rate?}
+};
+
+// ---- helpers ----
+const $ = id => document.getElementById(id);
+function round(n){ return Math.round(n*100)/100; }
+function fmtINR(n){
+  n = Math.round(n||0);
+  return '\u20b9' + n.toLocaleString('en-IN');
+}
+function fmtLakh(n){
+  if(n>=10000000) return '\u20b9'+ (n/10000000).toFixed(2) +' Cr';
+  if(n>=100000)   return '\u20b9'+ (n/100000).toFixed(2) +' Lakhs';
+  return fmtINR(n);
+}
+function key(cid,i){ return cid+'|'+i; }
+
+// compute a single item's live values
+function calcItem(cid, i, raw){
+  const [name,unit,rate,factor,isFixed] = raw;
+  const ov = state.overrides[key(cid,i)] || {};
+  let qty = ('qty' in ov) ? ov.qty : (isFixed ? factor : round(factor * state.area));
+  let r   = ('rate' in ov) ? ov.rate : Math.round(rate * (cid==='mat' ? 1 : state.grade));
+  return { name, unit, qty, rate:r, amount: round(qty*r) };
+}
+function categoryTotal(cat){
+  return cat.items.reduce((s,raw,i)=> s + calcItem(cat.id,i,raw).amount, 0);
+}
+function worksTotal(){ return CATEGORIES.reduce((s,c)=> s+categoryTotal(c),0); }
+
+// ---- rendering ----
+function buildRow(cid,i,raw){
+  const it = calcItem(cid,i,raw);
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td>${it.name}</td>
+    <td><span class="unit-pill">${it.unit}</span></td>
+    <td class="num"><input class="cell-input qty-input" type="number" step="0.01" value="${it.qty}" data-c="${cid}" data-i="${i}" data-f="qty"></td>
+    <td class="num"><input class="cell-input" type="number" step="1" value="${it.rate}" data-c="${cid}" data-i="${i}" data-f="rate"></td>
+    <td class="num amt" data-amt="${cid}|${i}">${fmtINR(it.amount)}</td>`;
+  return tr;
+}
+
+function renderBOQ(materialMode){
+  const body = $('boqBody');
+  body.innerHTML='';
+  const list = materialMode ? [MATERIALS] : CATEGORIES;
+  let grand=0;
+  list.forEach(cat=>{
+    const sub = categoryTotal(cat);
+    grand += sub;
+    const head = document.createElement('tr');
+    head.className='cat-head';
+    head.innerHTML = `<td colspan="5">${cat.icon} ${cat.name}<span class="sub">Subtotal: ${fmtINR(sub)}</span></td>`;
+    body.appendChild(head);
+    cat.items.forEach((raw,i)=> body.appendChild(buildRow(cat.id,i,raw)));
+    const st = document.createElement('tr');
+    st.className='subtotal-row';
+    st.innerHTML = `<td colspan="4">Subtotal — ${cat.name}</td><td class="num">${fmtINR(sub)}</td>`;
+    body.appendChild(st);
+  });
+  const g = document.createElement('tr');
+  g.className='grand-row';
+  const label = materialMode ? 'Total Material Procurement Value' : 'Total Construction (Works) Cost';
+  g.innerHTML = `<td colspan="4">${label}</td><td class="num"><span class="big">${fmtINR(grand)}</span></td>`;
+  body.appendChild(g);
+  attachInputs(body);
+}
+
+function renderCategories(){
+  const grid = $('catGrid');
+  grid.innerHTML='';
+  const total = worksTotal() || 1;
+  CATEGORIES.forEach(cat=>{
+    const sub = categoryTotal(cat);
+    const pct = (sub/total*100);
+    const col = document.createElement('div');
+    col.className='col-sm-6 col-xl-4';
+    col.innerHTML = `
+      <div class="cat-card h-100 d-flex align-items-center gap-3" data-cat="${cat.id}">
+        <div class="cat-ico">${cat.icon}</div>
+        <div class="flex-grow-1">
+          <div class="fw-semibold" style="font-size:.9rem;line-height:1.15">${cat.name}</div>
+          <div class="text-muted" style="font-size:.78rem">${fmtLakh(sub)}</div>
+        </div>
+        <div class="text-end">
+          <div class="cat-pct">${pct.toFixed(1)}%</div>
+          <div class="text-muted" style="font-size:1.1rem;line-height:.6">›</div>
+        </div>
+      </div>`;
+    col.querySelector('.cat-card').addEventListener('click',()=> openDetail(cat.id));
+    grid.appendChild(col);
+  });
+}
+
+function renderSummary(){
+  const base = worksTotal();
+  const area = state.area || 1;
+  const margin = base * state.margin/100;
+  const conting = base * state.conting/100;
+  const sub = base + margin + conting;
+  const gst = sub * state.gst/100;
+  const grand = sub + gst;
+
+  $('sMaterial').textContent = fmtLakh(base*0.6);
+  $('sLabour').textContent   = fmtLakh(base*0.4);
+  $('sBase').textContent     = fmtLakh(base);
+  $('sMargin').textContent   = fmtLakh(margin);
+  $('sConting').textContent  = fmtLakh(conting);
+  $('sGst').textContent      = fmtLakh(gst);
+  $('sGrand').textContent    = fmtLakh(grand);
+
+  $('heroTotal').textContent = fmtLakh(grand);
+  $('heroBase').textContent  = fmtLakh(base);
+  const itemCount = CATEGORIES.reduce((s,c)=>s+c.items.length,0);
+  $('heroPerSqft').textContent = fmtINR(grand/area) + ' / sq.ft · ' + itemCount + ' items';
+
+  renderDonut();
+  renderInsights(base);
+  return {base,margin,conting,sub,gst,grand};
+}
+
+function renderDonut(){
+  const total = worksTotal() || 1;
+  const ranked = CATEGORIES.map(c=>({name:c.name,val:categoryTotal(c)}))
+                 .sort((a,b)=>b.val-a.val);
+  const top = ranked.slice(0,6);
+  const otherVal = ranked.slice(6).reduce((s,c)=>s+c.val,0);
+  const segs = top.concat(otherVal>0?[{name:'Others',val:otherVal}]:[]);
+  let acc=0, stops=[];
+  segs.forEach((s,idx)=>{
+    const start=acc/total*100; acc+=s.val; const end=acc/total*100;
+    stops.push(`${CHART[idx%CHART.length]} ${start.toFixed(2)}% ${end.toFixed(2)}%`);
+  });
+  const d=$('donut');
+  d.style.background = `conic-gradient(${stops.join(',')})`;
+  d.style.position='relative';
+  d.style.boxShadow='inset 0 0 0 18px #fff';
+  const leg=$('legend'); leg.innerHTML='';
+  segs.forEach((s,idx)=>{
+    const row=document.createElement('div'); row.className='legend-row';
+    row.innerHTML=`<span><span class="legend-dot" style="background:${CHART[idx%CHART.length]}"></span>${s.name}</span><span class="fw-semibold">${(s.val/total*100).toFixed(1)}%</span>`;
+    leg.appendChild(row);
+  });
+}
+
+function renderInsights(base){
+  const ranked = CATEGORIES.map(c=>({name:c.name,val:categoryTotal(c)})).sort((a,b)=>b.val-a.val);
+  const top=ranked[0];
+  const steel = base*0.6*0.18;
+  const area=state.area||1;
+  const months = area<=1500?'8–10':area<=3000?'10–12':'12–16';
+  const data=[
+    `<b>${top.name}</b> is the largest cost head at ${(top.val/base*100).toFixed(1)}% of works.`,
+    `Steel contributes roughly ${fmtLakh(steel)} of the material budget.`,
+    `Estimated construction period: <b>${months} months</b>.`,
+    `Budget category: <b>${state.grade>=1.35?'Luxury':state.grade>=1.15?'Premium':'Standard'} Residential</b>.`
+  ];
+  $('insights').innerHTML = data.map(t=>`<div class="insight"><span class="tick">✓</span><span>${t}</span></div>`).join('');
+}
+
+// ---- detail view ----
+function openDetail(cid){
+  const cat = CATEGORIES.find(c=>c.id===cid) || (cid==='mat'?MATERIALS:null);
+  if(!cat) return;
+  $('detailTitle').textContent = cat.name;
+  $('detailBadge').textContent = cat.icon + ' Detailed View';
+  const body=$('detailBody'); body.innerHTML='';
+  cat.items.forEach((raw,i)=> body.appendChild(buildRow(cat.id,i,raw)));
+  attachInputs(body);
+  $('detailSubtotal').textContent = fmtLakh(categoryTotal(cat));
+  body.dataset.cat = cat.id;
+  $('summaryView').classList.remove('active');
+  $('detailView').classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function backToSummary(){
+  $('detailView').classList.remove('active');
+  $('summaryView').classList.add('active');
+  refreshAll();
+}
+
+// ---- input editing ----
+function attachInputs(scope){
+  scope.querySelectorAll('.cell-input').forEach(inp=>{
+    inp.addEventListener('input',onCellEdit);
+  });
+}
+function onCellEdit(e){
+  const cid=e.target.dataset.c, i=+e.target.dataset.i, f=e.target.dataset.f;
+  const k=key(cid,i);
+  state.overrides[k]=state.overrides[k]||{};
+  const v=parseFloat(e.target.value);
+  state.overrides[k][f]= isNaN(v)?0:v;
+  // update this row amount
+  const cat = CATEGORIES.find(c=>c.id===cid) || MATERIALS;
+  const it=calcItem(cid,i,cat.items[i]);
+  const amtCell=document.querySelector(`[data-amt="${cid}|${i}"]`);
+  if(amtCell) amtCell.textContent=fmtINR(it.amount);
+  // refresh dependent totals
+  if($('detailView').classList.contains('active')){
+    $('detailSubtotal').textContent = fmtLakh(categoryTotal(cat));
+  }
+  renderSummary();
+  saveState(true);
+}
+
+// ---- persistence ----
+function saveState(silent){
+  try{ localStorage.setItem(LS_KEY, JSON.stringify(state)); }catch(e){}
+  if(!silent) showToast('Saved locally ✓');
+}
+function loadState(){
+  try{
+    const s=localStorage.getItem(LS_KEY);
+    if(s){ const p=JSON.parse(s); state=Object.assign(state,p); state.overrides=p.overrides||{}; }
+  }catch(e){}
+}
+function showToast(msg){
+  const t=$('toast'); t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),1800);
+}
+
+// ---- full refresh ----
+let materialMode=false;
+function refreshAll(){
+  renderCategories();
+  renderBOQ(materialMode);
+  renderSummary();
+}
+
+// ---- EXCEL EXPORT (SheetJS) ----
+function exportExcel(){
+  const rows=[];
+  rows.push(['LHI — LUXURY HOMES OF INDIA']);
+  rows.push(['Bill of Quantities Report']);
+  rows.push(['Built-up Area (Sq.ft)', state.area, '', 'Grade', state.grade>=1.35?'Luxury':state.grade>=1.15?'Premium':'Standard']);
+  rows.push([]);
+  rows.push(['Item','Unit','Qty','Rate (INR)','Amount (INR)']);
+  let grand=0;
+  CATEGORIES.forEach(cat=>{
+    rows.push([cat.name.toUpperCase()]);
+    let sub=0;
+    cat.items.forEach((raw,i)=>{ const it=calcItem(cat.id,i,raw); sub+=it.amount;
+      rows.push([it.name,it.unit,it.qty,it.rate,it.amount]); });
+    rows.push(['','','','Subtotal',sub]); grand+=sub;
+  });
+  rows.push([]);
+  const sm=renderSummary();
+  rows.push(['','','','Base Construction Cost',sm.base]);
+  rows.push(['','','','Contractor Margin ('+state.margin+'%)',Math.round(sm.margin)]);
+  rows.push(['','','','Contingency ('+state.conting+'%)',Math.round(sm.conting)]);
+  rows.push(['','','','GST ('+state.gst+'%)',Math.round(sm.gst)]);
+  rows.push(['','','','GRAND TOTAL',Math.round(sm.grand)]);
+  rows.push([]);
+  rows.push(['MATERIAL PROCUREMENT MASTER LIST']);
+  rows.push(['Material','Unit','Qty','Rate (INR)','Amount (INR)']);
+  let mtot=0;
+  MATERIALS.items.forEach((raw,i)=>{ const it=calcItem('mat',i,raw); mtot+=it.amount;
+    rows.push([it.name,it.unit,it.qty,it.rate,it.amount]); });
+  rows.push(['','','','Material Total',mtot]);
+
+  const ws=XLSX.utils.aoa_to_sheet(rows);
+  ws['!cols']=[{wch:34},{wch:10},{wch:12},{wch:14},{wch:16}];
+  const wb=XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb,ws,'BOQ');
+  XLSX.writeFile(wb,'BOQ_Report.xlsx');
+}
+
+// ---- PDF EXPORT (jsPDF + AutoTable) ----
+function exportPDF(){
+  const { jsPDF }=window.jspdf;
+  const doc=new jsPDF({unit:'pt',format:'a4'});
+  const W=doc.internal.pageSize.getWidth();
+  const sm=renderSummary();
+  // header band
+  doc.setFillColor(176,141,87); doc.rect(0,0,W,70,'F');
+  doc.setTextColor(255,255,255);
+  doc.setFont('times','bold'); doc.setFontSize(22);
+  doc.text('LHI',40,38);
+  doc.setFont('helvetica','normal'); doc.setFontSize(9);
+  doc.text('LUXURY HOMES OF INDIA',40,52);
+  doc.setFont('times','bold'); doc.setFontSize(16);
+  doc.text('Bill of Quantities Report',W-40,40,{align:'right'});
+  // project summary
+  doc.setTextColor(40,40,40); doc.setFont('helvetica','normal'); doc.setFontSize(10);
+  const grade=state.grade>=1.35?'Luxury':state.grade>=1.15?'Premium':'Standard';
+  doc.text('Built-up Area: '+state.area+' Sq.ft     Grade: '+grade+'     Date: '+new Date().toLocaleDateString('en-IN'),40,92);
+
+  // summary table
+  doc.autoTable({
+    startY:104,
+    head:[['Project Cost Summary','Amount (INR)']],
+    body:[
+      ['Base Construction Cost', fmtINR(sm.base)],
+      ['Contractor Margin ('+state.margin+'%)', fmtINR(sm.margin)],
+      ['Contingency ('+state.conting+'%)', fmtINR(sm.conting)],
+      ['GST ('+state.gst+'%)', fmtINR(sm.gst)],
+    ],
+    foot:[['GRAND TOTAL', fmtINR(sm.grand)]],
+    theme:'grid', styles:{fontSize:9,cellPadding:5},
+    headStyles:{fillColor:[44,41,37]}, footStyles:{fillColor:[176,141,87],textColor:255,fontStyle:'bold'},
+    columnStyles:{1:{halign:'right'}}, margin:{left:40,right:40}
+  });
+
+  // full BOQ
+  const bodyRows=[];
+  CATEGORIES.forEach(cat=>{
+    let sub=0; const start=bodyRows.length;
+    bodyRows.push([{content:cat.name.toUpperCase(),colSpan:5,styles:{fillColor:[244,239,232],textColor:[154,121,67],fontStyle:'bold'}}]);
+    cat.items.forEach((raw,i)=>{ const it=calcItem(cat.id,i,raw); sub+=it.amount;
+      bodyRows.push([it.name,it.unit,String(it.qty),fmtINR(it.rate),fmtINR(it.amount)]); });
+    bodyRows.push([{content:'Subtotal — '+cat.name,colSpan:4,styles:{fontStyle:'bold',halign:'right'}},{content:fmtINR(sub),styles:{fontStyle:'bold',halign:'right'}}]);
+  });
+  bodyRows.push([{content:'TOTAL CONSTRUCTION (WORKS) COST',colSpan:4,styles:{halign:'right',fontStyle:'bold',fillColor:[44,41,37],textColor:255}},{content:fmtINR(sm.base),styles:{halign:'right',fontStyle:'bold',fillColor:[44,41,37],textColor:255}}]);
+
+  doc.autoTable({
+    startY:doc.lastAutoTable.finalY+18,
+    head:[['Item','Unit','Qty','Rate','Amount']],
+    body:bodyRows,
+    theme:'striped', styles:{fontSize:8,cellPadding:3},
+    headStyles:{fillColor:[44,41,37]},
+    columnStyles:{2:{halign:'right'},3:{halign:'right'},4:{halign:'right'}},
+    margin:{left:40,right:40},
+    didDrawPage:()=>{
+      const p=doc.internal.getNumberOfPages();
+      doc.setFontSize(8); doc.setTextColor(150);
+      doc.text('LHI — Luxury Homes of India  |  Figures are indicative',40,doc.internal.pageSize.getHeight()-20);
+    }
+  });
+  doc.save('BOQ_Report.pdf');
+}
+
+// ---- wire up ----
+function init(){
+  loadState();
+  $('areaInput').value=state.area;
+  $('gradeInput').value=String(state.grade);
+  $('pMargin').value=state.margin; $('pConting').value=state.conting; $('pGst').value=state.gst;
+
+  $('btnCalc').addEventListener('click',()=>{
+    state.area=Math.max(100, parseFloat($('areaInput').value)||0);
+    state.grade=parseFloat($('gradeInput').value)||1;
+    // area/grade change recomputes from factors (clears qty/rate overrides)
+    state.overrides={};
+    refreshAll(); saveState(true); showToast('Recalculated ✓');
+  });
+  $('areaInput').addEventListener('keydown',e=>{ if(e.key==='Enter') $('btnCalc').click(); });
+
+  ['pMargin','pConting','pGst'].forEach(id=>{
+    $(id).addEventListener('input',()=>{
+      state.margin=parseFloat($('pMargin').value)||0;
+      state.conting=parseFloat($('pConting').value)||0;
+      state.gst=parseFloat($('pGst').value)||0;
+      renderSummary(); saveState(true);
+    });
+  });
+
+  $('tabWorks').addEventListener('click',()=>{ materialMode=false; $('tabWorks').classList.add('active'); $('tabMaterials').classList.remove('active'); renderBOQ(false); });
+  $('tabMaterials').addEventListener('click',()=>{ materialMode=true; $('tabMaterials').classList.add('active'); $('tabWorks').classList.remove('active'); renderBOQ(true); });
+
+  $('backBtn').addEventListener('click',backToSummary);
+  $('btnSave').addEventListener('click',()=>saveState(false));
+  $('btnExcel').addEventListener('click',exportExcel);
+  $('btnPdf').addEventListener('click',exportPDF);
+
+  refreshAll();
+}
+document.addEventListener('DOMContentLoaded',init);
+</script>
+
+    <!-- PREMIUM LEAD CAPTURE POPUP FORM -->
+    <div id="premiumLeadPopupOverlay">
+        <div class="premium-popup">
+            <button class="premium-popup-close">&times;</button>
+            <div class="premium-popup-content">
+                <h3>Build Your Dream Luxury Home</h3>
+                <p class="popup-sub">Book a FREE consultation, concept discussion, and preliminary construction estimate with our luxury home specialists.</p>
+                
+                <form id="premiumLeadForm" action="" method="POST">
+                    <!-- Attributions & Honeypot -->
+                    <input type="text" name="website_url_check" style="display:none !important;" tabindex="-1" autocomplete="off">
+                    <input type="hidden" name="utm_source" value="">
+                    <input type="hidden" name="utm_medium" value="">
+                    <input type="hidden" name="utm_campaign" value="">
+                    <input type="hidden" name="utm_term" value="">
+                    <input type="hidden" name="referrer_url" value="">
+                    <input type="hidden" name="landing_page_url" value="">
+
+                    <!-- Personal Details -->
+                    <div class="premium-form-group">
+                        <label class="group-label">Personal Details</label>
+                        <div class="premium-form-row">
+                            <input type="text" name="name" placeholder="Full Name *" required>
+                            <input type="tel" name="mobile" placeholder="Mobile Number *" required>
+                        </div>
+                        <input type="email" name="email" placeholder="Email Address *" required style="margin-top:12px;">
+                    </div>
+
+                    <!-- Project Details -->
+                    <div class="premium-form-group" style="margin-top:25px;">
+                        <label class="group-label">Project Details</label>
+                        <div class="premium-form-row">
+                            <input type="text" name="project_location" placeholder="Project Location *" required>
+                            <input type="text" name="plot_location" placeholder="Plot Location (e.g. Layout, Sector)">
+                        </div>
+                        <div class="premium-form-row" style="margin-top:12px;">
+                            <input type="text" name="plot_size" placeholder="Plot Size (e.g. 40x60, 2400 sqft)">
+                            <input type="text" name="built_up_area" placeholder="Proposed Built-up Area (sqft)">
+                        </div>
+                    </div>
+
+                    <!-- Budget & Timeline -->
+                    <div class="premium-form-group" style="margin-top:25px;">
+                        <div class="premium-form-row">
+                            <div>
+                                <label class="group-label">Approx Budget</label>
+                                <select name="budget" required>
+                                    <option value="">Select Budget Range</option>
+                                    <option value="₹50L–₹1Cr">₹50L–₹1Cr</option>
+                                    <option value="₹1Cr–₹2Cr">₹1Cr–₹2Cr</option>
+                                    <option value="₹2Cr–₹5Cr">₹2Cr–₹5Cr</option>
+                                    <option value="₹5Cr+">₹5Cr+</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="group-label">Timeline</label>
+                                <select name="timeline" required>
+                                    <option value="">Expected Start</option>
+                                    <option value="Immediately">Immediately</option>
+                                    <option value="Within 1 Month">Within 1 Month</option>
+                                    <option value="Within 3 Months">Within 3 Months</option>
+                                    <option value="Within 6 Months">Within 6 Months</option>
+                                    <option value="Planning Stage">Planning Stage</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Services Multi-Select -->
+                    <div class="premium-form-group" style="margin-top:25px;">
+                        <label class="group-label">Services Required</label>
+                        <div class="services-checkbox-grid">
+                            <label class="checkbox-label"><input type="checkbox" name="services[]" value="Luxury Home Construction"> Luxury Home Construction</label>
+                            <label class="checkbox-label"><input type="checkbox" name="services[]" value="Luxury Villa Construction" checked> Luxury Villa Construction</label>
+                            <label class="checkbox-label"><input type="checkbox" name="services[]" value="Architecture"> Architecture</label>
+                            <label class="checkbox-label"><input type="checkbox" name="services[]" value="Structural Design"> Structural Design</label>
+                            <label class="checkbox-label"><input type="checkbox" name="services[]" value="Turnkey Construction"> Turnkey Construction</label>
+                            <label class="checkbox-label"><input type="checkbox" name="services[]" value="Interior Design"> Interior Design</label>
+                            <label class="checkbox-label"><input type="checkbox" name="services[]" value="Renovation"> Renovation</label>
+                            <label class="checkbox-label"><input type="checkbox" name="services[]" value="Swimming Pool"> Swimming Pool</label>
+                            <label class="checkbox-label"><input type="checkbox" name="services[]" value="Landscape"> Landscape</label>
+                            <label class="checkbox-label"><input type="checkbox" name="services[]" value="Smart Home"> Smart Home Integration</label>
+                            <label class="checkbox-label"><input type="checkbox" name="services[]" value="Home Automation"> Home Automation</label>
+                            <label class="checkbox-label"><input type="checkbox" name="services[]" value="Other"> Other</label>
+                        </div>
+                    </div>
+
+                    <!-- Additional Notes -->
+                    <div class="premium-form-group" style="margin-top:25px;">
+                        <label class="group-label">Additional Notes</label>
+                        <textarea name="notes" placeholder="Describe any specific design details, basement requirements, or structural needs..."></textarea>
+                    </div>
+
+                    <!-- Consent Checkbox -->
+                    <label class="consent-container">
+                        <input type="checkbox" name="consent" checked required>
+                        <span class="consent-text">I agree to be contacted by Luxury Homes of India regarding my construction requirements.</span>
+                    </label>
+
+                    <button type="submit">Submit Enquiry</button>
+                </form>
+                
+                <div id="premiumLeadMsg" style="margin-top:15px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Core scripts -->
+    <script defer src="assets/js/popup-trigger.js"></script>
+    <script defer src="assets/js/analytics-tracking.js"></script>
+</body></html>

@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lhi Project Cost Estimator | Luxury Homes of India</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<style>
+
+body{
+font-family:Poppins;
+background:#f3f4f6;
+padding:30px;
+min-width:max-content;
+}
+
+.container{
+
+min-width:780px;
+max-width:780px;
+margin:auto;
+background:white;
+padding:30px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+position:relative;
+
+}
+
+.watermark{
+
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) rotate(-25deg);
+opacity:0.1;
+width:380px;
+pointer-events:none;
+
+}
+
+.header{
+
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+margin-bottom:20px;
+
+}
+
+.title h1{
+
+margin:0;
+font-size:22px;
+
+}
+
+.title p{
+
+margin:0;
+font-size:14px;
+color:#666;
+
+}
+
+.clientBox{
+
+display:flex;
+flex-direction:column;
+gap:6px;
+align-items:flex-end;
+
+}
+
+.fieldRow{
+
+display:flex;
+align-items:center;
+gap:10px;
+
+}
+
+.fieldRow label{
+
+width:70px;
+font-size:14px;
+
+}
+
+.fieldRow input{
+
+padding:4px 8px;
+border:1px solid #ddd;
+border-radius:6px;
+width:220px;
+font-family:Poppins;
+
+}
+
+table{
+
+width:100%;
+table-layout:fixed;
+border-collapse:collapse;
+font-size:13px;
+
+}
+
+th{
+
+padding:8px 10px;
+text-align:left;
+background:#fafafa;
+border-bottom:2px solid #eee;
+
+}
+
+td{
+
+padding:8px 10px;
+border-bottom:1px solid #eee;
+
+}
+
+th:nth-child(1){width:32%;}
+th:nth-child(2){width:16%;}
+th:nth-child(3){width:18%;}
+th:nth-child(4){width:10%;}
+th:nth-child(5){width:24%;}
+
+input[type="number"]{
+
+width:80px;
+padding:4px 6px;
+border:1px solid #ddd;
+border-radius:6px;
+
+}
+
+select{
+
+width:170px;
+padding:4px 6px;
+border:1px solid #ddd;
+border-radius:6px;
+
+}
+
+.amount{
+
+text-align:left;
+font-weight:500;
+
+}
+
+.total{
+
+text-align:left;
+font-weight:700;
+font-size:18px;
+margin-top:15px;
+
+}
+
+button{
+
+margin-top:15px;
+padding:8px 14px;
+background:black;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+margin-right:8px;
+
+}
+
+.switch{
+
+position:relative;
+display:inline-block;
+width:34px;
+height:18px;
+
+}
+
+.switch input{
+
+display:none;
+
+}
+
+.slider{
+
+position:absolute;
+cursor:pointer;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background:#ccc;
+border-radius:20px;
+
+}
+
+.slider:before{
+
+position:absolute;
+content:"";
+height:12px;
+width:12px;
+left:3px;
+bottom:3px;
+background:white;
+border-radius:50%;
+transition:.3s;
+
+}
+
+input:checked + .slider{
+
+background:black;
+
+}
+
+input:checked + .slider:before{
+
+transform:translateX(14px);
+
+}
+
+@media print{
+
+button{display:none;}
+
+body{
+margin:0;
+padding:0;
+background:white;
+}
+
+.container{
+box-shadow:none;
+}
+
+}
+
+</style>
+
+  <meta name="description" content="Learn more about Lhi Project Cost Estimator options at Luxury Homes of India, crafting high-end premium residential spaces and turnkey villas.">
+  <link rel="canonical" href="https://luxuryhomesofindia.in/lhi_project_cost_estimator.html" />
+</head>
+
+
+<body>
+
+<div class="container" id="printArea">
+
+<img alt="Luxury Homes of India - Logo" class="watermark" src="https://luxuryhomesofindia.in/assets/images/footer/logo.png">
+
+<div class="header">
+
+<div class="title">
+<h1>Luxury Homes of India</h1>
+<p>Project Cost Estimator</p>
+</div>
+
+<div class="clientBox">
+
+<div class="fieldRow">
+<label>Client</label>
+<input type="text" id="clientName">
+</div>
+
+<div class="fieldRow">
+<label>Date</label>
+<input type="date" id="dateField">
+</div>
+
+</div>
+
+</div>
+
+
+<table>
+
+<thead>
+
+<tr>
+<th>Description</th>
+<th>Area / Qty</th>
+<th>Rate</th>
+<th>Nil</th>
+<th>Amount</th>
+</tr>
+
+</thead>
+
+<tbody id="rows">
+
+<tr>
+
+<td>Construction Cost</td>
+
+<td>
+<input type="number" id="constructionArea" oninput="calc()">
+</td>
+
+<td>
+<select id="constructionRate" onchange="calc()">
+<option value="2200">Basic ₹2200</option>
+<option value="2400" selected>Standard ₹2400</option>
+<option value="2600">Luxury ₹2600</option>
+</select>
+</td>
+
+<td>
+<label class="switch">
+<input type="checkbox" id="constructionNil" onchange="calc()">
+<span class="slider"></span>
+</label>
+</td>
+
+<td class="amount" id="constructionAmount">0</td>
+
+</tr>
+
+<tr data-rate="1600">
+<td>Parking</td>
+<td><input type="number" oninput="calc()"></td>
+<td>₹1600 / sqft</td>
+<td><label class="switch"><input type="checkbox" onchange="calc()"><span class="slider"></span></label></td>
+<td class="amount">0</td>
+</tr>
+
+<tr data-rate="30">
+<td>Over Head Tank</td>
+<td><input type="number" oninput="calc()"></td>
+<td>₹30</td>
+<td><label class="switch"><input type="checkbox" onchange="calc()"><span class="slider"></span></label></td>
+<td class="amount">0</td>
+</tr>
+
+<tr data-rate="25">
+<td>Sump</td>
+<td><input type="number" oninput="calc()"></td>
+<td>₹25</td>
+<td><label class="switch"><input type="checkbox" onchange="calc()"><span class="slider"></span></label></td>
+<td class="amount">0</td>
+</tr>
+
+<tr data-rate="20">
+<td>Septic Tank</td>
+<td><input type="number" oninput="calc()"></td>
+<td>₹20</td>
+<td><label class="switch"><input type="checkbox" onchange="calc()"><span class="slider"></span></label></td>
+<td class="amount">0</td>
+</tr>
+
+<tr data-rate="85">
+<td>Basement Additional Height / sq.ft</td>
+<td><input type="number" oninput="calc()"></td>
+<td>₹85 / sq.ft</td>
+<td><label class="switch"><input type="checkbox" onchange="calc()"><span class="slider"></span></label></td>
+<td class="amount">0</td>
+</tr>
+
+<tr data-rate="9000">
+<td>RCC Flooring for Basement</td>
+<td><input type="number" oninput="calc()"></td>
+<td>₹9000</td>
+<td><label class="switch"><input type="checkbox" onchange="calc()"><span class="slider"></span></label></td>
+<td class="amount">0</td>
+</tr>
+
+<tr data-rate="500">
+<td>Plastering for Basement Wall</td>
+<td><input type="number" oninput="calc()"></td>
+<td>₹500</td>
+<td><label class="switch"><input type="checkbox" onchange="calc()"><span class="slider"></span></label></td>
+<td class="amount">0</td>
+</tr>
+
+<tr data-rate="65">
+<td>Bitumen Coating for Basement</td>
+<td><input type="number" oninput="calc()"></td>
+<td>₹65</td>
+<td><label class="switch"><input type="checkbox" onchange="calc()"><span class="slider"></span></label></td>
+<td class="amount">0</td>
+</tr>
+
+<tr data-rate="2800">
+<td>Compound Wall</td>
+<td><input type="number" oninput="calc()"></td>
+<td>₹2800</td>
+<td><label class="switch"><input type="checkbox" onchange="calc()"><span class="slider"></span></label></td>
+<td class="amount">0</td>
+</tr>
+
+<tr data-rate="350">
+<td>Set Back Area Development</td>
+<td><input type="number" oninput="calc()"></td>
+<td>₹350</td>
+<td><label class="switch"><input type="checkbox" onchange="calc()"><span class="slider"></span></label></td>
+<td class="amount">0</td>
+</tr>
+
+<tr>
+<td>Soil Test</td>
+<td>—</td>
+<td>Manual</td>
+<td></td>
+<td><input type="number" oninput="calc()"></td>
+</tr>
+
+<tr>
+<td>Approval Service</td>
+<td>—</td>
+<td>Manual</td>
+<td></td>
+<td><input type="number" oninput="calc()"></td>
+</tr>
+
+<tr>
+<td>Bore with Submersible Motor (2HP)</td>
+<td>—</td>
+<td>Manual</td>
+<td></td>
+<td><input type="number" oninput="calc()"></td>
+</tr>
+
+<tr>
+<td>EB</td>
+<td>—</td>
+<td>Manual</td>
+<td></td>
+<td><input type="number" oninput="calc()"></td>
+</tr>
+
+<tr>
+<td>Building Approval</td>
+<td>—</td>
+<td>Manual</td>
+<td></td>
+<td><input type="number" oninput="calc()"></td>
+</tr>
+
+<tr>
+<td>Gate</td>
+<td>—</td>
+<td>Manual</td>
+<td></td>
+<td><input type="number" oninput="calc()"></td>
+</tr>
+
+</tbody>
+
+</table>
+
+<div class="total">
+
+Total ₹ <span id="total">0</span>
+
+</div>
+
+<button onclick="window.print()">Print</button>
+<button onclick="exportPDF()">Export PDF</button>
+
+</div>
+
+
+<script>
+
+document.getElementById("dateField").valueAsDate=new Date();
+
+window.addEventListener("beforeprint", () => {
+document.querySelectorAll('.nil-row').forEach(row => row.style.display = 'none');
+});
+
+window.addEventListener("afterprint", () => {
+document.querySelectorAll('.nil-row').forEach(row => row.style.display = '');
+});
+
+function calc(){
+
+let total=0;
+
+let area=document.getElementById("constructionArea").value||0;
+let rate=document.getElementById("constructionRate").value;
+let nil=document.getElementById("constructionNil").checked;
+
+if(!nil){
+
+let amount=area*rate;
+document.getElementById("constructionAmount").innerHTML=amount.toLocaleString();
+total+=amount;
+document.getElementById("constructionNil").closest("tr").classList.remove("nil-row");
+
+}else{
+
+document.getElementById("constructionAmount").innerHTML="—";
+document.getElementById("constructionNil").closest("tr").classList.add("nil-row");
+
+}
+
+document.querySelectorAll("#rows tr[data-rate]").forEach(row=>{
+
+let rate=row.dataset.rate;
+let qty=row.querySelector("input[type=number]").value||0;
+let nil=row.querySelector("input[type=checkbox]").checked;
+let cell=row.querySelector(".amount");
+
+if(!nil){
+
+let amount=qty*rate;
+cell.innerHTML=amount.toLocaleString();
+total+=amount;
+row.classList.remove("nil-row");
+
+}else{
+
+cell.innerHTML="—";
+row.classList.add("nil-row");
+
+}
+
+});
+
+document.querySelectorAll("tbody input[type=number]").forEach(input=>{
+
+if(!input.closest("tr").dataset.rate && input.id!="constructionArea"){
+
+total+=parseFloat(input.value)||0;
+
+}
+
+});
+
+document.getElementById("total").innerHTML=total.toLocaleString();
+
+}
+
+function exportPDF(){
+
+document.querySelectorAll('.nil-row').forEach(row => row.style.display = 'none');
+
+const element=document.getElementById("printArea");
+
+html2pdf().set({
+
+margin:10,
+filename:'LHI_Project_Estimate.pdf',
+
+image:{type:'jpeg',quality:1},
+
+html2canvas:{scale:2,scrollY:0},
+
+jsPDF:{unit:'mm',format:'a4',orientation:'portrait'}
+
+}).from(element).save().then(() => {
+document.querySelectorAll('.nil-row').forEach(row => row.style.display = '');
+});
+
+}
+
+</script>
+
+<!-- NEW FEATURE: FLOATING CALCULATOR (Senior Frontend Implementation) -->
+<style id="lhi-calc-styles">
+#lhi-floating-calc {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: black;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    z-index: 9999;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin: 0;
+    padding: 0;
+}
+#lhi-floating-calc:hover { transform: scale(1.15); }
+#lhi-floating-calc svg { width: 28px; height: 28px; }
+
+#lhi-calc-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+}
+#lhi-calc-container {
+    background: white;
+    width: 320px;
+    padding: 24px;
+    border-radius: 28px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+    animation: lhiBouncyScale 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes lhiBouncyScale {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+.lhi-calc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.lhi-calc-title-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+#lhi-copy-btn {
+    visibility: hidden;
+    cursor: pointer;
+    font-size: 11px;
+    background: #000;
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-weight: 400;
+    transition: opacity 0.2s;
+}
+#lhi-copy-btn:hover { opacity: 0.8; }
+.lhi-calc-title { font-weight: 600; font-size: 16px; color: #333; }
+.lhi-calc-close { cursor: pointer; font-size: 24px; color: #999; }
+#lhi-calc-display {
+    width: 100%;
+    height: 65px;
+    background: #f8f9fa;
+    border: 1px solid #eee;
+    border-radius: 14px;
+    margin-bottom: 15px;
+    text-align: right;
+    padding: 0 15px;
+    font-size: 26px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    box-sizing: border-box;
+    color: #000;
+}
+.lhi-calc-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+.lhi-cbtn {
+    padding: 18px 0 !important;
+    margin: 0 !important;
+    border-radius: 12px !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    background: #f1f3f5 !important;
+    color: #000 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.lhi-cbtn-op { background: #000 !important; color: #fff !important; }
+.lhi-cbtn-eq { background: #000 !important; color: #fff !important; }
+.lhi-cbtn:active { transform: scale(0.95); }
+
+@media print {
+    #lhi-floating-calc, #lhi-calc-overlay { display: none !important; }
+}
+</style>
+
+<div id="lhi-calc-overlay" onclick="lhiToggleCalc(false)">
+    <div id="lhi-calc-container" onclick="event.stopPropagation()">
+        <div class="lhi-calc-header">
+            <div class="lhi-calc-title-group">
+                <span class="lhi-calc-title">Calculator</span>
+                <span id="lhi-copy-btn" onclick="lhiCopyResult()">Copy</span>
+            </div>
+            <span class="lhi-calc-close" onclick="lhiToggleCalc(false)">&times;</span>
+        </div>
+        <input type="text" id="lhi-calc-display" readonly placeholder="0">
+        <div class="lhi-calc-grid">
+            <button class="lhi-cbtn" onclick="lhiClearCalc()">C</button>
+            <button class="lhi-cbtn lhi-cbtn-op" onclick="lhiAppendCalc('/')">/</button>
+            <button class="lhi-cbtn lhi-cbtn-op" onclick="lhiAppendCalc('*')">×</button>
+            <button class="lhi-cbtn lhi-cbtn-op" onclick="lhiAppendCalc('-')">-</button>
+            
+            <button class="lhi-cbtn" onclick="lhiAppendCalc('7')">7</button>
+            <button class="lhi-cbtn" onclick="lhiAppendCalc('8')">8</button>
+            <button class="lhi-cbtn" onclick="lhiAppendCalc('9')">9</button>
+            <button class="lhi-cbtn lhi-cbtn-op" onclick="lhiAppendCalc('+')">+</button>
+            
+            <button class="lhi-cbtn" onclick="lhiAppendCalc('4')">4</button>
+            <button class="lhi-cbtn" onclick="lhiAppendCalc('5')">5</button>
+            <button class="lhi-cbtn" onclick="lhiAppendCalc('6')">6</button>
+            <button class="lhi-cbtn lhi-cbtn-eq" style="grid-row: span 3;" onclick="lhiSolveCalc()">=</button>
+            
+            <button class="lhi-cbtn" onclick="lhiAppendCalc('1')">1</button>
+            <button class="lhi-cbtn" onclick="lhiAppendCalc('2')">2</button>
+            <button class="lhi-cbtn" onclick="lhiAppendCalc('3')">3</button>
+            
+            <button class="lhi-cbtn" style="grid-column: span 2;" onclick="lhiAppendCalc('0')">0</button>
+            <button class="lhi-cbtn" onclick="lhiAppendCalc('.')">.</button>
+        </div>
+    </div>
+</div>
+
+<button id="lhi-floating-calc" onclick="lhiToggleCalc(true)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="14.01"></line><line x1="16" y1="18" x2="16" y2="18.01"></line><line x1="12" y1="14" x2="12" y2="14.01"></line><line x1="12" y1="18" x2="12" y2="18.01"></line><line x1="8" y1="14" x2="8" y2="14.01"></line><line x1="8" y1="18" x2="8" y2="18.01"></line></svg>
+</button>
+
+<script id="lhi-calc-script">
+let lhiExpression = "";
+
+function lhiToggleCalc(show) {
+    document.getElementById('lhi-calc-overlay').style.display = show ? 'flex' : 'none';
+    if(show) lhiClearCalc();
+}
+
+function lhiAppendCalc(val) {
+    lhiExpression += val;
+    document.getElementById('lhi-calc-display').value = lhiExpression;
+}
+
+function lhiClearCalc() {
+    lhiExpression = "";
+    document.getElementById('lhi-calc-display').value = "";
+    document.getElementById('lhi-copy-btn').style.visibility = 'hidden';
+}
+
+function lhiSolveCalc() {
+    try {
+        if(!lhiExpression) return;
+        lhiExpression = eval(lhiExpression).toString();
+        document.getElementById('lhi-calc-display').value = lhiExpression;
+        document.getElementById('lhi-copy-btn').style.visibility = 'visible';
+    } catch (e) {
+        document.getElementById('lhi-calc-display').value = "Error";
+        lhiExpression = "";
+        document.getElementById('lhi-copy-btn').style.visibility = 'hidden';
+    }
+}
+
+function lhiCopyResult() {
+    const display = document.getElementById('lhi-calc-display');
+    if (!display.value || display.value === "Error") return;
+    
+    display.select();
+    document.execCommand('copy');
+    
+    const btn = document.getElementById('lhi-copy-btn');
+    const originalText = btn.innerText;
+    btn.innerText = 'Copied!';
+    setTimeout(() => { btn.innerText = originalText; }, 1200);
+}
+</script>
+
+</body>
+</html>

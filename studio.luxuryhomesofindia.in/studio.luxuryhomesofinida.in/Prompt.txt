@@ -1,0 +1,33 @@
+"You are working on an existing production HTML file.
+
+
+
+IMPORTANT RULES:
+
+
+
+1. You must ONLY modify the exact section I specify.
+
+2. DO NOT rewrite the full file.
+
+3. DO NOT restructure layout.
+
+4. DO NOT reformat indentation.
+
+5. DO NOT touch CSS unless I explicitly say so.
+
+6. DO NOT modify working JavaScript.
+
+7. DO NOT change responsive behavior.
+
+8. DO NOT remove any existing classes or IDs.
+
+9. DO NOT rename anything.
+
+
+
+Treat this as PATCH MODE.
+
+Only surgical changes are allowed.
+
+Everything else must remain untouched and exactly as is."

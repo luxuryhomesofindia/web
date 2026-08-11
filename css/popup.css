@@ -1,0 +1,265 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  overflow-x: hidden;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  background: #f4f4f4;
+  color: #111827;
+}
+#lhiPopupOverlay,
+#leadPopupOverlay {
+  position: fixed;
+  inset: 0;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.72);
+  z-index: 99999;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+}
+#lhiPopupOverlay.show,
+#leadPopupOverlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+#lhiPopup,
+#leadPopup {
+  width: min(1180px, 96vw);
+  max-height: 94vh;
+  overflow: auto;
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
+}
+#lhiPopup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  transform: translateY(20px) scale(0.96);
+  transition: 0.3s ease;
+}
+#lhiPopupOverlay.show #lhiPopup {
+  transform: none;
+}
+.lhi-left {
+  min-height: 620px;
+  background: url("https://luxuryhomesofindia.in/images/resort.webp") center/cover no-repeat;
+  position: relative;
+}
+.lhi-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: #111;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.lhi-right {
+  padding: 34px;
+  position: relative;
+}
+.lhi-close,
+.lead-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: #f3f4f6;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 700;
+}
+.lhi-pre {
+  color: #b58a18;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.lhi-title {
+  font-size: clamp(32px, 4vw, 58px);
+  line-height: 1.02;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+.lhi-desc {
+  font-size: clamp(16px, 1.3vw, 21px);
+  line-height: 1.65;
+  color: #5b6470;
+  margin-bottom: 18px;
+}
+.lhi-list {
+  list-style: none;
+  margin: 0 0 20px;
+}
+.lhi-list li {
+  font-size: clamp(15px, 1.1vw, 18px);
+  line-height: 1.5;
+  color: #4b5563;
+  margin: 0 0 10px;
+}
+.lhi-list li:before {
+  content: "✓";
+  font-weight: 900;
+  margin-right: 10px;
+}
+.lhi-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.lhi-btn,
+.lead-submit {
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 800;
+  min-height: 48px;
+}
+.lhi-btn-primary,
+.lead-submit {
+  background: #111827;
+  color: #fff;
+}
+.lhi-btn-secondary {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.lhi-note {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #6b7280;
+}
+.lead-popup {
+  width: min(720px, 96vw);
+  padding: 28px;
+  position: relative;
+}
+.lead-head {
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.lead-sub {
+  color: #6b7280;
+  margin-bottom: 18px;
+}
+.lead-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.lead-popup input,
+.lead-popup select,
+.lead-popup textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  font: inherit;
+  outline: none;
+}
+.lead-popup textarea {
+  resize: vertical;
+  min-height: 140px;
+  margin-bottom: 14px;
+}
+.lead-popup input:focus,
+.lead-popup select:focus,
+.lead-popup textarea:focus {
+  border-color: #111827;
+}
+@media (max-width: 991px) {
+  #lhiPopup {
+    grid-template-columns: 1fr;
+  }
+  .lhi-left {
+    min-height: 260px;
+  }
+  .lhi-right {
+    padding: 24px;
+  }
+  .lead-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 575px) {
+  #lhiPopupOverlay,
+  #leadPopupOverlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+  #lhiPopup,
+  #leadPopup {
+    width: 100%;
+    max-height: 100vh;
+    height: 100vh;
+    border-radius: 22px 22px 0 0;
+  }
+  .lhi-left {
+    min-height: 180px;
+  }
+  .lhi-right,
+  .lead-popup {
+    padding: 18px 16px 24px;
+  }
+  .lhi-title {
+    font-size: 28px;
+  }
+  .lhi-desc,
+  .lhi-list li,
+  .lhi-note {
+    font-size: 15px;
+  }
+  .lhi-actions {
+    flex-direction: column;
+    position: sticky;
+    bottom: 0;
+    background: #fff;
+    padding-top: 10px;
+  }
+  .lhi-btn {
+    width: 100%;
+    text-align: center;
+  }
+  .lhi-thumb {
+    height: 90px;
+  }
+  .lead-head {
+    font-size: 26px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+
+#leadPopupOverlay{
+  z-index:100001;
+}
