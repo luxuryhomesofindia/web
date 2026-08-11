@@ -1,0 +1,38 @@
+User-agent: *
+# Block common duplicate/tracking URLs
+Disallow: /*?utm*
+Disallow: /*?fbclid*
+Disallow: /*?ref*
+Disallow: /*?replytocom*
+Disallow: /*?share*
+Disallow: /*?amp*
+Disallow: /search
+Disallow: /tag/
+Disallow: /author/
+
+# Block internal, staging, backup & asset folders
+Disallow: /cgi-bin/
+Disallow: /update/
+Disallow: /Version/
+Disallow: /beta/
+Disallow: /blog-data/
+Disallow: /landing/
+Disallow: /signatures/
+Disallow: /src_assets/
+Disallow: /studio.luxuryhomesofindia.in/
+Disallow: /*-Copy*.html
+Disallow: /*_bkp_*.html
+Disallow: /*_patched.html
+
+# Allow assets except HTML files inside assets
+Allow: /assets/
+Disallow: /assets/*.html
+
+# Explicitly allow AI Search Crawlers to read /llms.txt
+Allow: /llms.txt
+
+# Allow everything else
+Allow: /
+
+# Sitemap location
+Sitemap: https://luxuryhomesofindia.in/sitemap.xml

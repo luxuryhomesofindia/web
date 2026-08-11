@@ -1,0 +1,45 @@
+[13-Nov-2025 08:48:25 UTC] PHP Warning:  require(vendor/autoload.php): Failed to open stream: No such file or directory in /home/k557tyrgpggl/public_html/landing/appointment.php on line 6
+[13-Nov-2025 08:48:25 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/k557tyrgpggl/public_html/landing/appointment.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/k557tyrgpggl/public_html/landing/appointment.php on line 6
+[13-Nov-2025 08:54:39 UTC] PHP Warning:  require(vendor/autoload.php): Failed to open stream: No such file or directory in /home/k557tyrgpggl/public_html/landing/appointment.php on line 12
+[13-Nov-2025 08:54:39 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/k557tyrgpggl/public_html/landing/appointment.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/k557tyrgpggl/public_html/landing/appointment.php on line 12
+[13-Nov-2025 08:55:03 UTC] PHP Warning:  require(vendor/autoload.php): Failed to open stream: No such file or directory in /home/k557tyrgpggl/public_html/landing/appointment.php on line 12
+[13-Nov-2025 08:55:03 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/k557tyrgpggl/public_html/landing/appointment.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/k557tyrgpggl/public_html/landing/appointment.php on line 12
+[13-Nov-2025 08:59:18 UTC] PHP Warning:  require(vendor/autoload.php): Failed to open stream: No such file or directory in /home/k557tyrgpggl/public_html/landing/appointment.php on line 12
+[13-Nov-2025 08:59:18 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/k557tyrgpggl/public_html/landing/appointment.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/k557tyrgpggl/public_html/landing/appointment.php on line 12
+[13-Nov-2025 08:59:35 UTC] PHP Warning:  require(vendor/autoload.php): Failed to open stream: No such file or directory in /home/k557tyrgpggl/public_html/landing/appointment.php on line 12
+[13-Nov-2025 08:59:35 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/k557tyrgpggl/public_html/landing/appointment.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/k557tyrgpggl/public_html/landing/appointment.php on line 12
+[13-Nov-2025 08:59:57 UTC] PHP Warning:  require(vendor/autoload.php): Failed to open stream: No such file or directory in /home/k557tyrgpggl/public_html/landing/appointment.php on line 12
+[13-Nov-2025 08:59:57 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/k557tyrgpggl/public_html/landing/appointment.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/k557tyrgpggl/public_html/landing/appointment.php on line 12
+[13-Nov-2025 09:00:12 UTC] PHP Warning:  require(vendor/autoload.php): Failed to open stream: No such file or directory in /home/k557tyrgpggl/public_html/landing/appointment.php on line 12
+[13-Nov-2025 09:00:12 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/k557tyrgpggl/public_html/landing/appointment.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/k557tyrgpggl/public_html/landing/appointment.php on line 12
+[13-Nov-2025 09:10:04 UTC] PHP Warning:  require(vendor/autoload.php): Failed to open stream: No such file or directory in /home/k557tyrgpggl/public_html/landing/appointment.php on line 12
+[13-Nov-2025 09:10:04 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/k557tyrgpggl/public_html/landing/appointment.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/k557tyrgpggl/public_html/landing/appointment.php on line 12
+[13-Nov-2025 11:34:12 UTC] PHP Warning:  require(vendor/autoload.php): Failed to open stream: No such file or directory in /home/k557tyrgpggl/public_html/landing/appointment.php on line 12
+[13-Nov-2025 11:34:12 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/k557tyrgpggl/public_html/landing/appointment.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/k557tyrgpggl/public_html/landing/appointment.php on line 12

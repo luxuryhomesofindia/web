@@ -1,0 +1,22 @@
+Create a premium Apple-style scroll-driven 3D product showcase website using my uploaded ZIP, which contains the image sequence frames.
+
+Extract the ZIP file automatically and use every frame inside the images folder as a scroll-driven canvas animation. Do not convert the frames into a video. Render the animation by drawing each frame on a full-screen HTML5 canvas.
+
+The website must have a pure black (#000000) background with a sticky full-screen hero section. As the user scrolls, smoothly transition through all image frames using requestAnimationFrame and image interpolation for ultra-smooth motion. The animation should feel identical to Apple's product reveal websites.
+
+Requirements:
+- Automatically extract the uploaded ZIP.
+- Detect the total number of frames dynamically.
+- Preload all images before starting the animation.
+- Use HTML5 Canvas for rendering.
+- Render each frame based on scroll progress.
+- Maintain the original image aspect ratio.
+- Cover the entire viewport without distortion.
+- Implement buttery-smooth scrolling using Lenis or GSAP ScrollTrigger.
+- Use requestAnimationFrame for maximum performance.
+- Ensure the animation is responsive across desktop, tablet, and mobile.
+- Optimize memory usage and lazy-load frames if necessary.
+- Use hardware acceleration where possible.
+- Achieve a consistent 60 FPS experience.
+
+The final output should look and behave like Apple's iPhone, MacBook, or Vision Pro product pages, with cinematic scroll-controlled image-sequence animation, premium transitions, and flawless performance.

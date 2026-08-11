@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Homes of India - Premium Home Builders</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #c9a961, #d4af37);
+            color: #000;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(201, 169, 97, 0.4);
+        }
+
+        /* Hero Section */
+       .hero {
+    margin-top: 120px; /* Increased the margin to prevent overlap */
+    min-height: 600px;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+
+        .slider {
+            width: 100%;
+            min-height: 600px;
+            height: auto;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            min-height: 600px;
+            height: auto;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            min-height: 600px;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-height: 600px;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px;
+            gap: 60px;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 800px;
+        }
+
+       .hero-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+    letter-spacing: 2px;
+    padding-top: 20px; /* Added padding to give space at the top */
+}
+
+
+        .hero-content h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            color: #d4af37;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+        }
+
+        .hero-form-container {
+            flex: 0 0 450px;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 40px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .hero-form-container h3 {
+            color: #d4af37;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            background: #111;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .social-proof-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #bbb;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Features */
+        .features {
+            padding: 80px 40px;
+            background: #000;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: #111;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #222;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #d4af37;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #d4af37;
+        }
+
+        .feature-card p {
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 40px;
+            background: #0a0a0a;
+        }
+
+        .testimonial-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background: #111;
+            padding: 40px;
+            border-radius: 10px;
+            border-left: 4px solid #d4af37;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #ddd;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #d4af37;
+            font-size: 1.1rem;
+        }
+
+        /* Portfolio Gallery */
+        .portfolio {
+            padding: 80px 40px;
+            background: #000;
+        }
+
+        .gallery-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 4/3;
+            border-radius: 10px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(212, 175, 55, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            font-size: 3rem;
+            color: #000;
+            font-weight: 700;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(212, 175, 55, 0.8);
+            color: #000;
+            border: none;
+            font-size: 2rem;
+            padding: 20px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(212, 175, 55, 1);
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(212, 175, 55, 0.8);
+            color: #000;
+            border: none;
+            font-size: 2rem;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(212, 175, 55, 1);
+        }
+
+        /* Contact Form */
+        .contact {
+            padding: 80px 40px;
+            background: #0a0a0a;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #111;
+            padding: 50px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #d4af37;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background: #000;
+            border: 1px solid #333;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-button {
+            width: 100%;
+            background: linear-gradient(135deg, #c9a961, #d4af37);
+            color: #000;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(201, 169, 97, 0.4);
+        }
+
+        .form-message {
+            display: none;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .form-message.success {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+            border: 1px solid #4caf50;
+        }
+
+        .form-message.error {
+            background: rgba(244, 67, 54, 0.2);
+            color: #f44336;
+            border: 1px solid #f44336;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 60px 40px 30px;
+            border-top: 1px solid #222;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: #d4af37;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p {
+            color: #bbb;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #d4af37;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #222;
+            color: #777;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .slide-overlay {
+                padding: 40px;
+                gap: 40px;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content h2 {
+                font-size: 1.6rem;
+            }
+
+            .hero-form-container {
+                flex: 0 0 400px;
+                padding: 30px;
+            }
+
+            .hero-form-container h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero {
+                margin-top: 100px;
+                min-height: 800px;
+            }
+
+            .slider {
+                min-height: 800px;
+            }
+
+            .slide {
+                min-height: 800px;
+            }
+
+            .slide img {
+                min-height: 800px;
+            }
+
+            .slide-overlay {
+                flex-direction: column;
+                padding: 40px 30px;
+                justify-content: center;
+                align-items: stretch;
+                gap: 30px;
+                min-height: 800px;
+            }
+
+            .hero-text {
+                text-align: center;
+                max-width: 100%;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content h2 {
+                font-size: 1.4rem;
+            }
+
+            .hero-form-container {
+                flex: 1;
+                width: 100%;
+                max-width: 500px;
+                margin: 0 auto;
+                padding: 30px;
+            }
+
+            .hero-form-container h3 {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                margin-top: 90px;
+                min-height: 750px;
+            }
+
+            .slider {
+                min-height: 750px;
+            }
+
+            .slide {
+                min-height: 750px;
+            }
+
+            .slide img {
+                min-height: 750px;
+            }
+
+            .slide-overlay {
+                padding: 30px 20px;
+                min-height: 750px;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+                margin-bottom: 15px;
+            }
+
+            .hero-content h2 {
+                font-size: 1.2rem;
+                margin-bottom: 20px;
+            }
+
+            .hero-form-container {
+                padding: 25px 20px;
+                max-width: 100%;
+            }
+
+            .hero-form-container h3 {
+                font-size: 1.2rem;
+                margin-bottom: 20px;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            .form-group label {
+                font-size: 14px;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 12px;
+                font-size: 14px;
+            }
+
+            .submit-button {
+                padding: 12px;
+                font-size: 16px;
+            }
+
+            .header-content {
+                padding: 0 20px;
+            }
+
+            .logo img {
+                height: 45px;
+            }
+
+            .cta-button {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+
+            .stats {
+                gap: 40px;
+            }
+
+            .contact-form {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 700px;
+            }
+
+            .slider {
+                min-height: 700px;
+            }
+
+            .slide {
+                min-height: 700px;
+            }
+
+            .slide img {
+                min-height: 700px;
+            }
+
+            .slide-overlay {
+                padding: 20px 15px;
+                min-height: 700px;
+            }
+
+            .hero-content h1 {
+                font-size: 1.6rem;
+                letter-spacing: 1px;
+            }
+
+            .hero-content h2 {
+                font-size: 1rem;
+            }
+
+            .hero-form-container {
+                padding: 20px 15px;
+            }
+
+            .hero-form-container h3 {
+                font-size: 1.1rem;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+
+            .cta-button {
+                padding: 10px 15px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://luxuryhomesofindia.in/assets/images/logo/logo.png" alt="Luxury Homes of India">
+            </div>
+            <button class="cta-button" onclick="scrollToContact()">Schedule Free Consult</button>
+        </div>
+    </header>
+
+    <!-- Hero Section with Slider -->
+    <section class="hero">
+        <div class="slider">
+            <div class="slide active">
+                <img src="images/hero_banner1.jpg?auto=compress&cs=tinysrgb&w=1920" alt="Luxury Home 1">
+                <div class="slide-overlay">
+                    <div class="hero-text">
+                        <div class="hero-content">
+                            <h1>Crafting Dream Homes</h1>
+                            <h2>Where Luxury Meets Perfection</h2>
+                        </div>
+                    </div>
+                    <div class="hero-form-container">
+                        <h3>Schedule Your Free Consultation</h3>
+                        <div class="form-message" id="hero-message"></div>
+                        <form onsubmit="handleHeroSubmit(event)">
+                            <div class="form-group">
+                                <label for="hero-name">Full Name *</label>
+                                <input type="text" id="hero-name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="hero-email">Email Address *</label>
+                                <input type="email" id="hero-email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="hero-phone">Phone Number *</label>
+                                <input type="tel" id="hero-phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="hero-message">Tell Us About Your Dream Home</label>
+                                <textarea id="hero-message" name="message" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="submit-button">Schedule Consultation</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="images/hero_banner2.jpg?auto=compress&cs=tinysrgb&w=1920" alt="Luxury Home 2">
+                <div class="slide-overlay">
+                    <div class="hero-text">
+                        <div class="hero-content">
+                            <h1>Architectural Excellence</h1>
+                            <h2>Transforming Visions into Reality</h2>
+                        </div>
+                    </div>
+                    <div class="hero-form-container">
+                        <h3>Schedule Your Free Consultation</h3>
+                        <div class="form-message" id="hero-message2"></div>
+                        <form onsubmit="handleHeroSubmit(event)">
+                            <div class="form-group">
+                                <label for="hero-name2">Full Name *</label>
+                                <input type="text" id="hero-name2" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="hero-email2">Email Address *</label>
+                                <input type="email" id="hero-email2" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="hero-phone2">Phone Number *</label>
+                                <input type="tel" id="hero-phone2" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="hero-message2">Tell Us About Your Dream Home</label>
+                                <textarea id="hero-message2" name="message" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="submit-button">Schedule Consultation</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="images/hero_banner3.jpg?auto=compress&cs=tinysrgb&w=1920" alt="Luxury Home 3">
+                <div class="slide-overlay">
+                    <div class="hero-text">
+                        <div class="hero-content">
+                            <h1>Timeless Elegance</h1>
+                            <h2>Building Legacies, One Home at a Time</h2>
+                        </div>
+                    </div>
+                    <div class="hero-form-container">
+                        <h3>Schedule Your Free Consultation</h3>
+                        <div class="form-message" id="hero-message3"></div>
+                        <form onsubmit="handleHeroSubmit(event)">
+                            <div class="form-group">
+                                <label for="hero-name3">Full Name *</label>
+                                <input type="text" id="hero-name3" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="hero-email3">Email Address *</label>
+                                <input type="email" id="hero-email3" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="hero-phone3">Phone Number *</label>
+                                <input type="tel" id="hero-phone3" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="hero-message3">Tell Us About Your Dream Home</label>
+                                <textarea id="hero-message3" name="message" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="submit-button">Schedule Consultation</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="social-proof-content">
+            <h2 class="section-title">Trusted by Discerning Homeowners</h2>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">13+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+				
+				 <div class="stat-item">
+                    <div class="stat-number">95%+</div>
+                    <div class="stat-label">Client Satisfaction Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+   <!-- Features -->
+<section class="features">
+    <h2 class="section-title">Why Choose Us</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">🏛️</div> <!-- Icon updated to reflect architecture and engineering -->
+            <h3>Senior Architects & Structural Engg</h3>
+            <p>Expert architects and engineers collaborate to create designs that combine innovation with functionality.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📊</div> <!-- Icon updated to reflect project management -->
+            <h3>Project Management</h3>
+            <p>Efficient project management ensures timely delivery, keeping quality and client satisfaction at the forefront.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">👥</div> <!-- Icon updated to reflect collaboration and accountability -->
+            <h3>Single Point Accountability</h3>
+            <p>One point of contact for all project aspects, ensuring seamless communication and hassle-free coordination.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">💎</div>
+            <h3>Consistent Design Quality</h3>
+            <p>We prioritize high standards in design, delivering exceptional, lasting results for every project.</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">🔍</div>
+            <h3>Transparent & Hassle-Free Experience</h3>
+            <p>Clear communication and transparency throughout the project for a smooth and stress-free experience.</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">💰</div>
+            <h3>Cost and Time Efficiency</h3>
+            <p>We deliver projects on time and within budget, ensuring maximum value without compromising on quality.</p>
+        </div>
+    </div>
+</section>
+
+
+
+   
+   
+   
+   
+   
+
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Luxury Homes of India transformed our vision into reality. The attention to detail and quality of workmanship exceeded all our expectations. Our home is truly a masterpiece."</p>
+                <p class="testimonial-author">— Rajesh & Priya Kumar</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Professional, reliable, and incredibly talented. The team handled everything seamlessly from design to completion. We couldn't be happier with our dream home."</p>
+                <p class="testimonial-author">— Amit Sharma</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Working with Luxury Homes of India was an absolute pleasure. Their commitment to excellence and customer satisfaction is unparalleled. Highly recommended!"</p>
+                <p class="testimonial-author">— Dr. Meera Reddy</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Gallery -->
+    <section class="portfolio">
+        <h2 class="section-title">Our Portfolio</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openLightbox(0)">
+                <img loading="lazy" src="images/mahesh_residency.png" alt="Project 1">
+                <div class="gallery-overlay">
+                    <span>👁️</span>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(1)">
+                <img loading="lazy" src="images/sri_mandhir_residency.png" alt="Project 2">
+                <div class="gallery-overlay">
+                    <span>👁️</span>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(2)">
+                <img loading="lazy" src="images/haswin_residency.png" alt="Project 3">
+                <div class="gallery-overlay">
+                    <span>👁️</span>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(3)">
+                <img loading="lazy" src="images/ganesh_residency.jpg" alt="Project 4">
+                <div class="gallery-overlay">
+                    <span>👁️</span>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(4)">
+                <img loading="lazy" src="images/manvikh_residency.png" alt="Project 5">
+                <div class="gallery-overlay">
+                    <span>👁️</span>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(5)">
+                <img loading="lazy" src="images/prabakar_residency.png" alt="Project 6">
+                <div class="gallery-overlay">
+                    <span>👁️</span>
+                </div>
+            </div>
+			<div class="gallery-item" onclick="openLightbox(6)">
+                <img loading="lazy" src="images/sunil_residency.png" alt="Project 6">
+                <div class="gallery-overlay">
+                    <span>👁️</span>
+                </div>
+            </div>
+			<div class="gallery-item" onclick="openLightbox(6)">
+                <img loading="lazy" src="images/devaraj_residency.png" alt="Project 6">
+                <div class="gallery-overlay">
+                    <span>👁️</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+        <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">‹</button>
+        <div class="lightbox-content">
+            <img loading="lazy" id="lightbox-img" src="" alt="Gallery Image">
+        </div>
+        <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">›</button>
+    </div>
+
+    <!-- Contact Form -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Schedule Your Free Consultation</h2>
+        <form class="contact-form" onsubmit="handleBottomSubmit(event)">
+            <div class="form-message" id="bottom-message"></div>
+            <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Tell Us About Your Dream Home</label>
+                <textarea id="message" name="message" rows="5"></textarea>
+            </div>
+            <button type="submit" class="submit-button">Schedule Consultation</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Luxury Homes of India is a premier home builder specializing in creating bespoke luxury residences that reflect the unique tastes and lifestyles of our discerning clients.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Information</h3>
+                <p><strong>Call Us:</strong><br>
+                <a href="tel:+919092276222">+91 9092276222</a></p>
+                <p><strong>Email Us:</strong><br>
+                <a href="mailto:info@luxuryhomesofindia.in">info@luxuryhomesofindia.in</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Our Location</h3>
+                <p>#85, 4th Floor, Lotus Tower<br>
+                Guindy, Chennai 600032<br>
+                Tamil Nadu, India</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Luxury Homes of India. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Hero Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        
+        setInterval(nextSlide, 5000);
+
+        // Lightbox
+        let currentImage = 0;
+        const galleryImages = [
+            'https://luxuryhomesofindia.in/images/mahesh_residency.png'
+			'https://luxuryhomesofindia.in/images/sri_mandhir_residency.png'
+			'https://luxuryhomesofindia.in/images/haswin_residency.png'
+			'https://luxuryhomesofindia.in/images/ganesh_residency.jpg'
+			'https://luxuryhomesofindia.in/images/manvikh_residency.png'
+			'https://luxuryhomesofindia.in/images/prabakar_residency.png'
+			'https://luxuryhomesofindia.in/images/sunil_residency.png'
+			'https://luxuryhomesofindia.in/images/devaraj_residency.png'		
+        ];
+
+        function openLightbox(index) {
+            currentImage = index;
+            document.getElementById('lightbox-img').src = galleryImages[index];
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function navigateLightbox(direction) {
+            currentImage = (currentImage + direction + galleryImages.length) % galleryImages.length;
+            document.getElementById('lightbox-img').src = galleryImages[currentImage];
+        }
+
+        // Scroll to Contact
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Form Submission for Hero Form
+        function handleHeroSubmit(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const formData = {
+                name: form.querySelector('input[name="name"]').value,
+                email: form.querySelector('input[name="email"]').value,
+                phone: form.querySelector('input[name="phone"]').value,
+                message: form.querySelector('textarea[name="message"]').value
+            };
+
+            const subject = encodeURIComponent(`New Consultation Request from ${formData.name}`);
+            const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}`);
+            
+            // Send to both email addresses
+            window.location.href = `mailto:aipromptgowri@gmail.com,gowri7282@gmail.com?subject=${subject}&body=${body}`;
+            
+            // Show success message
+            const messageDiv = form.querySelector('.form-message') || form.parentElement.querySelector('.form-message');
+            if (messageDiv) {
+                messageDiv.textContent = 'Thank you! Your default email client will open to send the consultation request.';
+                messageDiv.className = 'form-message success';
+                messageDiv.style.display = 'block';
+                
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 5000);
+            }
+            
+            form.reset();
+        }
+
+        // Form Submission for Bottom Form
+        function handleBottomSubmit(event) {
+            event.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value
+            };
+
+            const subject = encodeURIComponent(`New Consultation Request from ${formData.name}`);
+            const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}`);
+            
+            // Send to both email addresses
+            window.location.href = `mailto:aipromptgowri@gmail.com,gowri7282@gmail.com?subject=${subject}&body=${body}`;
+            
+            // Show success message
+            const messageDiv = document.getElementById('bottom-message');
+            messageDiv.textContent = 'Thank you! Your default email client will open to send the consultation request.';
+            messageDiv.className = 'form-message success';
+            messageDiv.style.display = 'block';
+            
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+            
+            event.target.reset();
+        }
+
+        // Close lightbox on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+	
+	<script>
+    let currentImage = 0;
+    const galleryImages = [
+        'https://luxuryhomesofindia.in/images/mahesh_residency.png',
+        'https://luxuryhomesofindia.in/images/sri_mandhir_residency.png',
+        'https://luxuryhomesofindia.in/images/haswin_residency.png',
+        'https://luxuryhomesofindia.in/images/ganesh_residency.jpg',
+        'https://luxuryhomesofindia.in/images/manvikh_residency.png',
+        'https://luxuryhomesofindia.in/images/prabakar_residency.png',
+        'https://luxuryhomesofindia.in/images/sunil_residency.png',
+        'https://luxuryhomesofindia.in/images/devaraj_residency.png'
+    ];
+
+    function openLightbox(index) {
+        currentImage = index;
+        document.getElementById('lightbox-img').src = galleryImages[index];
+        document.getElementById('lightbox').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    function navigateLightbox(direction) {
+        currentImage = (currentImage + direction + galleryImages.length) % galleryImages.length;
+        document.getElementById('lightbox-img').src = galleryImages[currentImage];
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeLightbox();
+        }
+    });
+</script>
+
+<script>
+    function handleHeroSubmit(event) {
+        event.preventDefault(); // Prevent form submission
+        
+        // Show spinner and hide the submit button
+        const button = event.target.querySelector('button');
+        const spinner = document.getElementById('spinner');
+        button.disabled = true;
+        spinner.style.display = 'block';
+
+        // Get form data
+        const form = event.target;
+        const formData = {
+            name: form.querySelector('input[name="name"]').value,
+            email: form.querySelector('input[name="email"]').value,
+            phone: form.querySelector('input[name="phone"]').value,
+            message: form.querySelector('textarea[name="message"]').value
+        };
+
+        const subject = encodeURIComponent(`New Consultation Request from ${formData.name}`);
+        const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}`);
+
+        // Send email
+        window.location.href = `mailto:aipromptgowri@gmail.com,gowri7282@gmail.com?subject=${subject}&body=${body}`;
+        
+        // Simulate email sending (for demonstration)
+        setTimeout(function() {
+            // Hide the spinner and show the success message
+            spinner.style.display = 'none';
+            const messageDiv = form.querySelector('.form-message');
+            messageDiv.textContent = 'Thank you! Your email has been sent successfully. Our team will contact you soon.';
+            messageDiv.className = 'form-message success';
+            messageDiv.style.display = 'block';
+            
+            // Redirect to the "thank you" page
+            setTimeout(function() {
+                window.location.href = 'lead-thank-you.html';
+            }, 3000); // Redirect after 3 seconds
+        }, 2000); // Simulate delay for 2 seconds (simulating email sending)
+    }
+</script>
+
+
+
+</body>
+</html>

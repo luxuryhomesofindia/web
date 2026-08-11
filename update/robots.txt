@@ -1,0 +1,18 @@
+User-agent: *
+# Block common duplicate/tracking URLs
+Disallow: /*?utm*
+Disallow: /*?fbclid*
+Disallow: /*?ref*
+Disallow: /*?replytocom*
+Disallow: /*?share*
+Disallow: /*?amp*
+Disallow: /search
+Disallow: /tag/
+Disallow: /author/
+Disallow: /cgi-bin/
+
+# Allow everything else
+Allow: /
+
+# Sitemap location
+Sitemap: https://luxuryhomesofindia.in/sitemap.xml

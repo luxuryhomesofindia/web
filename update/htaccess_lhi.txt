@@ -1,0 +1,32 @@
+# ===============================
+# Canonical redirects for luxuryhomesofindia.in
+# ===============================
+RewriteEngine On
+
+# Force HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Force non-www (comment this block and uncomment the next if you prefer www)
+RewriteCond %{HTTP_HOST} ^www\.luxuryhomesofindia\.in$ [NC]
+RewriteRule ^ https://luxuryhomesofindia.in%{REQUEST_URI} [L,R=301]
+
+# Remove index.php / index.html from URLs
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.(php|html?)\s [NC]
+RewriteRule ^ %1 [L,R=301]
+
+# Normalize trailing slashes (directories end with /, files don't)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{2,5}$
+RewriteRule ^(.+[^/])$ https://luxuryhomesofindia.in/$1/ [L,R=301]
+
+# Strip common tracking query strings (utm_*, fbclid, gclid)
+RewriteCond %{QUERY_STRING} (^|&)utm_[^&]+ [OR]
+RewriteCond %{QUERY_STRING} (^|&)fbclid=[^&]+ [OR]
+RewriteCond %{QUERY_STRING} (^|&)gclid=[^&]+
+RewriteRule ^ %{REQUEST_URI}? [L,R=301]
+
+# Security: block access to hidden files
+RewriteRule (^|/)\. - [F]
+
+# End of rules

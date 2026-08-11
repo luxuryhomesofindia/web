@@ -1,0 +1,17 @@
+# Environment & Secret files
+.env
+.env.*
+!.env.example
+resend_config.php
+config.local.php
+
+# Log files
+*.log
+error_log
+update/error_log
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

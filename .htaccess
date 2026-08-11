@@ -1,0 +1,107 @@
+# ====================================================
+# .htaccess — luxuryhomesofindia.in
+# Production Routing, SEO Canonicalization & Security Headers
+# ====================================================
+
+# Disable MultiViews to prevent extension matching conflicts
+Options -MultiViews
+
+# Enable rewrite engine
+RewriteEngine On
+
+# ----------------------------------------------------
+# 1) Force HTTPS
+# ----------------------------------------------------
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# ----------------------------------------------------
+# 2) Force apex (non-www)
+# ----------------------------------------------------
+RewriteCond %{HTTP_HOST} ^www\.luxuryhomesofindia\.in$ [NC]
+RewriteRule ^ https://luxuryhomesofindia.in%{REQUEST_URI} [R=301,L]
+
+# ----------------------------------------------------
+# 3) Normalize index.html or home.html to /
+# ----------------------------------------------------
+RewriteRule ^(index|home)\.html?$ / [R=301,L]
+
+# ----------------------------------------------------
+# 4) Redirect old static blog HTML files to clean paths
+# ----------------------------------------------------
+RewriteRule ^blog-biophilic-design\.html$ /blog/biophilic-design [R=301,L]
+RewriteRule ^blog-smart-home-automation\.html$ /blog/smart-home-automation [R=301,L]
+RewriteRule ^blog-seismic-resilient-villas\.html$ /blog/seismic-resilient-villas [R=301,L]
+RewriteRule ^blog-sustainable-zero-energy\.html$ /blog/sustainable-zero-energy [R=301,L]
+RewriteRule ^blog-bespoke-interior-execution\.html$ /blog/bespoke-interior-execution [R=301,L]
+RewriteRule ^blog-double-height-living-room\.html$ /blog/double-height-living-room [R=301,L]
+RewriteRule ^blog-luxury-villas-private-pool\.html$ /blog/luxury-villas-private-pool [R=301,L]
+RewriteRule ^blog-modern-glass-villa-designs\.html$ /blog/modern-glass-villa-designs [R=301,L]
+RewriteRule ^blog-premium-marble-flooring\.html$ /blog/premium-marble-flooring [R=301,L]
+RewriteRule ^blog-smart-home-automation-villas\.html$ /blog/smart-home-automation-villas [R=301,L]
+RewriteRule ^blog-vastu-compliant-villas\.html$ /blog/vastu-compliant-villas [R=301,L]
+RewriteRule ^blog-zero-energy-villas\.html$ /blog/zero-energy-villas [R=301,L]
+
+# Also redirect the old blog.html to clean /blog
+RewriteRule ^blog\.html$ /blog [R=301,L]
+
+# ----------------------------------------------------
+# 5) Clean URLs for service areas & landing pages
+#    e.g., /service-areas/kanchipuram -> /service-areas/kanchipuram.html
+# ----------------------------------------------------
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteCond %{REQUEST_URI} !\.html$
+RewriteRule ^(.+?)/?$ /$1.html [R=301,L]
+
+# ----------------------------------------------------
+# 6) Blog Dynamic Routing
+# ----------------------------------------------------
+# Redirect trailing slash on blog posts to prevent asset path breakage
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^blog/([a-zA-Z0-9-]+)/$ /blog/$1 [R=301,L]
+RewriteRule ^blog/category/([a-zA-Z0-9-]+)/$ /blog/category/$1 [R=301,L]
+
+# A. Route /blog/category/<cat> to blog.php?category=<cat>
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^blog/category/([a-zA-Z0-9-]+)/?$ blog.php?category=$1 [L,QSA]
+
+# B. Route /blog/<slug> to blog-detail.php?slug=<slug>
+# Only rewrite if slug is not a physical file or directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^blog/([a-zA-Z0-9-]+)(?:\.html)?/?$ blog-detail.php?slug=$1 [L,QSA]
+
+# C. Route /blog or /blog/ to blog.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^blog/?$ blog.php [L,QSA]
+
+# ----------------------------------------------------
+# 7) Prevent .html trailing-slash duplicates
+#    e.g., /about.html/ -> /about.html
+# ----------------------------------------------------
+RewriteRule ^(.+)\.html/$ /$1.html [R=301,L]
+
+# ----------------------------------------------------
+# 8) Security & SEO Crawl Headers
+# ----------------------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(self), microphone=()"
+
+  # Block indexing of backup / staging directories via HTTP header
+  <FilesMatch "^(update|beta|Version|cgi-bin|blog-data)/">
+    Header set X-Robots-Tag "noindex, nofollow"
+  </FilesMatch>
+</IfModule>
+
+# ----------------------------------------------------
+# 9) GZIP Compression
+# ----------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json application/xml image/svg+xml
+</IfModule>

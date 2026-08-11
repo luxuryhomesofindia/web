@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- Patched contact.html (minimal changes): keeps your structure, ensures form posts to sendmail.php and uses server-side redirect -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Luxury Homes of India (patched)</title>
+  <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="contact-page">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-6 mx-auto">
+        <h1 class="mb-4">Get In Touch</h1>
+        <form class="form__content" method="POST" action="sendmail.php" id="contact-form">
+          <input name="name" id="name" type="text" placeholder="Your Name" required />
+          <input type="email" name="email" id="email" placeholder="Enter Your Mail ID" required />
+          <textarea name="message" id="message" placeholder="Message" required></textarea>
+
+          <div id="form-messages"></div>
+          <button class="rts-btn btn-primary" type="submit" id="submit-button">Free Consultation</button>
+        </form>
+        <p class="mt-3 small text-muted">By submitting this form, you agree to be contacted by Luxury Homes of India.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
