@@ -1,0 +1,47 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "functions": {
+    "api/**/*.php": {
+      "runtime": "vercel-php@0.7.3"
+    },
+    "*.php": {
+      "runtime": "vercel-php@0.7.3"
+    }
+  },
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/home.html", "destination": "/", "permanent": true },
+    { "source": "/blog.html", "destination": "/blog", "permanent": true },
+    { "source": "/blog-biophilic-design.html", "destination": "/blog/biophilic-design", "permanent": true },
+    { "source": "/blog-smart-home-automation.html", "destination": "/blog/smart-home-automation", "permanent": true },
+    { "source": "/blog-seismic-resilient-villas.html", "destination": "/blog/seismic-resilient-villas", "permanent": true },
+    { "source": "/blog-sustainable-zero-energy.html", "destination": "/blog/sustainable-zero-energy", "permanent": true },
+    { "source": "/blog-bespoke-interior-execution.html", "destination": "/blog/bespoke-interior-execution", "permanent": true },
+    { "source": "/blog-double-height-living-room.html", "destination": "/blog/double-height-living-room", "permanent": true },
+    { "source": "/blog-luxury-villas-private-pool.html", "destination": "/blog/luxury-villas-private-pool", "permanent": true },
+    { "source": "/blog-modern-glass-villa-designs.html", "destination": "/blog/modern-glass-villa-designs", "permanent": true },
+    { "source": "/blog-premium-marble-flooring.html", "destination": "/blog/premium-marble-flooring", "permanent": true },
+    { "source": "/blog-smart-home-automation-villas.html", "destination": "/blog/smart-home-automation-villas", "permanent": true },
+    { "source": "/blog-vastu-compliant-villas.html", "destination": "/blog/vastu-compliant-villas", "permanent": true },
+    { "source": "/blog-zero-energy-villas.html", "destination": "/blog/zero-energy-villas", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/blog/category/:category", "destination": "/blog.php?category=:category" },
+    { "source": "/blog/:slug", "destination": "/blog-detail.php?slug=:slug" },
+    { "source": "/blog", "destination": "/blog.php" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "geolocation=(self), microphone=()" }
+      ]
+    }
+  ]
+}
