@@ -4,10 +4,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "functions": {
-    "api/**/*.php": {
-      "runtime": "vercel-php@0.7.3"
-    },
-    "*.php": {
+    "api/index.php": {
       "runtime": "vercel-php@0.7.3"
     }
   },
@@ -29,9 +26,10 @@
     { "source": "/blog-zero-energy-villas.html", "destination": "/blog/zero-energy-villas", "permanent": true }
   ],
   "rewrites": [
-    { "source": "/blog/category/:category", "destination": "/blog.php?category=:category" },
-    { "source": "/blog/:slug", "destination": "/blog-detail.php?slug=:slug" },
-    { "source": "/blog", "destination": "/blog.php" }
+    { "source": "/blog/category/:category", "destination": "/api/index.php" },
+    { "source": "/blog/:slug", "destination": "/api/index.php" },
+    { "source": "/blog", "destination": "/api/index.php" },
+    { "source": "/(.*\\.php)", "destination": "/api/index.php" }
   ],
   "headers": [
     {
