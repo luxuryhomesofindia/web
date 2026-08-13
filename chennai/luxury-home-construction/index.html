@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- DYNAMIC SEO -->
+    <title>Luxury Home Construction in Chennai | Premium Villa Builders | LHI</title>
+    <meta name="description" content="Construct your custom luxury home or villa in Chennai with LHI. Premium turnkey residential building contractors specializing in high-end design, civil engineering, and elite finishes.">
+    <meta name="keywords" content="{{KEYWORDS}}">
+    <link rel="canonical" href="https://luxuryhomesofindia.in/chennai/luxury-home-construction/">
+    
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="Luxury Home Construction in Chennai | Premium Villa Builders | LHI">
+    <meta property="og:description" content="Construct your custom luxury home or villa in Chennai with LHI. Premium turnkey residential building contractors specializing in high-end design, civil engineering, and elite finishes.">
+    <meta property="og:image" content="https://luxuryhomesofindia.in/assets/images/logo/logo.png">
+    <meta property="og:type" content="website">
+    
+    <!-- SCHEMAS -->
+    <script type="application/ld+json"></script>
+    <script type="application/ld+json"></script>
+
+    <!-- ASSETS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --gold-primary: #c6a25a;
+            --gold-light: #f5e6c8;
+            --gold-gradient: linear-gradient(135deg, #c6a25a 0%, #d4af77 50%, #f5e6c8 100%);
+            --black-pure: #050505;
+            --black-matte: #0a0a0a;
+            --charcoal: #121212;
+            --glass: rgba(255, 255, 255, 0.03);
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            background-color: var(--black-pure); 
+            color: #ffffff; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; color: #fff; }
+        .gold-text { background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0; width: 100%; z-index: 1000;
+            padding: 1.5rem 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            transition: var(--transition);
+        }
+        header.scrolled {
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 5%;
+            border-bottom: 1px solid rgba(198, 162, 90, 0.2);
+        }
+        .logo img { height: 50px; filter: brightness(1.2); }
+        
+        /* Desktop Nav */
+        nav.desktop-nav { display: none; }
+        @media (min-width: 1024px) {
+            nav.desktop-nav { display: flex; gap: 2.5rem; }
+            nav.desktop-nav a { color: #fff; text-decoration: none; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
+            nav.desktop-nav a:hover { color: var(--gold-primary); }
+        }
+
+        /* Mobile Nav Overlay */
+        .mobile-overlay {
+            position: fixed; inset: 0; background: var(--black-pure); z-index: 2000;
+            display: none; flex-direction: column; align-items: center; justify-content: center;
+            gap: 2rem;
+        }
+        .mobile-overlay.active { display: flex; }
+        .mobile-overlay a { color: #fff; text-decoration: none; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 4px; }
+
+        /* HERO SLIDER */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 5%;
+        }
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            z-index: -1;
+        }
+        .slide.active { opacity: 1; }
+        .slide-bg {
+            width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            transform: scale(1);
+        }
+        .slide.active .slide-bg { animation: kenburns 10s ease forwards; }
+        @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.15); } }
+
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.2) 100%);
+            z-index: 0;
+        }
+
+        .hero-content { position: relative; z-index: 10; max-width: 850px; }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1.1; margin-bottom: 1.5rem; text-transform: capitalize; }
+        .hero p { font-size: clamp(1rem, 2vw, 1.2rem); color: rgba(255,255,255,0.8); margin-bottom: 2.5rem; max-width: 600px; }
+
+        /* BUTTONS */
+        .btn-container { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+            padding: 1.2rem 2.2rem;
+            border-radius: 2px;
+            font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+            text-decoration: none; transition: var(--transition);
+            cursor: pointer;
+            min-width: 200px;
+        }
+        .btn-gold { background: var(--gold-gradient); color: var(--black-pure); border: none; }
+        .btn-gold:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(198, 162, 90, 0.3); }
+        .btn-outline { border: 1px solid var(--gold-primary); color: #fff; }
+        .btn-outline:hover { background: var(--gold-primary); color: var(--black-pure); }
+
+        /* TRUST STRIP */
+        .trust-strip {
+            background: var(--black-matte);
+            padding: 3rem 5%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            border-bottom: 1px solid rgba(198, 162, 90, 0.1);
+        }
+        @media (min-width: 768px) { .trust-strip { grid-template-columns: repeat(4, 1fr); } }
+        .trust-item { text-align: center; }
+        .trust-item i { font-size: 2rem; color: var(--gold-primary); margin-bottom: 0.5rem; display: block; }
+        .trust-item span { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #888; font-weight: 600; }
+
+        /* SERVICES GRID */
+        section { padding: 100px 5%; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header h2 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem; }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .service-card {
+            background: var(--charcoal);
+            padding: 3.5rem 2rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+            text-align: center;
+        }
+        .service-card:hover { 
+            border-color: var(--gold-primary); 
+            transform: translateY(-10px); 
+            background: rgba(198, 162, 90, 0.04);
+        }
+        .service-card i { font-size: 2.5rem; color: var(--gold-primary); margin-bottom: 1.5rem; }
+        .service-card h3 { margin-bottom: 1rem; font-size: 1.25rem; }
+        .service-card p { font-size: 0.9rem; color: #aaa; }
+
+        /* PACKAGES */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .package-card {
+            background: var(--charcoal);
+            padding: 3.5rem 2rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+            display: flex; flex-direction: column;
+            position: relative;
+        }
+        .package-card.premium { border: 1px solid var(--gold-primary); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .package-card.premium::after {
+            content: "MOST EXCLUSIVE"; position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%);
+            background: var(--gold-primary); color: #000; padding: 5px 15px; font-size: 0.7rem; font-weight: 800; letter-spacing: 1px;
+        }
+        .package-card h3 { font-size: 1.4rem; margin-bottom: 0.5rem; text-align: center; }
+        .package-price { font-size: 2.8rem; font-weight: 800; margin-bottom: 2rem; color: var(--gold-primary); text-align: center; }
+        .package-price span { font-size: 1rem; font-weight: 400; color: #888; }
+        .package-list { list-style: none; margin-bottom: 2.5rem; flex-grow: 1; }
+        .package-list li { padding: 0.7rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: flex-start; gap: 12px; font-size: 0.85rem; color: #ccc; }
+        .package-list li i { color: var(--gold-primary); margin-top: 4px; }
+
+        /* GALLERY */
+        .gallery-filters { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; }
+        .filter-btn {
+            background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #fff;
+            padding: 0.7rem 1.5rem; cursor: pointer; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .filter-btn.active, .filter-btn:hover { background: var(--gold-primary); border-color: var(--gold-primary); color: var(--black-pure); }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .gallery-item {
+            position: relative; overflow: hidden; height: 380px;
+            cursor: pointer;
+        }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-overlay {
+            position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            opacity: 0; display: flex; align-items: flex-end; padding: 2rem;
+            transition: 0.5s;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+        /* FAQ */
+        .faq-container { max-width: 850px; margin: 0 auto; }
+        .faq-item { background: var(--charcoal); margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.03); }
+        .faq-header { padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+        .faq-header h4 { font-size: 1rem; font-weight: 600; }
+        .faq-content { padding: 0 2rem 1.5rem; color: #999; display: none; font-size: 0.95rem; }
+        .faq-item.active .faq-content { display: block; }
+        .faq-item.active i { transform: rotate(180deg); color: var(--gold-primary); }
+
+        /* FOOTER */
+        footer { background: var(--black-matte); padding: 80px 5% 40px; border-top: 1px solid rgba(198, 162, 90, 0.1); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4rem; margin-bottom: 4rem; }
+        .footer-col h4 { color: var(--gold-primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2rem; font-size: 0.9rem; }
+        .footer-col p, .footer-col a { color: #888; text-decoration: none; margin-bottom: 0.8rem; display: block; font-size: 0.9rem; }
+        .footer-col a:hover { color: var(--gold-primary); }
+
+        /* POPUPS */
+        .modal {
+            position: fixed; inset: 0; z-index: 3000;
+            background: rgba(0,0,0,0.98);
+            display: none; align-items: center; justify-content: center;
+            padding: 20px;
+        }
+        .modal-content {
+            background: var(--charcoal);
+            width: 100%; max-width: 550px;
+            padding: 3.5rem; position: relative;
+            border: 1px solid rgba(198, 162, 90, 0.3);
+        }
+        .close-modal { position: absolute; top: 20px; right: 20px; cursor: pointer; font-size: 1.5rem; color: var(--gold-primary); }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-size: 0.8rem; color: #777; text-transform: uppercase; letter-spacing: 1px; }
+        .form-control {
+            width: 100%; background: #000; border: 1px solid rgba(255,255,255,0.1);
+            padding: 1.1rem; color: #fff; font-size: 1rem; border-radius: 0;
+        }
+        .form-control:focus { outline: none; border-color: var(--gold-primary); }
+
+        /* FLOATS */
+        .wa-float {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #25d366; color: #fff;
+            width: 65px; height: 65px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.2rem; z-index: 999; text-decoration: none;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            transition: var(--transition);
+        }
+        .wa-float:hover { transform: scale(1.1) rotate(12deg); }
+
+        /* MOBILE MENU ICON */
+        .menu-toggle { display: block; font-size: 1.8rem; cursor: pointer; color: var(--gold-primary); }
+        @media (min-width: 1024px) { .menu-toggle { display: none; } }
+
+        .hidden-seo { position: absolute; left: -9999px; }
+    </style>
+  <meta name="robots" content="index, follow">
+
+    <meta property="og:url" content="https://luxuryhomesofindia.in/chennai/luxury-home-construction/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Luxury Home Construction in Chennai | Premium Villa Builders | LHI">
+    <meta name="twitter:description" content="Construct your custom luxury home or villa in Chennai with LHI. Premium turnkey residential building contractors specializing in high-end design, civil engineering, and elite finishes.">
+    <meta name="twitter:image" content="https://luxuryhomesofindia.in/assets/images/logo/logo.png">
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://luxuryhomesofindia.in/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Chennai",
+        "item": "https://luxuryhomesofindia.in/chennai/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Luxury Home Construction in Chennai",
+        "item": "https://luxuryhomesofindia.in/chennai/luxury-home-construction/"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Luxury Home Construction in Chennai | Premium Villa Builders | LHI",
+    "description": "Construct your custom luxury home or villa in Chennai with LHI. Premium turnkey residential building contractors specializing in high-end design, civil engineering, and elite finishes.",
+    "image": "https://luxuryhomesofindia.in/assets/images/logo/logo.png",
+    "author": {
+      "@type": "Organization",
+      "name": "Luxury Homes of India Editorial Team"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Luxury Homes of India",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://luxuryhomesofindia.in/assets/images/logo/logo.png"
+      }
+    },
+    "datePublished": "2026-08-13",
+    "dateModified": "2026-08-13",
+    "mainEntityOfPage": "https://luxuryhomesofindia.in/chennai/luxury-home-construction/"
+  }
+]
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the typical cost per square foot for luxury home construction in Chennai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Premium bespoke construction starts at \u20b92,650 per square foot for LHI's Premium Package, which includes high-end structural materials, Teak fittings, and customized elevations."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <header id="mainHeader">
+        
+        <a href="/" class="logo">
+            <img src="https://luxuryhomesofindia.in/assets/images/logo/logo.png" alt="Luxury Homes of India">
+        </a>
+        <nav class="desktop-nav">
+            <a href="#services">Expertise</a>
+            <a href="#packages">Investment</a>
+            <a href="#gallery">Portfolio</a>
+            <a href="#why">Philosophy</a>
+            <a href="#faq">Inquiries</a>
+        </nav>
+        <div class="header-actions">
+            <a href="javascript:void(0)" onclick="openModal('enquiryModal')" class="btn btn-gold" style="padding: 0.7rem 1.5rem; font-size: 0.75rem; min-width: auto;">Enquire</a>
+        </div>
+        <div class="menu-toggle" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></div>
+    
+    </header>
+    
+    
+                <section class="hero" style="height: 60vh;">
+                    <div class="hero-overlay" style="background: rgba(0,0,0,0.85);"></div>
+                    <div class="hero-content">
+                        <h1 class="gold-text">Luxury Home Construction in Chennai</h1>
+                        <p>Constructing a luxury home requires precise engineering and exceptional craftsmanship. LHI constructs bespoke villas and estates across Chennai's most exclusive neighborhoods.</p>
+                    </div>
+                </section>
+
+    <div class="tldr-box" style="margin: 30px auto; max-width: 850px; background: rgba(198,162,90,0.05); border-left: 4px solid var(--gold-primary); padding: 25px; font-size: 0.95rem; line-height: 1.6; color: #ccc;">
+        <strong>TL;DR Summary:</strong> LHI is Chennai's leading turnkey residential contractor, providing Vastu-compliant architecture, structural engineering, and custom interior design at approved pricing packages (₹2,250 to ₹2,650/sq.ft) under strict milestone contracts.
+        <div style="margin-top: 12px; font-size: 0.8rem; color: #888; font-style: italic; display: flex; align-items: center; gap: 8px;">
+            <i class="fas fa-user-edit" style="color: var(--gold-primary);"></i>
+            <span>Written by: <strong>Luxury Homes of India Editorial Team</strong></span>
+        </div>
+    </div>
+    
+
+                <section id="details">
+                    <div class="faq-container">
+                        <h2 class="gold-text" style="margin-bottom: 20px;">Premium Residential Services</h2>
+                        <p style="color: #ccc; margin-bottom: 20px;">LHI provides turnkey engineering execution in Chennai, utilizing Tata/JSW steel, machine-cut bricks, and African Teakwood frame fittings according to official quotation plans.</p>
+                        
+                        
+                    </div>
+                </section>
+                
+                
+    <section id="faq">
+        <div class="faq-container">
+            <h2 class="gold-text" style="text-align: center; margin-bottom: 30px;">Frequently Asked Questions</h2>
+            
+        <div class="faq-item">
+            <div class="faq-header">
+                <h4>What is the typical cost per square foot for luxury home construction in Chennai?</h4>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-content">
+                <p>Premium bespoke construction starts at ₹2,650 per square foot for LHI's Premium Package, which includes high-end structural materials, Teak fittings, and customized elevations.</p>
+            </div>
+        </div>
+        
+        </div>
+    </section>
+    
+
+                <section id="cta" style="text-align: center; background: var(--black-matte);">
+                    <h2 class="gold-text">Consult With Our Construction Experts</h2>
+                    <p style="margin-bottom: 30px; color: #888;">Begin your legacy home layout planning today. Talk to a turnkey advisor.</p>
+                    <a href="javascript:void(0)" onclick="openModal('enquiryModal')" class="btn btn-gold">Request Consultation</a>
+                </section>
+                
+
+    <footer>
+        
+        <div class="footer-grid">
+            <div class="footer-col">
+                <img src="https://luxuryhomesofindia.in/assets/images/logo/logo.png" alt="LHI" style="height:50px; margin-bottom:1.5rem; filter: brightness(1.5);">
+                <p>Redefining India's skyline with world-class residential architecture and engineering.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Access</h4>
+                <a href="#services">Our Expertise</a>
+                <a href="#packages">Pricing Tiers</a>
+                <a href="#gallery">Project Showcase</a>
+            </div>
+            <div class="footer-col">
+                <h4>Corporate Office</h4>
+                <p><i class="fas fa-map-marker-alt"></i> #85, Lotus Tower, Anna Salai, Guindy, Chennai 600032</p>
+                <p><i class="fas fa-phone"></i> +91 90922 76222</p>
+                <p><i class="fas fa-envelope"></i> info@luxuryhomesofindia.in</p>
+            </div>
+        </div>
+        <div style="text-align:center; padding-top:2rem; border-top:1px solid rgba(198, 162, 90, 0.1); font-size:0.75rem; color:#555; letter-spacing: 1px;">
+            © 2012–2026 LUXURY HOMES OF INDIA. ALL RIGHTS RESERVED.
+        </div>
+    
+    </footer>
+
+    <!-- MODALS -->
+    
+    <div id="enquiryModal" class="modal" onclick="closeAllModals(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-modal" onclick="closeAllModals()">&times;</span>
+            <h2 class="gold-text" style="margin-bottom:2rem; font-size: 1.8rem;">Start Your Legacy</h2>
+            <form action="https://formbold.com/s/3KpNl" method="POST">
+                <input type="hidden" name="_subject" value="Lead from {{CITY}} - {{SERVICE}}">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="name" class="form-control" required placeholder="Arjun Sharma">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone" class="form-control" required placeholder="+91 90922 76222">
+                </div>
+                <div class="form-group">
+                    <label>Preferred Plan</label>
+                    <select name="type" class="form-control">
+                        <option>Royal Estate (₹2400/sqft)</option>
+                        <option>Imperial (₹1800/sqft)</option>
+                        <option>Heritage (₹1200/sqft)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-gold" style="width:100%;">Get Bespoke Quote</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="boqModal" class="modal" onclick="closeAllModals(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-modal" onclick="closeAllModals()">&times;</span>
+            <h2 class="gold-text" style="margin-bottom:1rem;">Material Audit</h2>
+            <p style="color:#777; margin-bottom:2.5rem; font-size: 0.9rem;">Upload your existing quotation. Our experts will audit the specifications for transparency.</p>
+            <form action="https://formbold.com/s/3KpNl" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input type="file" name="attachment" class="form-control" accept=".pdf,.doc,.docx,.xls,.xlsx">
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" class="form-control" required placeholder="Mobile Number">
+                </div>
+                <button type="submit" class="btn btn-gold" style="width:100%;">Upload & Audit</button>
+            </form>
+        </div>
+    </div>
+
+    
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/919092276222" target="_blank" class="wa-float"><i class="fab fa-whatsapp"></i></a>
+
+    <script>
+        
+        // MOBILE MENU
+        function toggleMobileMenu() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
+
+        // HERO SLIDER
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        function rotateSlides() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        setInterval(rotateSlides, 5000);
+
+        // HEADER SCROLL
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 80) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+
+        // DYNAMIC GALLERY
+        const galleryData = [
+            { id: 1, type: 'villa', title: 'The Chola Residency', img: 'https://images.pexels.com/photos/33575697/pexels-photo-33575697.jpeg' },
+            { id: 2, type: 'interior', title: 'Taj Skyline Penthouse', img: 'https://images.pexels.com/photos/32269123/pexels-photo-32269123.png' },
+            { id: 3, type: 'resort', title: 'The Emerald Farmhouse', img: 'https://images.pexels.com/photos/6872320/pexels-photo-6872320.jpeg' },
+            { id: 4, type: 'exterior', title: 'Modern Agra Elevation', img: 'https://images.pexels.com/photos/32666364/pexels-photo-32666364.jpeg' },
+            { id: 5, type: 'villa', title: 'Nizam Estate', img: 'https://images.pexels.com/photos/36466231/pexels-photo-36466231.jpeg' },
+            { id: 6, type: 'interior', title: 'Vastu Dining Hall', img: 'https://images.pexels.com/photos/32473245/pexels-photo-32473245.png' }
+        ];
+
+        const galleryGrid = document.getElementById('mainGallery');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        function renderGallery(filter = 'all') {
+            galleryGrid.innerHTML = '';
+            const filtered = filter === 'all' ? galleryData : galleryData.filter(item => item.type === filter);
+            
+            filtered.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'gallery-item';
+                div.innerHTML = `
+                    <img src="${item.img}" alt="${item.title}" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span style="font-weight:700; letter-spacing:2px; text-transform:uppercase; font-size:0.8rem;">${item.title}</span>
+                    </div>
+                `;
+                galleryGrid.appendChild(div);
+            });
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderGallery(btn.dataset.filter);
+            });
+        });
+
+        // ACCORDION
+        document.querySelectorAll('.faq-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                const wasActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!wasActive) item.classList.add('active');
+            });
+        });
+
+        // MODALS
+        window.openModal = function(id) {
+            document.getElementById(id).style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        window.closeAllModals = function(e) {
+            document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onload = () => {
+            renderGallery();
+        }
+    
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{
+  "cement": "Coromandel or Ultratech or ISI Certified Equivalent.",
+  "steel": "Tata or JSW or ISI Certified Equivalent.",
+  "brick": "Machine clay brick.",
+  "sand": "R Sand used for roof concrete based on availability. M Sand for other than roof concrete, brick work and tile work.",
+  "metal": "Best quality material available near site.",
+  "grill_work": "Tata or JSW or ISI Certified Equivalent.",
+  "wood_work": {
+    "main_door": {
+      "fitting_material_cost": 12000,
+      "door_frame": "African Teak (₹20,000)",
+      "door_panel": "African Teak (₹30,000)"
+    },
+    "other_room_doors": {
+      "fitting_material_cost": 3000,
+      "door_frame": "African Teak (₹8,000)",
+      "door_panel": "African Teak (₹15,000)"
+    },
+    "toilet_doors": {
+      "door": "WPVC door up to ₹9,000"
+    },
+    "windows": "UPVC or African Teak - ₹1,000/sq.ft",
+    "ventilators": "UPVC/African wood - ₹4,000 each"
+  },
+  "floor_finishing": {
+    "tiles_granite": "Vitrified tile/Granite up to ₹100/sq.ft",
+    "wall_tiles": "Wall tile up to ₹50/sq.ft",
+    "antiskid_tiles": "Antiskid tile up to ₹50/sq.ft",
+    "step_tiles": "Step tile/Granite up to ₹120/sq.ft"
+  },
+  "ss_handrail": "SS304 - customized design",
+  "weathering_course": "White flat tiles up to ₹45/sq.ft",
+  "painting": "Asian Royal Emulsion - inner, up to ₹700/litre",
+  "plumbing": {
+    "pipes": "Finolex pipes & Jaquar fittings",
+    "mixer": "Wall mixer tap up to ₹6,000",
+    "shower": "Shower set up to ₹3,000"
+  },
+  "electrical": "Legrand switches & Polycab/Finolex wires",
+  "sanitary_ware": "Jaquar/Parryware white",
+  "elevation": "Architecture view with Tile"
+}

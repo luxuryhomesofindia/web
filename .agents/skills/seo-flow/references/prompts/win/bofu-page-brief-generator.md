@@ -1,3 +1,4 @@
+<!-- Source: github.com/AgriciDaniel/flow | License: CC BY 4.0 | Synced: 2026-04-26 -->
 ---
 title: "BOFU Page Brief Generator"
 description: "BOFU Page Brief Generator"
@@ -60,8 +61,8 @@ Input: commercial repair page for facility managers with objections around respo
 ## See Also
 
 - [Prompt Library](../README.md)
-- [BOFU and Conversion Content](../../06-win/bofu-and-conversion-content.md)
-- [Dual-Surface Scorecard](../../06-win/dual-surface-scorecard.md)
+- BOFU and Conversion Content
+- Dual-Surface Scorecard
 
 ## Source Note
 

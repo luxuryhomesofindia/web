@@ -35,15 +35,15 @@ Navigate to **APIs & Services > Library** and enable:
 1. **APIs & Services > Credentials > Create Credentials > API key**
 2. Click **Restrict key**:
    - Under **API restrictions**, select: PageSpeed Insights API, Chrome UX Report API, Knowledge Graph Search API
-3. Copy the key (starts with `AIzaSy...`)
+3. Copy the generated API key and store it securely
 
 ## Step 4: Create a Service Account
 
 1. **IAM & Admin > Service Accounts > Create Service Account**
-2. Name: `seo-skills` (or similar)
+2. Name: `claude-seo` (or similar)
 3. Skip optional permissions steps
 4. Click on the created service account > **Keys > Add Key > Create new key > JSON**
-5. Download the JSON file and store it securely (e.g., `~/.config/seo-skills/service_account.json`)
+5. Download the JSON file and store it securely (e.g., `~/.config/claude-seo/service_account.json`)
 
 The JSON file looks like:
 ```json
@@ -51,8 +51,8 @@ The JSON file looks like:
   "type": "service_account",
   "project_id": "your-project-id",
   "private_key_id": "...",
-  "private_key": "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n",
-  "client_email": "seo-skills@your-project.iam.gserviceaccount.com",
+  "private_key": "<service-account-private-key>",
+  "client_email": "<service-account-identifier>",
   "client_id": "...",
   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
   "token_uri": "https://oauth2.googleapis.com/token"
@@ -82,15 +82,15 @@ The `client_email` field is what you add to GSC and GA4.
 ## Step 7: Create Config File
 
 ```bash
-mkdir -p ~/.config/seo-skills
+mkdir -p ~/.config/claude-seo
 ```
 
-Save to `~/.config/seo-skills/google-api.json`:
+Save to `~/.config/claude-seo/google-api.json`:
 
 ```json
 {
-  "service_account_path": "~/.config/seo-skills/service_account.json",
-  "api_key": "AIzaSy...",
+  "service_account_path": "~/.config/claude-seo/service_account.json",
+  "api_key": "<GOOGLE_API_KEY>",
   "default_property": "sc-domain:example.com",
   "ga4_property_id": "properties/123456789"
 }
@@ -106,7 +106,7 @@ Save to `~/.config/seo-skills/google-api.json`:
 ## Step 8: Verify Setup
 
 ```bash
-python scripts/google_auth.py --check
+claude-seo run google_auth.py --check
 ```
 
 Expected output at Tier 2 (full):
@@ -117,7 +117,7 @@ Credential Tier: 2 -- Full (API key + Service Account + GA4)
   [OK] Chrome UX Report (CrUX) API
   [OK] CrUX History API
   [OK] Google Search Console API
-       Service account: seo-skills@your-project.iam.gserviceaccount.com
+       Service account: configured
   [OK] Google Indexing API v3
   [OK] GA4 Data API v1beta
 ```

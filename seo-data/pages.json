@@ -1,0 +1,527 @@
+{
+  "chennai": {
+    "slug": "chennai",
+    "page_type": "hub",
+    "title": "Turnkey House Construction Company in Chennai | LHI",
+    "description": "Luxury Homes of India is Chennai's premier residential construction company, specializing in luxury villas, custom house design, and turnkey turnkey execution.",
+    "h1": "Bespoke House Construction Company in Chennai",
+    "primary_keyword": "construction company Chennai",
+    "intro": "Luxury Homes of India (LHI) is the premier luxury home construction partner in Chennai. We combine architectural excellence with world-class engineering to construct turnkey residential projects.",
+    "faqs": [
+      {
+        "question": "Which is the best construction company in Chennai for luxury villas?",
+        "answer": "Luxury Homes of India (LHI) is highly rated for premium custom villa construction, offering comprehensive services from structural planning to turnkey interior design."
+      }
+    ]
+  },
+  "chennai/luxury-home-construction": {
+    "slug": "chennai/luxury-home-construction",
+    "page_type": "service",
+    "title": "Luxury Home Construction in Chennai | Premium Villa Builders | LHI",
+    "description": "Construct your custom luxury home or villa in Chennai with LHI. Premium turnkey residential building contractors specializing in high-end design, civil engineering, and elite finishes.",
+    "h1": "Luxury Home Construction in Chennai",
+    "primary_keyword": "luxury home construction Chennai",
+    "intro": "Constructing a luxury home requires precise engineering and exceptional craftsmanship. LHI constructs bespoke villas and estates across Chennai's most exclusive neighborhoods.",
+    "faqs": [
+      {
+        "question": "What is the typical cost per square foot for luxury home construction in Chennai?",
+        "answer": "Premium bespoke construction starts at ₹2,650 per square foot for LHI's Premium Package, which includes high-end structural materials, Teak fittings, and customized elevations."
+      }
+    ]
+  },
+  "chennai/villa-construction": {
+    "slug": "chennai/villa-construction",
+    "page_type": "service",
+    "title": "Bespoke Villa Construction in Chennai | Custom Villa Builders | LHI",
+    "description": "Construct your custom villa in Chennai. LHI is the leading luxury villa construction specialist, combining design, structural engineering, and smart home automation.",
+    "h1": "Custom Villa Construction in Chennai",
+    "primary_keyword": "villa construction Chennai",
+    "intro": "LHI is Chennai's leading custom villa builder, offering bespoke design-build services tailored to your aesthetic, lifestyle, and property layout requirements.",
+    "faqs": [
+      {
+        "question": "How long does it take to construct a custom villa in Chennai?",
+        "answer": "Typically, a custom residential villa construction project takes 12 to 18 months, depending on the floor area, design style, and municipal approval processes."
+      }
+    ]
+  },
+  "chennai/house-construction": {
+    "slug": "chennai/house-construction",
+    "page_type": "service",
+    "title": "Independent House Construction in Chennai | Turnkey Home Builders | LHI",
+    "description": "Build your independent house in Chennai. LHI offers comprehensive architectural planning, civil construction, and interior design with verified quotation rates.",
+    "h1": "Independent House Construction in Chennai",
+    "primary_keyword": "house construction Chennai",
+    "intro": "LHI simplifies independent home construction in Chennai, providing end-to-end design-build models from initial blueprints to payment milestones.",
+    "faqs": [
+      {
+        "question": "What are the standard packages for house construction in Chennai?",
+        "answer": "LHI offers three construction packages: Basic at ₹2,250/sq.ft, Standard at ₹2,450/sq.ft, and Premium at ₹2,650/sq.ft, subject to specifications."
+      }
+    ]
+  },
+  "chennai/turnkey-home-construction": {
+    "slug": "chennai/turnkey-home-construction",
+    "page_type": "service",
+    "title": "Turnkey Residential Construction in Chennai | LHI",
+    "description": "Premium turnkey house construction in Chennai. We handle architectural design, municipal approvals, civil engineering, MEP, and interiors under a single agreement.",
+    "h1": "Turnkey Home Construction in Chennai",
+    "primary_keyword": "turnkey construction company Chennai",
+    "intro": "Our turnkey residential construction services provide a single point of responsibility. We take care of all project phases so you receive a move-in ready luxury home.",
+    "faqs": [
+      {
+        "question": "What does turnkey construction include?",
+        "answer": "LHI turnkey packages cover architectural design, soil testing, civil structure, electrical, plumbing, sanitary ware, flooring, painting, and basic elevation work."
+      }
+    ]
+  },
+  "chennai/architecture": {
+    "slug": "chennai/architecture",
+    "page_type": "service",
+    "title": "Premium Residential Architects in Chennai | Luxury Home Design | LHI",
+    "description": "Work with Chennai's premier residential architects. LHI designs custom luxury villas, floor plans, and elevation designs with verified CMDA/DTCP structural compliance.",
+    "h1": "Residential Architecture Services in Chennai",
+    "primary_keyword": "residential architects Chennai",
+    "intro": "Outstanding architecture is the foundation of a luxury home. LHI's design studio creates functional, modern, and Vastu-compliant layouts.",
+    "faqs": [
+      {
+        "question": "Do you offer architectural design separate from construction?",
+        "answer": "Yes. While we prefer the integrated design-build model for quality control, our studio provides standalone architectural planning and floor designs."
+      }
+    ]
+  },
+  "chennai/interior-design": {
+    "slug": "chennai/interior-design",
+    "page_type": "service",
+    "title": "Luxury Interior Designers in Chennai | Premium Villa Interiors | LHI",
+    "description": "Bespoke interior design and execution in Chennai. LHI creates high-end custom kitchens, wardrobe units, false ceilings, and premium furniture configurations.",
+    "h1": "Luxury Interior Design in Chennai",
+    "primary_keyword": "luxury interior designers Chennai",
+    "intro": "LHI's interior design division creates elegant living spaces, combining fine materials like teak wood, customized lighting, and polished stone floors.",
+    "faqs": [
+      {
+        "question": "Are interior design services included in the construction package?",
+        "answer": "Basic interior works like wiring and tile fixing are included. Customized wardrobes, modular kitchens, and custom woodwork are estimated separately."
+      }
+    ]
+  },
+  "chennai/home-renovation": {
+    "slug": "chennai/home-renovation",
+    "page_type": "service",
+    "title": "Premium Home Renovation & Remodeling in Chennai | LHI",
+    "description": "Upgrade your property with Chennai's premium home renovation contractors. We specialize in structural modifications, bathroom remodels, and modular kitchen upgrades.",
+    "h1": "Premium Home Renovation in Chennai",
+    "primary_keyword": "home renovation Chennai",
+    "intro": "Transform your older residence into a modern luxury home with LHI's comprehensive renovation services, including structural hardening and design upgrades.",
+    "faqs": [
+      {
+        "question": "How long does a typical home renovation take in Chennai?",
+        "answer": "Depending on scope, small renovations take 4 to 8 weeks, while full structural remodeling can take 3 to 6 months."
+      }
+    ]
+  },
+  "chennai/smart-home": {
+    "slug": "chennai/smart-home",
+    "page_type": "service",
+    "title": "Smart Home Automation Systems in Chennai | LHI",
+    "description": "Deploy luxury smart home automation in Chennai. LHI integrates unified control panels, smart lighting, automated blinds, security cameras, and voice controls.",
+    "h1": "Smart Home Automation in Chennai",
+    "primary_keyword": "smart home automation Chennai",
+    "intro": "Bring convenience and energy efficiency to your residence with LHI's smart home automation systems, designed for luxury villas.",
+    "faqs": [
+      {
+        "question": "What automation systems are standard in luxury villas?",
+        "answer": "Common integrations include smart lighting, HVAC temperature control, automated window shades, and biometric security systems."
+      }
+    ]
+  },
+  "chennai/house-construction-cost": {
+    "slug": "chennai/house-construction-cost",
+    "page_type": "service",
+    "title": "House Construction Cost in Chennai | Rates & Specifications | LHI",
+    "description": "Get detailed house construction cost information in Chennai. Compare LHI's verified packages: Basic (₹2,250), Standard (₹2,450), and Premium (₹2,650) per sq.ft.",
+    "h1": "House Construction Cost in Chennai",
+    "primary_keyword": "house construction cost Chennai",
+    "intro": "Understanding construction costs is key to planning. LHI provides fully transparent construction pricing packages based on our official residential quotation.",
+    "faqs": [
+      {
+        "question": "What is the construction cost per sq ft in Chennai?",
+        "answer": "Our construction packages are priced at: Basic at ₹2,250/sq.ft, Standard at ₹2,450/sq.ft, and Premium at ₹2,650/sq.ft."
+      }
+    ]
+  },
+  "chennai/construction-cost-calculator": {
+    "slug": "chennai/construction-cost-calculator",
+    "page_type": "service",
+    "title": "House Construction Cost Calculator Chennai | LHI",
+    "description": "Calculate your home construction cost in Chennai instantly. Input your plot size and built-up area to get transparent estimates for Basic, Standard, and Premium packages.",
+    "h1": "House Construction Cost Calculator",
+    "primary_keyword": "construction cost calculator Chennai",
+    "intro": "Estimate your residential construction cost dynamically using LHI's official rates. Our calculator uses real package specifications.",
+    "faqs": [
+      {
+        "question": "How accurate is the construction cost calculator?",
+        "answer": "The calculator provides an accurate estimate based on our official packages. Final rates are determined by specific site conditions."
+      }
+    ]
+  },
+  "chennai/omr": {
+    "slug": "chennai/omr",
+    "page_type": "locality",
+    "title": "Bespoke House Construction in OMR Chennai | Turnkey Villa Builders | LHI",
+    "description": "Construct your luxury home or villa on OMR (Old Mahabalipuram Road) Chennai. LHI is the leading design-build partner offering CMDA approvals and pile foundations.",
+    "h1": "Luxury House Construction in OMR Chennai",
+    "primary_keyword": "luxury house construction OMR",
+    "intro": "LHI constructs premium turnkey residences along OMR, Chennai's IT corridor. We design custom structures tailored to the area's soil conditions.",
+    "faqs": []
+  },
+  "chennai/ecr": {
+    "slug": "chennai/ecr",
+    "page_type": "locality",
+    "title": "Premium Villa Construction on ECR Chennai | Beach Villa Builders | LHI",
+    "description": "Construct your custom beach villa on ECR (East Coast Road) Chennai. LHI specializes in premium coastal engineering, CRZ compliance, and rust protection.",
+    "h1": "Premium Villa Construction on ECR Chennai",
+    "primary_keyword": "villa builders ECR Chennai",
+    "intro": "LHI is ECR's premier beach villa builder, designing elegant coastal estates protected with marine-grade structural finishes.",
+    "faqs": []
+  },
+  "chennai/sholinganallur": {
+    "slug": "chennai/sholinganallur",
+    "page_type": "locality",
+    "title": "House Construction in Sholinganallur Chennai | Gated Villa Builders | LHI",
+    "description": "Turnkey home builders in Sholinganallur Chennai. LHI offers premium residential civil construction, Vastu designs, and CMDA approval assistance.",
+    "h1": "Turnkey House Construction in Sholinganallur",
+    "primary_keyword": "turnkey house construction Sholinganallur",
+    "intro": "Building custom residences in Sholinganallur with high structural integrity and Vastu compliance.",
+    "faqs": []
+  },
+  "chennai/perungudi": {
+    "slug": "chennai/perungudi",
+    "page_type": "locality",
+    "title": "House Construction in Perungudi Chennai | Turnkey Builders | LHI",
+    "description": "Custom residential builders in Perungudi Chennai. We design and construct structurally secure G+2 independent houses and luxury villas.",
+    "h1": "House Construction in Perungudi Chennai",
+    "primary_keyword": "residential builders Perungudi",
+    "intro": "LHI constructs high-end custom homes in Perungudi, implementing pile foundations for ultimate safety.",
+    "faqs": []
+  },
+  "chennai/thoraipakkam": {
+    "slug": "chennai/thoraipakkam",
+    "page_type": "locality",
+    "title": "Turnkey House Construction in Thoraipakkam Chennai | LHI",
+    "description": "Independent house builders in Thoraipakkam OMR. We design elevated plinths and stormwater structures for waterlogging prevention.",
+    "h1": "Turnkey House Construction in Thoraipakkam",
+    "primary_keyword": "house builders Thoraipakkam",
+    "intro": "LHI constructs turnkey residential projects in Thoraipakkam, utilizing quality structural steel and waterproofing.",
+    "faqs": []
+  },
+  "chennai/navalur": {
+    "slug": "chennai/navalur",
+    "page_type": "locality",
+    "title": "Bespoke Villa Construction in Navalur OMR Chennai | LHI",
+    "description": "Build your dream villa in Navalur. LHI is the leading turnkey builder offering custom architecture, DTCP layouts, and premium wood/tile finishes.",
+    "h1": "Bespoke Villa Construction in Navalur",
+    "primary_keyword": "villa construction Navalur",
+    "intro": "We design and build customized luxury residences in Navalur with clear project milestones.",
+    "faqs": []
+  },
+  "chennai/kelambakkam": {
+    "slug": "chennai/kelambakkam",
+    "page_type": "locality",
+    "title": "Turnkey Home Construction in Kelambakkam Chennai | LHI",
+    "description": "Residential home contractors in Kelambakkam. We offer isolated column footings, architectural designs, and modular kitchen interiors.",
+    "h1": "Turnkey Home Construction in Kelambakkam",
+    "primary_keyword": "house builders Kelambakkam",
+    "intro": "Providing high-quality turnkey residential construction services in Kelambakkam.",
+    "faqs": []
+  },
+  "chennai/velachery": {
+    "slug": "chennai/velachery",
+    "page_type": "locality",
+    "title": "Independent House Construction in Velachery Chennai | LHI",
+    "description": "Build flood-proof independent houses in Velachery. LHI designs high plinth levels (+1.5m) and reinforced concrete structures.",
+    "h1": "Independent House Construction in Velachery",
+    "primary_keyword": "independent house builders Velachery",
+    "intro": "Expert flood-resilient residential construction services in Velachery under CMDA compliance.",
+    "faqs": []
+  },
+  "chennai/tambaram": {
+    "slug": "chennai/tambaram",
+    "page_type": "locality",
+    "title": "House Construction in Tambaram Chennai | Turnkey Builders | LHI",
+    "description": "Municipal corporation approved builders in Tambaram. LHI offers architectural plans, isolated footings in rocky soil, and premium fittings.",
+    "h1": "Independent House Construction in Tambaram",
+    "primary_keyword": "turnkey builders Tambaram",
+    "intro": "Optimized structural designs utilizing solid rocky foundations in Tambaram.",
+    "faqs": []
+  },
+  "chennai/medavakkam": {
+    "slug": "chennai/medavakkam",
+    "page_type": "locality",
+    "title": "Independent House Construction in Medavakkam Chennai | LHI",
+    "description": "Turnkey residential builders in Medavakkam. Specializing in clay-soil raft foundations, Vastu floor plans, and turnkey interiors.",
+    "h1": "House Construction in Medavakkam Chennai",
+    "primary_keyword": "residential construction Medavakkam",
+    "intro": "Building durable independent villas in Medavakkam with verified material specifications.",
+    "faqs": []
+  },
+  "chennai/porur": {
+    "slug": "chennai/porur",
+    "page_type": "locality",
+    "title": "Independent House Construction in Porur Chennai | LHI",
+    "description": "Build custom independent houses in Porur. We offer comprehensive design-build services, FSI optimization, and isolated foundations.",
+    "h1": "Independent House Construction in Porur",
+    "primary_keyword": "house construction Porur",
+    "intro": "Premium turnkey residential building services in Porur, Western Chennai.",
+    "faqs": []
+  },
+  "chennai/adyar": {
+    "slug": "chennai/adyar",
+    "page_type": "locality",
+    "title": "Luxury Villa Construction in Adyar Chennai | Premium Architects | LHI",
+    "description": "Elite custom house construction in Adyar. We design and build ultra-premium villas with Vastu layouts, FSI maximization, and luxury interiors.",
+    "h1": "Luxury Villa Construction in Adyar Chennai",
+    "primary_keyword": "luxury villa construction Adyar",
+    "intro": "Bespoke home construction services in Adyar, matching municipal setback rules and elite specs.",
+    "faqs": []
+  },
+  "chennai/anna-nagar": {
+    "slug": "chennai/anna-nagar",
+    "page_type": "locality",
+    "title": "Luxury Home Construction in Anna Nagar Chennai | LHI",
+    "description": "Bespoke residential builders in Anna Nagar. High-end villa construction featuring Tata/JSW steel, African Teak doors, and automated systems.",
+    "h1": "Luxury Home Construction in Anna Nagar",
+    "primary_keyword": "luxury builders Anna Nagar",
+    "intro": "Constructing premium independent residences in Anna Nagar with high-density layouts.",
+    "faqs": []
+  },
+  "chennai/alwarpet": {
+    "slug": "chennai/alwarpet",
+    "page_type": "locality",
+    "title": "Luxury Home Construction in Alwarpet Chennai | LHI",
+    "description": "Premium villa reconstruction in Alwarpet. LHI specializes in high-end turnkey home building, Italian marble flooring, and smart automation.",
+    "h1": "Luxury Home Construction in Alwarpet",
+    "primary_keyword": "luxury villa builders Alwarpet",
+    "intro": "Delivering high-end custom home construction in the heart of Alwarpet.",
+    "faqs": []
+  },
+  "chennai/nungambakkam": {
+    "slug": "chennai/nungambakkam",
+    "page_type": "locality",
+    "title": "Luxury Villa Construction in Nungambakkam Chennai | LHI",
+    "description": "Elite turnkey house construction in Nungambakkam. We offer CMDA FSI design-build services, teakwood fittings, and smart integration.",
+    "h1": "Luxury Villa Construction in Nungambakkam",
+    "primary_keyword": "luxury house construction Nungambakkam",
+    "intro": "We build elegant urban villas in Nungambakkam, optimizing layout footprints and structural setbacks.",
+    "faqs": []
+  },
+  "tamil-nadu": {
+    "slug": "tamil-nadu",
+    "page_type": "regional",
+    "title": "Turnkey Residential Construction Services in Tamil Nadu | LHI",
+    "description": "Luxury Homes of India provides premium house construction, architecture, and interior design services across major cities in Tamil Nadu, including Chennai, Coimbatore, and Madurai.",
+    "h1": "Residential Construction Services in Tamil Nadu",
+    "primary_keyword": "construction company Tamil Nadu",
+    "intro": "LHI is the leading design-build partner for premium residences across Tamil Nadu. We deliver structural safety, modern aesthetics, and transparent project milestones.",
+    "faqs": [
+      {
+        "question": "Does LHI undertake residential construction outside Chennai?",
+        "answer": "Yes. While Chennai is our primary market, LHI serves clients in Coimbatore, Madurai, Trichy, Salem, and other major cities across Tamil Nadu."
+      }
+    ]
+  },
+  "guides/house-construction-chennai": {
+    "slug": "guides/house-construction-chennai",
+    "page_type": "guide",
+    "title": "Guide to Independent House Construction in Chennai | LHI",
+    "description": "Read our comprehensive guide to independent house construction in Chennai, covering soil testing, structural foundations, CMDA regulations, and payment cycles.",
+    "h1": "Guide to Independent House Construction in Chennai",
+    "primary_keyword": "house construction process Chennai",
+    "intro": "Building your dream independent house in Chennai requires careful planning. This guide walks you through every step of the development process.",
+    "faqs": [
+      {
+        "question": "What is the first step in house construction in Chennai?",
+        "answer": "The first step is checking structural feasibility, performing a soil test, and securing planning approval from CMDA or local municipal corporations."
+      }
+    ]
+  },
+  "guides/house-construction-cost-chennai": {
+    "slug": "guides/house-construction-cost-chennai",
+    "page_type": "guide",
+    "title": "Detailed Breakdown of House Construction Cost in Chennai | LHI",
+    "description": "Learn about residential construction costs in Chennai. Compare civil costs, MEP configurations, interior finishes, and custom structural elements.",
+    "h1": "Breakdown of House Construction Cost in Chennai",
+    "primary_keyword": "construction cost per sq ft Chennai",
+    "intro": "This guide provides a comprehensive cost analysis of residential construction in Chennai, detailing material specifications, setbacks, and budget planning.",
+    "faqs": [
+      {
+        "question": "What are common hidden costs in house construction?",
+        "answer": "Common hidden costs include municipal approval fees, temporary electricity/water connections, compound walls, borewell drilling, and structural elevation tiles."
+      }
+    ]
+  },
+  "guides/luxury-villa-construction-chennai": {
+    "slug": "guides/luxury-villa-construction-chennai",
+    "page_type": "guide",
+    "title": "Building a Luxury Villa in Chennai: Engineering & Design Guide | LHI",
+    "description": "Master guide to building a luxury villa in Chennai. Details zoning setback limits, marine-grade seaside materials, structural pile planning, and FSI optimization.",
+    "h1": "Building a Luxury Villa in Chennai",
+    "primary_keyword": "luxury villa construction Chennai",
+    "intro": "Constructing a premium custom villa demands specialized engineering and premium materials. We discuss how LHI designs and constructs high-end residences.",
+    "faqs": [
+      {
+        "question": "How do ECR and OMR villa requirements differ?",
+        "answer": "ECR villas require coastal compliance and rust protection, while OMR properties often require deep pile foundations due to clay soil structures."
+      }
+    ]
+  },
+  "guides/turnkey-home-construction": {
+    "slug": "guides/turnkey-home-construction",
+    "page_type": "guide",
+    "title": "Why Choose Turnkey House Construction? Benefits & Models | LHI",
+    "description": "Discover the benefits of turnkey house construction. Learn how single-responsibility design-build contracts prevent cost overruns and coordinate materials.",
+    "h1": "Understanding Turnkey Home Construction",
+    "primary_keyword": "turnkey turnkey construction company Chennai",
+    "intro": "Turnkey construction simplifies home building by placing design, material sourcing, structural engineering, and finishing under a single contract.",
+    "faqs": [
+      {
+        "question": "Does turnkey construction save money?",
+        "answer": "Yes. It prevents coordination delays, standardizes material costs, and protects against price fluctuations."
+      }
+    ]
+  },
+  "guides/house-construction-process": {
+    "slug": "guides/house-construction-process",
+    "page_type": "guide",
+    "title": "Step-by-Step House Construction Process & Timeline | LHI",
+    "description": "Detailed guide on the independent house construction timeline. Follow structural phases from excavation, plinth beams, columns, slab casting, and finishes.",
+    "h1": "The House Construction Process & Timeline",
+    "primary_keyword": "house construction process",
+    "intro": "This guide outlines the chronological steps of building a custom house, from initial site clearing to final handover keys.",
+    "faqs": [
+      {
+        "question": "What are the structural stages of house construction?",
+        "answer": "The main structural stages are: Site preparation, Foundation & Footings, Plinth Beam casting, Column raising, Roof Slab casting, and Brick masonry."
+      }
+    ]
+  },
+  "guides/building-approvals-chennai": {
+    "slug": "guides/building-approvals-chennai",
+    "page_type": "guide",
+    "title": "Guide to Residential Building Approvals in Chennai (CMDA & DTCP) | LHI",
+    "description": "Understand building permits in Chennai. Complete guidelines for CMDA, DTCP, setback requirements, road widths, and structural clearance documents.",
+    "h1": "Residential Building Approvals in Chennai",
+    "primary_keyword": "building approvals Chennai",
+    "intro": "Securing regulatory approval is vital before beginning construction. We explain the difference between CMDA and DTCP permits and how to apply.",
+    "faqs": [
+      {
+        "question": "What is the difference between CMDA and DTCP approvals?",
+        "answer": "CMDA governs the Chennai Metropolitan Area, while DTCP approves layouts and plans in suburban zones outside CMDA limits."
+      }
+    ]
+  },
+  "guides/construction-agreement-guide": {
+    "slug": "guides/construction-agreement-guide",
+    "page_type": "guide",
+    "title": "Understanding Residential Construction Agreements & Contracts | LHI",
+    "description": "Essential guide on home construction agreements. Learn about billing models, payment milestones, material specifications, and quality guarantees.",
+    "h1": "Guide to Construction Agreements & Contracts",
+    "primary_keyword": "construction agreement guide",
+    "intro": "A well-structured agreement is key to a smooth project. This guide covers payment stages, timelines, and material quality standards.",
+    "faqs": [
+      {
+        "question": "What is the typical payment milestone cycle for house construction?",
+        "answer": "Payments are typically divided into: Booking (5-10%), Foundation completion (15-20%), Roof Slab casting (15-20%), Plastering (15-20%), and Handover (5%)."
+      }
+    ]
+  },
+  "questions": {
+    "slug": "questions",
+    "page_type": "authority",
+    "title": "House Construction FAQs & Answer Engine | LHI Chennai",
+    "description": "Find authoritative answers to common house construction, design, and cost questions in Chennai. Powered by LHI's engineering team.",
+    "h1": "Residential Construction Answer Engine",
+    "primary_keyword": "house construction FAQ Chennai",
+    "intro": "We answer your questions about house construction, materials, regulatory approvals, and cost estimates in Chennai.",
+    "faqs": [
+      {
+        "question": "How much does it cost to build a house in Chennai?",
+        "answer": "indicative pricing starts at ₹2,250/sq.ft for Basic, ₹2,450/sq.ft for Standard, and ₹2,650/sq.ft for Premium construction packages."
+      }
+    ]
+  },
+  "projects": {
+    "slug": "projects",
+    "page_type": "authority",
+    "title": "LHI Projects | Completed Premium Residences in Chennai",
+    "description": "Browse completed turnkey villa construction projects by Luxury Homes of India. Explore real photographs, specifications, and client testimonials.",
+    "h1": "Completed Residential Projects",
+    "primary_keyword": "completed construction projects Chennai",
+    "intro": "LHI is proud of its completed premium residences. Explore our project case studies to see our work.",
+    "faqs": [
+      {
+        "question": "Can I visit one of LHI's completed projects in Chennai?",
+        "answer": "Yes, we can arrange site visits to our active or completed residences with prior permission from our clients."
+      }
+    ]
+  },
+  "projects/annadurai-residency": {
+    "slug": "projects/annadurai-residency",
+    "page_type": "project",
+    "title": "Annadurai Residency | Premium Turnkey Villa in Chennai | LHI",
+    "description": "Explore the structural details, specifications, and interior layout of Annadurai Residency, a premium turnkey villa completed by Luxury Homes of India.",
+    "h1": "Annadurai Residency Case Study",
+    "primary_keyword": "Annadurai Residency construction",
+    "intro": "Annadurai Residency showcases high-end residential engineering in Chennai. This custom home features Premium specifications, Teak doors, and custom elevations.",
+    "faqs": []
+  },
+  "projects/devaraj-residency": {
+    "slug": "projects/devaraj-residency",
+    "page_type": "project",
+    "title": "Devaraj Residency | Custom Multi-Storey Villa | LHI",
+    "description": "Discover Devaraj Residency, a custom multi-storey villa completed by LHI. Explore the foundation detail, structural elements, and premium finishing.",
+    "h1": "Devaraj Residency Case Study",
+    "primary_keyword": "Devaraj Residency construction",
+    "intro": "Devaraj Residency is a signature custom home in Chennai. The design features a modern architectural layout, isolated footings, and high-end interiors.",
+    "faqs": []
+  },
+  "projects/ganesh-resort": {
+    "slug": "projects/ganesh-resort",
+    "page_type": "project",
+    "title": "Ganesh Residence | Premium Gated Villa | LHI",
+    "description": "Case study of Ganesh Residence by LHI. Review the design process, material specifications, and smart home automation features.",
+    "h1": "Ganesh Residence Case Study",
+    "primary_keyword": "Ganesh Residence construction",
+    "intro": "Ganesh Residence is a spacious gated villa built with Premium materials, featuring custom masonry, smart controls, and landscape designs.",
+    "faqs": []
+  },
+  "projects/hashwin-residence": {
+    "slug": "projects/hashwin-residence",
+    "page_type": "project",
+    "title": "Hashwin Residence | Contemporary Turnkey Home | LHI",
+    "description": "Case study of Hashwin Residence in Chennai, built by LHI. Learn about the custom foundation, contemporary framing, and modern kitchen interiors.",
+    "h1": "Hashwin Residence Case Study",
+    "primary_keyword": "Hashwin Residence construction",
+    "intro": "Hashwin Residence is a contemporary turnkey home featuring customized masonry, modern UPVC windows, and open-layout spaces.",
+    "faqs": []
+  },
+  "projects/andrew-farmhouse": {
+    "slug": "projects/andrew-farmhouse",
+    "page_type": "project",
+    "title": "Andrew Farmhouse | Luxury Vacation Villa in Chennai | LHI",
+    "description": "Review Andrew Farmhouse, a luxury vacation villa completed by LHI. Features rustic elements, open structures, and customized landscaping.",
+    "h1": "Andrew Farmhouse Case Study",
+    "primary_keyword": "Andrew Farmhouse construction",
+    "intro": "Andrew Farmhouse is a luxury vacation villa in Chennai, designed for open living. The structure uses stable raft foundations and custom wood finishes.",
+    "faqs": []
+  },
+  "projects/sri-mandir-residency": {
+    "slug": "projects/sri-mandir-residency",
+    "page_type": "project",
+    "title": "Sri Mandir Residency | Vastu-Compliant Luxury Home | LHI",
+    "description": "Case study of Sri Mandir Residency by LHI. Read about the Vastu design principles, isolated column structures, and high-end sanitary fittings.",
+    "h1": "Sri Mandir Residency Case Study",
+    "primary_keyword": "Sri Mandir Residency construction",
+    "intro": "Sri Mandir Residency is a signature Vastu-compliant villa in Chennai, built with Standard specifications and customized exterior finishes.",
+    "faqs": []
+  }
+}

@@ -1,13 +1,24 @@
-# Google AI Optimization Guide — primary-source synthesis (May 2026)
+# Google AI Optimization Guide — primary-source synthesis (June 2026)
 
 Google published a dedicated **AI optimization guide** under Search Central
-docs. Its position is the most-cited primary source for how AI Overviews and
-AI Mode interact with Search ranking. Every seo-skills audit that touches GEO
-should treat this doc as the canonical reference and reject community claims
-that contradict it.
+docs (under the new "Generative AI fundamentals" section; announced via the
+Search Central blog 2026-05-15, doc last updated 2026-06-29). Its position is
+the most-cited primary source for how AI Overviews and AI Mode interact with
+Search ranking. Every claude-seo audit that touches GEO should treat this doc
+as the canonical reference and reject community claims that contradict it.
 
 **Primary source:**
 https://developers.google.com/search/docs/fundamentals/ai-optimization-guide
+(announcing blog: https://developers.google.com/search/blog/2026/05/a-new-resource-for-optimizing)
+
+> **Companion doc — third-party SEO tools (2026-06-05):** Google published
+> "Using third-party SEO tools, services, and advice." No tool guarantees
+> rankings; third-party tools have **no access to Google's internal ranking
+> data**; Google does not endorse vendors; evaluate AEO/GEO claims against
+> official guidance; Search Console is the authoritative first-party source.
+> claude-seo's scores are heuristics, not Google-internal signals — state this
+> honestly in reports. Source:
+> https://developers.google.com/search/docs/fundamentals/third-party-seo
 
 ## TL;DR
 
@@ -100,26 +111,32 @@ plus a vision model, raw HTML/DOM, and the browser accessibility tree.
 
 Full audit criteria: `skills/seo-technical/references/agent-friendly-pages.md`.
 
-The guide also name-drops **WebMCP** (proposed standard for direct
-site↔agent interaction) and **UCP** (Universal Commerce Protocol — Google +
-Shopify + Etsy + Walmart + Visa/Mastercard). UCP audit criteria:
+The guide also covers **WebMCP** (proposed standard for direct site to agent
+interaction. Chrome 149 origin-trial and 2026-06-09 sign-up claims are
+unresolved, with three shipped Lighthouse audits) and **UCP** (Universal
+Commerce Protocol, open standard co-developed with Shopify, Etsy, Wayfair,
+Target, Walmart; Google-confirmed reference implementation in AI Mode in
+Search; ucp.dev lists 2026-04-08 as the latest date-based release, non-Google
+and hedged). UCP audit criteria:
 `skills/seo-ecommerce/references/ucp-universal-commerce-protocol.md`.
 
-## How seo-skills treats this guide
+## How claude-seo treats this guide
 
 1. `seo-geo` audits cite this URL as the authoritative source whenever the
    user asks about AEO/GEO frameworks.
 2. The myth-busting list above gates community-sourced AI-SEO recommendations
    — if a recommendation contradicts Google's stated position, flag it.
-3. Where a third-party claim and Google contradict, seo-skills defers to
+3. Where a third-party claim and Google contradict, claude-seo defers to
    Google and notes the contradiction explicitly.
 4. `seo-ecommerce` and `seo-images` enforce the two operational requirements
    above for sites using AI to generate product content.
 
 ## Last verified
 
-2026-05-18. Re-check the source doc each quarter. Update this file whenever:
+2026-06-21. Re-check the source doc each quarter. Update this file whenever:
 
 - Google publishes new myth-busting / clarification.
 - Any of the linked policy docs revise eligibility or enforcement language.
-- The UCP / WebMCP standards advance (currently early stage).
+- The UCP / WebMCP standards advance (UCP has ucp.dev-listed date-based spec
+  2026-04-08, non-Google and hedged; WebMCP Chrome 149 origin-trial status is
+  unresolved).

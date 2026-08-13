@@ -1,3 +1,4 @@
+<!-- Source: github.com/AgriciDaniel/flow | License: CC BY 4.0 | Synced: 2026-04-26 -->
 ---
 title: "Dual-Surface Content Scorecard"
 description: "Dual-Surface Content Scorecard"
@@ -58,8 +59,8 @@ Input: existing service page with traffic but low form submissions. Output: scor
 ## See Also
 
 - [Prompt Library](../README.md)
-- [BOFU and Conversion Content](../../06-win/bofu-and-conversion-content.md)
-- [Dual-Surface Scorecard](../../06-win/dual-surface-scorecard.md)
+- BOFU and Conversion Content
+- Dual-Surface Scorecard
 
 ## Source Note
 

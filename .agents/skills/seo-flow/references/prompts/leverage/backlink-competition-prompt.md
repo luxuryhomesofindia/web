@@ -1,3 +1,4 @@
+<!-- Source: github.com/AgriciDaniel/flow | License: CC BY 4.0 | Synced: 2026-04-26 -->
 ---
 title: "Backlink competition prompt"
 description: "Backlink competition prompt"
@@ -61,8 +62,8 @@ Expected output: a prioritized rewrite brief, facts to reconcile, internal links
 ## See Also
 
 - [Prompt Library](../README.md)
-- [FLOW Framework](../../01-framework/flow-framework.md)
-- [Bibliography](../../10-references/bibliography.md)
+- [FLOW Framework](../../flow-framework.md)
+- [Bibliography](../../bibliography.md)
 
 ## Source Note
 

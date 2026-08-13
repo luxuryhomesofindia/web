@@ -1,3 +1,4 @@
+<!-- Source: github.com/AgriciDaniel/flow | License: CC BY 4.0 | Synced: 2026-04-26 -->
 ---
 title: "Conversion Audit Prompt"
 description: "Conversion Audit Prompt"
@@ -59,8 +60,8 @@ Input: paid search landing page with many calls but few booked appointments. Out
 ## See Also
 
 - [Prompt Library](../README.md)
-- [BOFU and Conversion Content](../../06-win/bofu-and-conversion-content.md)
-- [Dual-Surface Scorecard](../../06-win/dual-surface-scorecard.md)
+- BOFU and Conversion Content
+- Dual-Surface Scorecard
 
 ## Source Note
 
