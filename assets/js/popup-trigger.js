@@ -222,12 +222,6 @@
 
         const formData = new FormData(form);
 
-        // Web3Forms Configuration
-        formData.set('access_key', '271c3543-15df-4d8c-8057-ffbc1d09e5df');
-        formData.set('subject', 'New Luxury Homes of India Lead');
-        formData.set('from_name', 'Luxury Homes of India');
-        formData.set('replyto', emailVal);
-
         // Custom fields and page attribution
         formData.set('page_url', window.location.href);
 
@@ -237,18 +231,8 @@
             selectedServices.push(cb.value);
         });
         formData.set('services_required', selectedServices.join(', '));
-        formData.delete('services[]'); // Remove array version
 
-        // Inject hidden botcheck spam check dynamically
-        if (!form.querySelector('input[name="botcheck"]')) {
-            const botcheckInput = document.createElement('input');
-            botcheckInput.type = 'checkbox';
-            botcheckInput.name = 'botcheck';
-            botcheckInput.style.display = 'none';
-            form.appendChild(botcheckInput);
-        }
-
-        const submitUrl = 'https://api.web3forms.com/submit';
+        const submitUrl = 'https://formbold.com/s/6QXkY';
 
         fetch(submitUrl, {
             method: 'POST',
@@ -275,52 +259,36 @@
             return data;
         })
         .then(res => {
-            if (res.success) { // Web3Forms API returns { success: true }
-                // Forward to FormBold client-side to bypass GoDaddy outbound cURL block
-                fetch('https://formbold.com/s/6QXkY', {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                }).catch(err => console.error('FormBold submission failed:', err));
+            // Success actions
+            msgDiv.innerHTML = `<div class="success-alert animate-pop-in">
+                <div class="checkmark-circle">
+                    <div class="background"></div>
+                    <div class="checkmark draw"></div>
+                </div>
+                <p style="color:#d4af37; font-weight:700; margin-top:10px;">Enquiry submitted successfully.</p>
+            </div>`;
+            
+            // Track Conversion Events
+            if (typeof fbq === 'function') {
+                fbq('track', 'Lead', {
+                    content_name: 'Luxury Home Consultation',
+                    status: 'Success'
+                });
+            }
+            if (typeof gtag === 'function') {
+                gtag('event', 'generate_lead', {
+                    'event_category': 'Engagement',
+                    'event_label': 'Lead Form Submit'
+                });
+            }
 
-                // Success actions
-                msgDiv.innerHTML = `<div class="success-alert animate-pop-in">
-                    <div class="checkmark-circle">
-                        <div class="background"></div>
-                        <div class="checkmark draw"></div>
-                    </div>
-                    <p style="color:#d4af37; font-weight:700; margin-top:10px;">Enquiry submitted successfully.</p>
-                </div>`;
-                
-                // Track Conversion Events
-                if (typeof fbq === 'function') {
-                    fbq('track', 'Lead', {
-                        content_name: 'Luxury Home Consultation',
-                        status: 'Success'
-                    });
-                }
-                if (typeof gtag === 'function') {
-                    gtag('event', 'generate_lead', {
-                        'event_category': 'Engagement',
-                        'event_label': 'Lead Form Submit'
-                    });
-                }
-
-                form.reset();
-                setTimeout(function () {
-                    closePopup();
-                    msgDiv.innerHTML = '';
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = originalBtnText;
-                }, 3000);
-            } else {
-                // General Server Error
+            form.reset();
+            setTimeout(function () {
+                closePopup();
+                msgDiv.innerHTML = '';
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalBtnText;
-                msgDiv.innerHTML = `<p class="error-alert">${res.message || 'Form submission failed. Please try again.'}</p>`;
-            }
+            }, 3000);
         })
         .catch(err => {
             submitBtn.disabled = false;
