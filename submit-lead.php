@@ -14,9 +14,12 @@ ob_start();
 
 header('Content-Type: application/json');
 
-// Start session for rate limiting
+// Start session for rate limiting (gracefully fallback if headers sent or sessions not supported)
 if (session_status() === PHP_SESSION_NONE) {
-    session_start();
+    if (is_writable('/tmp')) {
+        @session_save_path('/tmp');
+    }
+    @session_start();
 }
 
 // ----------------------------------------------------
@@ -148,8 +151,12 @@ if (!empty($errors)) {
 // 6. CRM LOCAL DATA LOGGING
 // ----------------------------------------------------
 $leadsDir = __DIR__ . '/leads';
+// Ensure compatibility with read-only filesystems (e.g., Vercel)
+if (!is_writable($leadsDir) && !is_writable(__DIR__)) {
+    $leadsDir = '/tmp/leads';
+}
 if (!file_exists($leadsDir)) {
-    mkdir($leadsDir, 0755, true);
+    @mkdir($leadsDir, 0755, true);
 }
 
 $leadsFile = $leadsDir . '/leads.json';
@@ -225,23 +232,23 @@ $leadRecord = [
 ];
 
 // Thread-safe writing to file
-$fp = fopen($leadsFile, 'c+');
+$fp = @fopen($leadsFile, 'c+');
 if ($fp) {
-    flock($fp, LOCK_EX);
-    $size = filesize($leadsFile);
+    @flock($fp, LOCK_EX);
+    $size = @filesize($leadsFile);
     $currentLeads = [];
     if ($size > 0) {
-        rewind($fp);
-        $content = fread($fp, $size);
+        @rewind($fp);
+        $content = @fread($fp, $size);
         $currentLeads = json_decode($content, true) ?: [];
     }
     $currentLeads[] = $leadRecord;
-    ftruncate($fp, 0);
-    rewind($fp);
-    fwrite($fp, json_encode($currentLeads, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
-    fflush($fp);
-    flock($fp, LOCK_UN);
-    fclose($fp);
+    @ftruncate($fp, 0);
+    @rewind($fp);
+    @fwrite($fp, json_encode($currentLeads, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    @fflush($fp);
+    @flock($fp, LOCK_UN);
+    @fclose($fp);
 }
 
 // ----------------------------------------------------
@@ -249,7 +256,7 @@ if ($fp) {
 // ----------------------------------------------------
 
 // Admin Email Notification
-$subjectAdmin = "New Premium Lead: {$name} - LHI Website";
+$subjectAdmin = "New Lead from LHI website";
 $boundary = md5(uniqid(time()));
 $headersAdmin = "From: " . FROM_NAME . " <" . FROM_EMAIL . ">\r\n";
 $headersAdmin .= "Reply-To: " . $email . "\r\n";
