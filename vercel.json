@@ -4,7 +4,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "functions": {
-    "api/index.php": {
+    "api/*.php": {
       "runtime": "vercel-php@0.7.3"
     }
   },
@@ -26,10 +26,17 @@
     { "source": "/blog-zero-energy-villas.html", "destination": "/blog/zero-energy-villas", "permanent": true }
   ],
   "rewrites": [
-    { "source": "/blog/category/:category", "destination": "/api/index.php" },
-    { "source": "/blog/:slug", "destination": "/api/index.php" },
-    { "source": "/blog", "destination": "/api/index.php" },
-    { "source": "/(.*\\.php)", "destination": "/api/index.php" }
+    { "source": "/blog/category/:category", "destination": "/api/blog.php?category=:category" },
+    { "source": "/blog/:slug", "destination": "/api/blog-detail.php?slug=:slug" },
+    { "source": "/blog", "destination": "/api/blog.php" },
+    { "source": "/submit-lead.php", "destination": "/api/submit-lead.php" },
+    { "source": "/career_mail.php", "destination": "/api/career_mail.php" },
+    { "source": "/sendmail.php", "destination": "/api/sendmail.php" },
+    { "source": "/mail.php", "destination": "/api/mail.php" },
+    { "source": "/popup_form.php", "destination": "/api/popup_form.php" },
+    { "source": "/submit-form.php", "destination": "/api/submit-form.php" },
+    { "source": "/resort-popup-mail.php", "destination": "/api/resort-popup-mail.php" },
+    { "source": "/appointment.php", "destination": "/api/appointment.php" }
   ],
   "headers": [
     {
