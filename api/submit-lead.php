@@ -1,8 +1,8 @@
 <?php
 /**
- * LHI Secure Lead Submission Handler (Self-Contained Serverless Endpoint)
- * Features: Server-side validation, Honeypot spam check, Rate limiting,
- * CRM JSON logging, Email notifications, and Customer Acknowledgement.
+ * LHI Secure Lead Submission Handler (Self-Contained Stateless Serverless Endpoint)
+ * Features: Server-side validation, Honeypot spam check, Stateless rate limiting,
+ * CRM JSON logging, Resend API with local mail() fallback, and Customer Acknowledgement.
  */
 
 // Enable error reporting for debug, but hide in production if needed
@@ -12,15 +12,7 @@ error_reporting(E_ALL);
 // Prevent PHP notices/warnings from polluting JSON responses
 ob_start();
 
-header('Content-Type: application/json');
-
-// Start session for rate limiting (gracefully fallback if headers sent or sessions not supported)
-if (session_status() === PHP_SESSION_NONE) {
-    if (is_writable('/tmp')) {
-        @session_save_path('/tmp');
-    }
-    @session_start();
-}
+header('Content-Type: application/json; charset=utf-8');
 
 // ----------------------------------------------------
 // 1. CONFIGURATION
@@ -32,27 +24,8 @@ define('FROM_NAME', 'Luxury Homes of India');
 // Optional: Cloudflare Turnstile Secret Key (User can configure this)
 define('TURNSTILE_SECRET_KEY', ''); // Add secret key here to enable Turnstile check
 
-// Rate limiting duration (in seconds)
-define('RATE_LIMIT_SECONDS', 30);
-
 // ----------------------------------------------------
-// 2. RATE LIMITING CHECK
-// ----------------------------------------------------
-$ip = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
-$currentTime = time();
-
-// Check Session-based rate limit
-if (isset($_SESSION['lhi_last_submit']) && ($currentTime - $_SESSION['lhi_last_submit'] < RATE_LIMIT_SECONDS)) {
-    ob_clean();
-    echo json_encode([
-        'status' => 'error',
-        'message' => 'Too many requests. Please wait ' . (RATE_LIMIT_SECONDS - ($currentTime - $_SESSION['lhi_last_submit'])) . ' seconds before submitting again.'
-    ]);
-    exit;
-}
-
-// ----------------------------------------------------
-// 3. HONEYPOT SPAM PROTECTION
+// 2. HONEYPOT SPAM PROTECTION
 // ----------------------------------------------------
 // "website_url_check" is a hidden honeypot input field
 if (!empty($_POST['website_url_check'])) {
@@ -66,11 +39,12 @@ if (!empty($_POST['website_url_check'])) {
 }
 
 // ----------------------------------------------------
-// 4. CLOUDFLARE TURNSTILE VALIDATION
+// 3. CLOUDFLARE TURNSTILE VALIDATION
 // ----------------------------------------------------
 if (!empty(TURNSTILE_SECRET_KEY) && isset($_POST['cf-turnstile-response'])) {
     $token = $_POST['cf-turnstile-response'];
     $verifyUrl = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+    $ip = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
     
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $verifyUrl);
@@ -96,7 +70,7 @@ if (!empty(TURNSTILE_SECRET_KEY) && isset($_POST['cf-turnstile-response'])) {
 }
 
 // ----------------------------------------------------
-// 5. INPUT SANITIZATION & VALIDATION
+// 4. INPUT SANITIZATION & VALIDATION
 // ----------------------------------------------------
 $errors = [];
 
@@ -148,7 +122,7 @@ if (!empty($errors)) {
 }
 
 // ----------------------------------------------------
-// 6. CRM LOCAL DATA LOGGING
+// 5. CRM LOCAL DATA LOGGING
 // ----------------------------------------------------
 $leadsDir = __DIR__ . '/leads';
 // Ensure compatibility with read-only filesystems (e.g., Vercel)
@@ -223,7 +197,7 @@ $leadRecord = [
         'utm_content' => $utm_content
     ],
     'metadata' => [
-        'ip_address' => $ip,
+        'ip_address' => $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0',
         'country' => $country,
         'device' => $device,
         'browser' => $browser,
@@ -235,7 +209,10 @@ $leadRecord = [
 $fp = @fopen($leadsFile, 'c+');
 if ($fp) {
     @flock($fp, LOCK_EX);
-    $size = @filesize($leadsFile);
+    $size = 0;
+    if (file_exists($leadsFile)) {
+        $size = @filesize($leadsFile);
+    }
     $currentLeads = [];
     if ($size > 0) {
         @rewind($fp);
@@ -249,6 +226,63 @@ if ($fp) {
     @fflush($fp);
     @flock($fp, LOCK_UN);
     @fclose($fp);
+}
+
+// ----------------------------------------------------
+// 6. HELPER: RESEND EMAIL SENDING
+// ----------------------------------------------------
+function send_email_via_resend($to, $subject, $html_body, $reply_to = '') {
+    // Read the Resend API Key from environment or local config file
+    $api_key = getenv('RESEND_API_KEY') 
+        ?: ($_ENV['RESEND_API_KEY'] ?? ($_SERVER['RESEND_API_KEY'] ?? (defined('RESEND_API_KEY') ? RESEND_API_KEY : '')));
+    
+    // Fallback: check config file if it exists locally
+    if (empty($api_key)) {
+        $config_file = __DIR__ . '/../resend_config.php';
+        if (file_exists($config_file)) {
+            include_once $config_file;
+            $api_key = getenv('RESEND_API_KEY') ?: '';
+        }
+    }
+
+    if (empty($api_key)) {
+        return false;
+    }
+
+    $url = 'https://api.resend.com/emails';
+    $from = 'onboarding@resend.dev'; // Sandbox default
+    
+    $headers = [
+        'Authorization: Bearer ' . $api_key,
+        'Content-Type: application/json',
+        'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) LHIWebsite/1.0'
+    ];
+
+    $to_emails = is_array($to) ? $to : array_map('trim', explode(',', $to));
+
+    $payload = [
+        'from' => $from,
+        'to' => $to_emails,
+        'subject' => $subject,
+        'html' => $html_body
+    ];
+
+    if (!empty($reply_to)) {
+        $payload['reply_to'] = $reply_to;
+    }
+
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+
+    $response = curl_exec($ch);
+    $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    return ($http_code >= 200 && $http_code < 300);
 }
 
 // ----------------------------------------------------
@@ -295,28 +329,25 @@ $bodyHtmlAdmin = "<html><body style='font-family: Arial, sans-serif; line-height
         <tr style='background-color: #f9f9f9;'><td style='padding: 8px; font-weight: bold;'>Services Requested</td><td style='padding: 8px;'>" . implode(', ', $sanitized_services) . "</td></tr>
         <tr><td style='padding: 8px; font-weight: bold;'>Additional Notes</td><td style='padding: 8px;'>{$notes}</td></tr>
     </table>
-    
-    <h3 style='border-bottom: 1px solid #eaeaea; padding-bottom: 5px; margin-top: 25px;'>Attribution & Tracking</h3>
-    <table style='width: 100%; border-collapse: collapse;'>
-        <tr style='background-color: #f9f9f9;'><td style='padding: 8px; font-weight: bold; width: 180px;'>Landing Page</td><td style='padding: 8px; font-size:12px;'>{$landing_page}</td></tr>
-        <tr><td style='padding: 8px; font-weight: bold;'>UTM Parameters</td><td style='padding: 8px;'>Source: {$utm_source} | Medium: {$utm_medium} | Campaign: {$utm_campaign}</td></tr>
-        <tr style='background-color: #f9f9f9;'><td style='padding: 8px; font-weight: bold;'>Device / Browser</td><td style='padding: 8px;'>{$device} ({$browser})</td></tr>
-        <tr><td style='padding: 8px; font-weight: bold;'>IP & Country</td><td style='padding: 8px;'>{$ip} ({$country})</td></tr>
-    </table>
 </div>
 </body></html>";
 
-$messageAdmin = "--{$boundary}\r\n";
-$messageAdmin .= "Content-Type: text/plain; charset=\"UTF-8\"\r\n";
-$messageAdmin .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
-$messageAdmin .= $bodyTextAdmin . "\r\n";
-$messageAdmin .= "--{$boundary}\r\n";
-$messageAdmin .= "Content-Type: text/html; charset=\"UTF-8\"\r\n";
-$messageAdmin .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
-$messageAdmin .= $bodyHtmlAdmin . "\r\n";
-$messageAdmin .= "--{$boundary}--";
+// Try Resend first for reliable delivery on serverless environments
+$adminSent = send_email_via_resend(NOTIFICATION_EMAIL, $subjectAdmin, $bodyHtmlAdmin, $email);
 
-@mail(NOTIFICATION_EMAIL, $subjectAdmin, $messageAdmin, $headersAdmin);
+if (!$adminSent && function_exists('mail')) {
+    // Fallback to local mail() if Resend fails or is unconfigured
+    $messageAdmin = "--{$boundary}\r\n"
+                  . "Content-Type: text/plain; charset=\"UTF-8\"\r\n"
+                  . "Content-Transfer-Encoding: 7bit\r\n\r\n"
+                  . $bodyTextAdmin . "\r\n"
+                  . "--{$boundary}\r\n"
+                  . "Content-Type: text/html; charset=\"UTF-8\"\r\n"
+                  . "Content-Transfer-Encoding: 7bit\r\n\r\n"
+                  . $bodyHtmlAdmin . "\r\n"
+                  . "--{$boundary}--";
+    @mail(NOTIFICATION_EMAIL, $subjectAdmin, $messageAdmin, $headersAdmin);
+}
 
 // Customer Acknowledgement Email
 $subjectUser = "Consultation Scheduled - Luxury Homes of India";
@@ -352,27 +383,25 @@ $bodyHtmlUser = "<html><body style='font-family: Arial, sans-serif; line-height:
     </div>
     
     <p>If you need immediate assistance or would like to send site photographs or boundaries, please feel free to WhatsApp us directly at <a href='https://wa.me/919092276222' style='color:#25d366; font-weight:bold;'>+91 90922 76222</a>.</p>
-    
-    <p style='margin-top: 30px;'>Warm Regards,</p>
-    <p style='margin: 0; font-weight: bold;'>The Luxury Homes Team</p>
-    <p style='margin: 0; font-size: 13px; color: #777;'>Guindy, Chennai | <a href='https://luxuryhomesofindia.in' style='color:#c6a25a;'>luxuryhomesofindia.in</a></p>
 </div>
 </body></html>";
 
-$messageUser = "--{$boundaryUser}\r\n";
-$messageUser .= "Content-Type: text/plain; charset=\"UTF-8\"\r\n";
-$messageUser .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
-$messageUser .= $bodyTextUser . "\r\n";
-$messageUser .= "--{$boundaryUser}\r\n";
-$messageUser .= "Content-Type: text/html; charset=\"UTF-8\"\r\n";
-$messageUser .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
-$messageUser .= $bodyHtmlUser . "\r\n";
-$messageUser .= "--{$boundaryUser}--";
+// Try Resend first for customer email
+$userSent = send_email_via_resend($email, $subjectUser, $bodyHtmlUser);
 
-@mail($email, $subjectUser, $messageUser, $headersUser);
-
-// Set session timestamp to prevent rapid submissions
-$_SESSION['lhi_last_submit'] = $currentTime;
+if (!$userSent && function_exists('mail')) {
+    // Fallback to local mail() for user email
+    $messageUser = "--{$boundaryUser}\r\n"
+                 . "Content-Type: text/plain; charset=\"UTF-8\"\r\n"
+                 . "Content-Transfer-Encoding: 7bit\r\n\r\n"
+                 . $bodyTextUser . "\r\n"
+                 . "--{$boundaryUser}\r\n"
+                 . "Content-Type: text/html; charset=\"UTF-8\"\r\n"
+                 . "Content-Transfer-Encoding: 7bit\r\n\r\n"
+                 . $bodyHtmlUser . "\r\n"
+                 . "--{$boundaryUser}--";
+    @mail($email, $subjectUser, $messageUser, $headersUser);
+}
 
 // ----------------------------------------------------
 // 8. SUCCESS RESPONSE

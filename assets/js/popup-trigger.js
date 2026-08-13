@@ -223,13 +223,32 @@
         const formData = new FormData(form);
 
         // Fetch to backend script (using origin to resolve absolutely from any subfolder)
-        const submitUrl = window.location.origin + '/submit-lead.php';
+        const submitUrl = window.location.origin + '/api/submit-lead';
 
         fetch(submitUrl, {
             method: 'POST',
-            body: formData
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
         })
-        .then(res => res.json())
+        .then(async res => {
+            const contentType = res.headers.get('content-type') || '';
+            let data;
+            
+            if (contentType.includes('application/json')) {
+                data = await res.json();
+            } else {
+                const text = await res.text();
+                throw new Error(`Server returned HTTP ${res.status}: ${text}`);
+            }
+
+            if (!res.ok) {
+                throw new Error(data?.message || `Server returned HTTP ${res.status}`);
+            }
+
+            return data;
+        })
         .then(res => {
             if (res.status === 'success') {
                 // Forward to FormBold client-side to bypass GoDaddy outbound cURL block
@@ -291,8 +310,20 @@
         .catch(err => {
             submitBtn.disabled = false;
             submitBtn.innerHTML = originalBtnText;
-            msgDiv.innerHTML = '<p class="error-alert">A server network error occurred. Please try again.</p>';
-            console.error(err);
+            
+            let errorMessage = 'A server network error occurred. Please try again.';
+            if (err.message) {
+                if (err.message.includes('HTTP 403')) {
+                    errorMessage = 'Forbidden (403): Request was blocked by the security layer. Please contact the administrator.';
+                } else if (err.message.includes('HTTP 500')) {
+                    errorMessage = 'Internal Server Error (500): The server encountered an issue processing your request.';
+                } else if (err.message.includes('Server returned HTTP')) {
+                    errorMessage = err.message;
+                }
+            }
+            
+            msgDiv.innerHTML = `<p class="error-alert">${errorMessage}</p>`;
+            console.error('Submission error:', err);
         });
     }
 
