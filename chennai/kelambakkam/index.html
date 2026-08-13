@@ -347,28 +347,27 @@
   }
 ]
     </script>
+    <link rel="stylesheet" href="../../assets/css/landing-pages.css">
+    <script defer src="../../assets/js/landing-pages.js"></script>
 </head>
 <body>
-    <header id="mainHeader">
-        
-        <a href="/" class="logo">
-            <img src="https://luxuryhomesofindia.in/assets/images/logo/logo.png" alt="Luxury Homes of India">
-        </a>
-        <nav class="desktop-nav">
-            <a href="#services">Expertise</a>
-            <a href="#packages">Investment</a>
-            <a href="#gallery">Portfolio</a>
-            <a href="#why">Philosophy</a>
-            <a href="#faq">Inquiries</a>
-        </nav>
-        <div class="header-actions">
-            <a href="javascript:void(0)" onclick="openModal('enquiryModal')" class="btn btn-gold" style="padding: 0.7rem 1.5rem; font-size: 0.75rem; min-width: auto;">Enquire</a>
+    <div class="lhi-lp">
+        <header class="lhi-lp-header">
+            
+    <div class="header-wrap container">
+        <div class="logo">
+            <a href="../../"><img src="../../assets/images/logo/logo.png" alt="Luxury Homes of India"></a>
         </div>
-        <div class="menu-toggle" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></div>
+        <nav class="nav-links">
+            <a href="../../">Home</a>
+            <a href="../../chennai/">Chennai Hub</a>
+            <a href="#" class="open-lead-popup">Enquire</a>
+        </nav>
+    </div>
     
-    </header>
-    
-    
+        </header>
+        
+        
             <section class="hero" style="height: 60vh;">
                 <div class="hero-overlay" style="background: rgba(0,0,0,0.85);"></div>
                 <div class="hero-content">
@@ -459,35 +458,38 @@
             <section id="cta" style="text-align: center; background: var(--black-matte);">
                 <h2 class="gold-text">Begin Your Project in Kelambakkam</h2>
                 <p style="margin-bottom: 30px; color: #888;">Calculate costs or contact our engineers to plan your villa foundation design.</p>
-                <a href="javascript:void(0)" onclick="openModal('enquiryModal')" class="btn btn-gold">Request Site Consultation</a>
+                <a href="#" class="btn btn-gold open-lead-popup">Request Site Consultation</a>
             </section>
             
 
-    <footer>
-        
-        <div class="footer-grid">
-            <div class="footer-col">
-                <img src="https://luxuryhomesofindia.in/assets/images/logo/logo.png" alt="LHI" style="height:50px; margin-bottom:1.5rem; filter: brightness(1.5);">
-                <p>Redefining India's skyline with world-class residential architecture and engineering.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Quick Access</h4>
-                <a href="#services">Our Expertise</a>
-                <a href="#packages">Pricing Tiers</a>
-                <a href="#gallery">Project Showcase</a>
-            </div>
-            <div class="footer-col">
-                <h4>Corporate Office</h4>
-                <p><i class="fas fa-map-marker-alt"></i> #85, Lotus Tower, Anna Salai, Guindy, Chennai 600032</p>
-                <p><i class="fas fa-phone"></i> +91 90922 76222</p>
-                <p><i class="fas fa-envelope"></i> info@luxuryhomesofindia.in</p>
-            </div>
+        <footer class="lhi-lp-footer">
+            
+    <div class="footer-wrap container">
+        <div class="footer-col">
+            <h5>Our Company</h5>
+            <p>Luxury Homes of India is Chennai's premier custom builder, crafting luxury estates and bespoke villas.</p>
         </div>
-        <div style="text-align:center; padding-top:2rem; border-top:1px solid rgba(198, 162, 90, 0.1); font-size:0.75rem; color:#555; letter-spacing: 1px;">
-            © 2012–2026 LUXURY HOMES OF INDIA. ALL RIGHTS RESERVED.
+        <div class="footer-col">
+            <h5>Our Services</h5>
+            <ul>
+                <li><a href="../../chennai/luxury-home-construction/">Luxury Construction</a></li>
+                <li><a href="../../chennai/villa-construction/">Villa Construction</a></li>
+                <li><a href="../../chennai/architecture/">Bespoke Architecture</a></li>
+            </ul>
         </div>
+        <div class="footer-col">
+            <h5>Contact</h5>
+            <p>Corporate Office #85, Lotus Tower, Anna Salai, Guindy, Chennai 600032</p>
+            <p>+91 90922 76222 | info@luxuryhomesofindia.in</p>
+        </div>
+    </div>
+    <div class="copyright container">
+        <span>© 2012–2026 LUXURY HOMES OF INDIA. ALL RIGHTS RESERVED.</span>
+        <span><a href="#" class="open-lead-popup">Privacy Policy</a></span>
+    </div>
     
-    </footer>
+        </footer>
+    </div>
 
     <!-- MODALS -->
     
@@ -540,6 +542,7 @@
     <!-- WHATSAPP FLOAT -->
     <a href="https://wa.me/919092276222" target="_blank" class="wa-float"><i class="fab fa-whatsapp"></i></a>
 
+    <script defer src="../../assets/js/popup-trigger.js"></script>
     <script>
         
         // MOBILE MENU

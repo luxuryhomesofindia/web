@@ -1,0 +1,793 @@
+/* =============================================================================
+   Luxury Homes of India (LHI) Landing Pages Stylesheet
+   Scoped under the .lhi-lp container namespace to prevent brand site conflicts.
+   ============================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;700&display=swap');
+
+.lhi-lp {
+  /* Design Tokens */
+  --lhi-bg: #080808;
+  --lhi-surface: #11100E;
+  --lhi-ivory: #F4F0E8;
+  --lhi-muted: #A8A29A;
+  --lhi-gold-primary: #C9A45C;
+  --lhi-white: #FFFFFF;
+  --lhi-border: rgba(199, 164, 92, 0.12);
+  --lhi-transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  
+  background-color: var(--lhi-bg);
+  color: var(--lhi-ivory);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.lhi-lp *, .lhi-lp *::before, .lhi-lp *::after {
+  box-sizing: inherit;
+}
+
+/* Typography Scale */
+.lhi-lp h1, .lhi-lp h2, .lhi-lp h3, .lhi-lp h4 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  margin: 0 0 20px 0;
+  letter-spacing: -0.01em;
+}
+
+.lhi-lp h1 {
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  line-height: 1.1;
+  color: var(--lhi-white);
+}
+
+.lhi-lp h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.2;
+  color: var(--lhi-white);
+  border-left: 3px solid var(--lhi-gold-primary);
+  padding-left: 20px;
+}
+
+.lhi-lp h3 {
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 400;
+  color: var(--lhi-gold-primary);
+}
+
+.lhi-lp p {
+  color: var(--lhi-muted);
+  line-height: 1.75;
+  font-size: 1rem;
+  margin-bottom: 24px;
+  max-width: 75ch;
+}
+
+.lhi-lp a {
+  color: var(--lhi-gold-primary);
+  text-decoration: none;
+  transition: var(--lhi-transition);
+}
+
+.lhi-lp a:focus, .lhi-lp button:focus, .lhi-lp .btn-gold:focus, .lhi-lp .btn-outline:focus {
+  outline: 2px solid var(--lhi-gold-primary);
+  outline-offset: 4px;
+}
+
+.lhi-lp .container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 25px;
+  width: 100%;
+}
+
+.lhi-lp .section-padding {
+  padding: clamp(60px, 8vw, 120px) 0;
+}
+
+/* Luxury Header & Navigation */
+.lhi-lp-header {
+  background: rgba(8, 8, 8, 0.95);
+  border-bottom: 1px solid var(--lhi-border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.lhi-lp-header .header-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.lhi-lp-header .logo img {
+  height: 38px;
+  width: auto;
+}
+
+.lhi-lp-header .nav-links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.lhi-lp-header .nav-links a {
+  color: var(--lhi-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.lhi-lp-header .nav-links a:hover, .lhi-lp-header .nav-links a.active {
+  color: var(--lhi-gold-primary);
+}
+
+/* Custom Buttons & CTAs */
+.lhi-lp .btn-gold {
+  background: var(--lhi-gold-primary);
+  color: #080808;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  padding: 18px 38px;
+  border: 1px solid var(--lhi-gold-primary);
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: var(--lhi-transition);
+  cursor: pointer;
+}
+
+.lhi-lp .btn-gold:hover {
+  background: transparent;
+  color: var(--lhi-gold-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(201, 164, 92, 0.15);
+}
+
+.lhi-lp .btn-outline {
+  background: transparent;
+  color: var(--lhi-ivory);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  padding: 18px 38px;
+  border: 1px solid var(--lhi-border);
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: var(--lhi-transition);
+  cursor: pointer;
+}
+
+.lhi-lp .btn-outline:hover {
+  border-color: var(--lhi-gold-primary);
+  color: var(--lhi-gold-primary);
+  transform: translateY(-2px);
+}
+
+/* 01 Hero Section */
+.lhi-lp-hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+}
+
+.lhi-lp-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(8, 8, 8, 0.95) 40%, rgba(8, 8, 8, 0.3) 100%);
+  z-index: 1;
+}
+
+.lhi-lp-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 750px;
+  padding: 40px 0;
+}
+
+.lhi-lp-hero .hero-tag {
+  color: var(--lhi-gold-primary);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.lhi-lp-hero .btn-group {
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+/* 02 Trust & Positioning Section */
+.lhi-lp-trust {
+  background: var(--lhi-surface);
+  border-top: 1px solid var(--lhi-border);
+  border-bottom: 1px solid var(--lhi-border);
+}
+
+.lhi-lp-trust .trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.lhi-lp-trust .trust-card {
+  padding: 10px 0;
+}
+
+.lhi-lp-trust .trust-card h3 {
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+/* 03 Local Context Section */
+.lhi-lp-context .context-card {
+  background: var(--lhi-surface);
+  border: 1px solid var(--lhi-border);
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.lhi-lp-context .context-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.lhi-lp-context .context-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--lhi-gold-primary);
+  margin-bottom: 10px;
+}
+
+/* 04 Service Story Section */
+.lhi-lp-story .story-split {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.lhi-lp-story .story-image {
+  position: relative;
+  overflow: hidden;
+  height: 520px;
+  border: 1px solid var(--lhi-border);
+}
+
+.lhi-lp-story .story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--lhi-transition);
+}
+
+.lhi-lp-story .story-image:hover img {
+  transform: scale(1.05);
+}
+
+.lhi-lp-story .story-text {
+  padding-left: 20px;
+}
+
+/* 05 LHI Difference Section */
+.lhi-lp-diff .diff-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.lhi-lp-diff .diff-card {
+  background: var(--lhi-surface);
+  border: 1px solid var(--lhi-border);
+  padding: 45px 35px;
+  transition: var(--lhi-transition);
+}
+
+.lhi-lp-diff .diff-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--lhi-gold-primary);
+}
+
+.lhi-lp-diff .diff-card .icon {
+  font-size: 2.2rem;
+  color: var(--lhi-gold-primary);
+  margin-bottom: 25px;
+}
+
+/* 06 Process Section */
+.lhi-lp-process {
+  background: var(--lhi-surface);
+  border-top: 1px solid var(--lhi-border);
+  border-bottom: 1px solid var(--lhi-border);
+}
+
+.lhi-lp-process .process-timeline {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  margin-top: 50px;
+  position: relative;
+}
+
+.lhi-lp-process .process-step {
+  text-align: center;
+  position: relative;
+  padding: 20px 10px;
+  transition: var(--lhi-transition);
+}
+
+.lhi-lp-process .process-step::after {
+  content: '';
+  position: absolute;
+  top: 40px;
+  right: -50%;
+  width: 100%;
+  height: 1px;
+  background: var(--lhi-border);
+  z-index: 1;
+}
+
+.lhi-lp-process .process-step:last-child::after {
+  display: none;
+}
+
+.lhi-lp-process .step-number {
+  width: 40px;
+  height: 40px;
+  line-height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--lhi-gold-primary);
+  background: #080808;
+  color: var(--lhi-gold-primary);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0 auto 20px auto;
+  position: relative;
+  z-index: 2;
+  transition: var(--lhi-transition);
+}
+
+.lhi-lp-process .process-step:hover .step-number {
+  background: var(--lhi-gold-primary);
+  color: #080808;
+  box-shadow: 0 0 15px rgba(201, 164, 92, 0.4);
+}
+
+.lhi-lp-process .process-step h4 {
+  font-family: 'Outfit', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  color: var(--lhi-white);
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+
+.lhi-lp-process .process-step p {
+  font-size: 0.8rem;
+}
+
+/* 07 Pricing Section */
+.lhi-lp-pricing .pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.lhi-lp-pricing .pricing-card {
+  background: var(--lhi-surface);
+  border: 1px solid var(--lhi-border);
+  padding: 50px 35px;
+  text-align: center;
+  transition: var(--lhi-transition);
+  display: flex;
+  flex-direction: column;
+}
+.lhi-lp-pricing .pricing-card:hover {
+  border-color: var(--lhi-gold-primary);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(201, 164, 92, 0.05);
+}
+
+.lhi-lp-pricing .pricing-card.featured {
+  background: linear-gradient(180deg, #11100E 0%, #0d0c0b 100%);
+  border-color: var(--lhi-gold-primary);
+}
+
+@media (min-width: 1025px) {
+  .lhi-lp-pricing .pricing-card.featured {
+    transform: scale(1.03);
+  }
+  .lhi-lp-pricing .pricing-card.featured:hover {
+    transform: scale(1.05);
+  }
+}
+
+.lhi-lp-pricing .package-name {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  color: var(--lhi-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 15px;
+}
+
+.lhi-lp-pricing .rate {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: var(--lhi-white);
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+
+.lhi-lp-pricing .rate-unit {
+  font-size: 0.85rem;
+  color: var(--lhi-muted);
+  margin-bottom: 30px;
+}
+
+.lhi-lp-pricing .pricing-spec-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+  text-align: left;
+}
+
+.lhi-lp-pricing .pricing-spec-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(199, 164, 92, 0.05);
+  font-size: 0.9rem;
+  color: var(--lhi-ivory);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lhi-lp-pricing .pricing-spec-list li i {
+  color: var(--lhi-gold-primary);
+}
+
+.lhi-lp-pricing .pricing-disclaimer {
+  font-size: 0.78rem;
+  color: var(--lhi-muted);
+  text-align: center;
+  margin-top: 40px;
+  line-height: 1.6;
+}
+
+/* 08 Portfolio / Case Studies Section */
+.lhi-lp-portfolio .portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.lhi-lp-portfolio .portfolio-card {
+  background: var(--lhi-surface);
+  border: 1px solid var(--lhi-border);
+  overflow: hidden;
+  transition: var(--lhi-transition);
+}
+
+.lhi-lp-portfolio .portfolio-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--lhi-gold-primary);
+}
+
+.lhi-lp-portfolio .portfolio-img {
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+}
+
+.lhi-lp-portfolio .portfolio-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--lhi-transition);
+}
+
+.lhi-lp-portfolio .portfolio-card:hover .portfolio-img img {
+  transform: scale(1.05);
+}
+
+.lhi-lp-portfolio .portfolio-info {
+  padding: 30px;
+}
+
+.lhi-lp-portfolio .portfolio-info h4 {
+  font-family: 'Outfit', sans-serif;
+  color: var(--lhi-white);
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+/* 09 SEO / Accordions Section */
+.lhi-lp-seo {
+  background: var(--lhi-surface);
+  border-top: 1px solid var(--lhi-border);
+}
+
+.lhi-lp-seo .seo-split {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+}
+
+.lhi-lp-seo .seo-article h3 {
+  font-size: 1.5rem;
+  color: var(--lhi-white);
+  margin-top: 30px;
+}
+
+.lhi-lp-seo .seo-faq .faq-item {
+  border-bottom: 1px solid var(--lhi-border);
+  padding: 20px 0;
+}
+
+.lhi-lp-seo .seo-faq .faq-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 0;
+}
+
+.lhi-lp-seo .seo-faq .faq-question {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.05rem;
+  color: var(--lhi-white);
+  font-weight: 400;
+}
+
+.lhi-lp-seo .seo-faq .faq-icon {
+  font-size: 0.9rem;
+  color: var(--lhi-gold-primary);
+  transition: var(--lhi-transition);
+}
+
+.lhi-lp-seo .seo-faq .faq-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  padding-right: 20px;
+}
+
+.lhi-lp-seo .seo-faq .faq-body p {
+  margin-top: 15px;
+  margin-bottom: 0;
+  font-size: 0.92rem;
+}
+
+.lhi-lp-seo .seo-faq .faq-item.active .faq-body {
+  max-height: 200px;
+  transition: max-height 0.35s ease-in;
+}
+
+.lhi-lp-seo .seo-faq .faq-item.active .faq-icon {
+  transform: rotate(180deg);
+}
+
+/* 10 Final CTA Section */
+.lhi-lp-final-cta {
+  text-align: center;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  padding: 120px 0;
+}
+
+.lhi-lp-final-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(8, 8, 8, 0.9);
+  z-index: 1;
+}
+
+.lhi-lp-final-cta .final-cta-wrap {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.lhi-lp-final-cta h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.2;
+  margin-bottom: 25px;
+  border: none;
+  padding: 0;
+}
+
+/* Luxury Footer */
+.lhi-lp-footer {
+  background: #040404;
+  border-top: 1px solid var(--lhi-border);
+  padding: 60px 0 30px 0;
+  font-size: 0.85rem;
+}
+
+.lhi-lp-footer .footer-wrap {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 50px;
+}
+
+.lhi-lp-footer .footer-col h5 {
+  font-family: 'Outfit', sans-serif;
+  color: var(--lhi-white);
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+}
+
+.lhi-lp-footer .footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lhi-lp-footer .footer-col ul li {
+  margin-bottom: 12px;
+}
+
+.lhi-lp-footer .footer-col ul li a {
+  color: var(--lhi-muted);
+}
+
+.lhi-lp-footer .footer-col ul li a:hover {
+  color: var(--lhi-gold-primary);
+}
+
+.lhi-lp-footer .footer-col p {
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+}
+
+.lhi-lp-footer .copyright {
+  border-top: 1px solid rgba(199, 164, 92, 0.05);
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  color: var(--lhi-muted);
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* Responsive Rules & Media Queries */
+
+/* Tablet (1024px & 768px) */
+@media (max-width: 1024px) {
+  .lhi-lp-trust .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  
+  .lhi-lp-diff .diff-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .lhi-lp-pricing .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 40px auto 0 auto;
+  }
+  
+  .lhi-lp-portfolio .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .lhi-lp-seo .seo-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .lhi-lp-context .context-card {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .lhi-lp-story .story-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .lhi-lp-story .story-image {
+    height: 380px;
+  }
+  
+  .lhi-lp-process .process-timeline {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  
+  .lhi-lp-process .process-step::after {
+    display: none;
+  }
+  
+  .lhi-lp-footer .footer-wrap {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* Mobile (414px, 390px, 375px) */
+@media (max-width: 480px) {
+  .lhi-lp-hero {
+    background-position: center 35%;
+  }
+
+  .lhi-lp p {
+    line-height: 1.7;
+  }
+
+  .lhi-lp-trust .trust-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .lhi-lp-diff .diff-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .lhi-lp-process .process-timeline {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .lhi-lp-portfolio .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .lhi-lp-hero .btn-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .lhi-lp-hero .btn-group .btn-gold, .lhi-lp-hero .btn-group .btn-outline {
+    width: 100%;
+  }
+}
+
+.wa-float {
+  z-index: 999 !important;
+}

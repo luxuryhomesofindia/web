@@ -185,24 +185,79 @@ def generate_layout(page_key, body_html, custom_js=""):
         body_html = body_html.replace("</section>", "</section>\n" + tldr_block, 1)
     else:
         body_html = tldr_block + body_html
-
+    # Determine depth relative prefix
+    parts = [p for p in page_key.split('/') if p]
+    depth = len(parts)
+    prefix = "../" * depth if depth > 0 else "./"
+    
+    # Custom head asset injections
+    head_injections = base["head"]
+    head_injections += f'\n    <link rel="stylesheet" href="{prefix}assets/css/landing-pages.css">'
+    head_injections += f'\n    <script defer src="{prefix}assets/js/landing-pages.js"></script>'
+    
+    # Home and Chennai links
+    home_link = prefix
+    chennai_link = f"{prefix}chennai/"
+    
+    # Simplified dark header & footer
+    custom_header = f"""
+    <div class="header-wrap container">
+        <div class="logo">
+            <a href="{home_link}"><img src="{prefix}assets/images/logo/logo.png" alt="Luxury Homes of India"></a>
+        </div>
+        <nav class="nav-links">
+            <a href="{home_link}">Home</a>
+            <a href="{chennai_link}">Chennai Hub</a>
+            <a href="#" class="open-lead-popup">Enquire</a>
+        </nav>
+    </div>
+    """
+    
+    custom_footer = f"""
+    <div class="footer-wrap container">
+        <div class="footer-col">
+            <h5>Our Company</h5>
+            <p>Luxury Homes of India is Chennai's premier custom builder, crafting luxury estates and bespoke villas.</p>
+        </div>
+        <div class="footer-col">
+            <h5>Our Services</h5>
+            <ul>
+                <li><a href="{chennai_link}luxury-home-construction/">Luxury Construction</a></li>
+                <li><a href="{chennai_link}villa-construction/">Villa Construction</a></li>
+                <li><a href="{chennai_link}architecture/">Bespoke Architecture</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h5>Contact</h5>
+            <p>Corporate Office #85, Lotus Tower, Anna Salai, Guindy, Chennai 600032</p>
+            <p>+91 90922 76222 | info@luxuryhomesofindia.in</p>
+        </div>
+    </div>
+    <div class="copyright container">
+        <span>© 2012–2026 LUXURY HOMES OF INDIA. ALL RIGHTS RESERVED.</span>
+        <span><a href="#" class="open-lead-popup">Privacy Policy</a></span>
+    </div>
+    """
+    
     full_html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {base["head"]}
+    {head_injections}
 </head>
 <body>
-    <header id="mainHeader">
-        {base["header"]}
-    </header>
-    
-    {body_html}
+    <div class="lhi-lp">
+        <header class="lhi-lp-header">
+            {custom_header}
+        </header>
+        
+        {body_html}
 
-    <footer>
-        {base["footer"]}
-    </footer>
+        <footer class="lhi-lp-footer">
+            {custom_footer}
+        </footer>
+    </div>
 
     <!-- MODALS -->
     {base["modals"]}
@@ -210,12 +265,14 @@ def generate_layout(page_key, body_html, custom_js=""):
     <!-- WHATSAPP FLOAT -->
     <a href="https://wa.me/919092276222" target="_blank" class="wa-float"><i class="fab fa-whatsapp"></i></a>
 
+    <script defer src="{prefix}assets/js/popup-trigger.js"></script>
     <script>
         {base["scripts"]}
         {custom_js}
     </script>
 </body>
 </html>"""
+
     return full_html
 
 def make_pricing_table():
@@ -335,38 +392,297 @@ def build_chennai_hub():
     with open(dest_path, "w", encoding="utf-8") as f:
         f.write(html_content)
 
-# 2. GENERATE SERVICE CLUSTER PAGES
 def build_services():
     for page_key, page in pages_data.items():
         if page_type := page.get("page_type"):
             if page_type == "service" and page_key != "chennai/construction-cost-calculator/":
-                # Build Service Page Content
-                body_html = f"""
-                <section class="hero" style="height: 60vh;">
-                    <div class="hero-overlay" style="background: rgba(0,0,0,0.85);"></div>
-                    <div class="hero-content">
-                        <h1 class="gold-text">{page["h1"]}</h1>
-                        <p>{page["intro"]}</p>
-                    </div>
-                </section>
+                if page_key == "chennai/turnkey-home-construction":
+                    body_html = f"""
+                    <!-- 01 Hero Section -->
+                    <section class="lhi-lp-hero" style="background-image: url('../../assets/images/banner/21.webp');">
+                        <div class="container">
+                            <div class="hero-content">
+                                <span class="hero-tag">Chennai | Turnkey Construction</span>
+                                <h1>{page["h1"]}</h1>
+                                <p>{page["intro"]}</p>
+                                <div class="btn-group">
+                                    <a href="#" class="btn-gold open-lead-popup">Begin Your Home Journey <i class="fas fa-arrow-right"></i></a>
+                                    <a href="#" class="btn-outline">View Our Work <i class="fas fa-images"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
-                <section id="details">
-                    <div class="faq-container">
-                        <h2 class="gold-text" style="margin-bottom: 20px;">Premium Residential Services</h2>
-                        <p style="color: #ccc; margin-bottom: 20px;">LHI provides turnkey engineering execution in Chennai, utilizing Tata/JSW steel, machine-cut bricks, and African Teakwood frame fittings according to official quotation plans.</p>
-                        
-                        {"<h3>Approved Cost Estimation Guide</h3>" + make_pricing_table() if "cost" in page_key else ""}
-                    </div>
-                </section>
-                
-                {make_faq_accordions(page["faqs"])}
+                    <!-- 02 Trust & Positioning Section -->
+                    <section class="lhi-lp-trust section-padding">
+                        <div class="container">
+                            <div class="trust-grid">
+                                <div class="trust-card">
+                                    <h3>Design Led</h3>
+                                    <p>Premium, Vastu-compliant architectural layouts customized to your lifestyle.</p>
+                                </div>
+                                <div class="trust-card">
+                                    <h3>Engineered</h3>
+                                    <p>Site-specific structural planning utilizing quality steel and cement brands.</p>
+                                </div>
+                                <div class="trust-card">
+                                    <h3>Turnkey</h3>
+                                    <p>End-to-end design-build convenience under a single milestone contract.</p>
+                                </div>
+                                <div class="trust-card">
+                                    <h3>Personal</h3>
+                                    <p>Bespoke interior finishes curated by specialized design consultants.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
-                <section id="cta" style="text-align: center; background: var(--black-matte);">
-                    <h2 class="gold-text">Consult With Our Construction Experts</h2>
-                    <p style="margin-bottom: 30px; color: #888;">Begin your legacy home layout planning today. Talk to a turnkey advisor.</p>
-                    <a href="javascript:void(0)" onclick="openModal('enquiryModal')" class="btn btn-gold">Request Consultation</a>
-                </section>
-                """
+                    <!-- 03 Local Context Section -->
+                    <section class="lhi-lp-context section-padding">
+                        <div class="container">
+                            <div class="context-card">
+                                <div class="context-block">
+                                    <span class="context-label">Local Soil & Geology</span>
+                                    <p>Soil subgrade conditions vary across Chennai. Site-specific soil investigation should be carried out before structural design.</p>
+                                </div>
+                                <div class="context-block">
+                                    <span class="context-label">Building Approvals</span>
+                                    <p>Applicable planning permits and height restrictions depend on the specific site, road width, and proposed development coordinates.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- 04 Service Story Section -->
+                    <section class="lhi-lp-story section-padding">
+                        <div class="container">
+                            <div class="story-split">
+                                <div class="story-image">
+                                    <img src="../../assets/images/banner/22.webp" alt="Turnkey House Construction" loading="lazy">
+                                </div>
+                                <div class="story-text">
+                                    <h2>Editorial Execution & Fine Craftsmanship</h2>
+                                    <p>LHI delivers a refined design-build experience. From initial conceptual layouts to precision engineering and custom teakwood door frames, we supervise every detail. Our integrated team coordinates architecture, structural analysis, and bespoke interior design under one unified model.</p>
+                                    <a href="#" class="btn-gold open-lead-popup">Discover Services</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- 05 LHI Difference Section -->
+                    <section class="lhi-lp-diff section-padding">
+                        <div class="container">
+                            <h2 style="margin-bottom: 50px;">The LHI Engineering Difference</h2>
+                            <div class="diff-grid">
+                                <div class="diff-card">
+                                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                                    <h3>10-Year Structural Warranty</h3>
+                                    <p>We provide a comprehensive 10-year warranty on structural framing and a 1-year leakage warranty on all waterproofing applications.</p>
+                                </div>
+                                <div class="diff-card">
+                                    <div class="icon"><i class="fas fa-clipboard-check"></i></div>
+                                    <h3>Daily Checklist Audits</h3>
+                                    <p>Every execution stage undergoes rigorous monitoring, submitting daily checklist reports to our central server.</p>
+                                </div>
+                                <div class="diff-card">
+                                    <div class="icon"><i class="fas fa-flask"></i></div>
+                                    <h3>Quality Check Reports</h3>
+                                    <p>We perform systematic onsite materials testing, including laboratory concrete cube crush test reports, for absolute strength verification.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 06 Process Journey Section -->
+                    <section class="lhi-lp-process section-padding">
+                        <div class="container">
+                            <h2 style="margin-bottom: 50px; border-color: var(--lhi-gold-primary);">The Design-Build Journey</h2>
+                            <div class="process-timeline">
+                                <div class="process-step">
+                                    <div class="step-number">01</div>
+                                    <h4>Discover</h4>
+                                    <p>Aligning vision, coordinates, and budget bounds.</p>
+                                </div>
+                                <div class="process-step">
+                                    <div class="step-number">02</div>
+                                    <h4>Design</h4>
+                                    <p>Vastu plans and structural planning.</p>
+                                </div>
+                                <div class="process-step">
+                                    <div class="step-number">03</div>
+                                    <h4>Define</h4>
+                                    <p>Detailed BOQ and signing contracts.</p>
+                                </div>
+                                <div class="process-step">
+                                    <div class="step-number">04</div>
+                                    <h4>Build</h4>
+                                    <p>Excavation, framing, and masonry work.</p>
+                                </div>
+                                <div class="process-step">
+                                    <div class="step-number">05</div>
+                                    <h4>Refine</h4>
+                                    <p>MEP, premium tiles, and custom woodwork.</p>
+                                </div>
+                                <div class="process-step">
+                                    <div class="step-number">06</div>
+                                    <h4>Handover</h4>
+                                    <p>Final audit and delivering the key.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 07 Pricing Section -->
+                    <section class="lhi-lp-pricing section-padding">
+                        <div class="container">
+                            <h2 style="margin-bottom: 50px;">Approved Turnkey Pricing</h2>
+                            <div class="pricing-grid">
+                                <div class="pricing-card">
+                                    <span class="package-name">Basic Package</span>
+                                    <div class="rate">₹2,250</div>
+                                    <span class="rate-unit">per sq.ft</span>
+                                    <ul class="pricing-spec-list">
+                                        <li><i class="fas fa-check"></i> Priya/Maha Cement</li>
+                                        <li><i class="fas fa-check"></i> Arun/Kamachi Steel</li>
+                                        <li><i class="fas fa-check"></i> Flyash/AAC Blocks</li>
+                                        <li><i class="fas fa-check"></i> Country Wood Doors</li>
+                                    </ul>
+                                    <a href="#" class="btn-outline open-lead-popup" style="margin-top: auto;">Select Package</a>
+                                </div>
+                                <div class="pricing-card featured">
+                                    <span class="package-name" style="color: var(--lhi-gold-primary);">Standard Package</span>
+                                    <div class="rate">₹2,450</div>
+                                    <span class="rate-unit">per sq.ft</span>
+                                    <ul class="pricing-spec-list">
+                                        <li><i class="fas fa-check"></i> Zurari/Chettinad Cement</li>
+                                        <li><i class="fas fa-check"></i> ARS/Suryadev Steel</li>
+                                        <li><i class="fas fa-check"></i> Chamber Clay Bricks</li>
+                                        <li><i class="fas fa-check"></i> African Teak Main Door</li>
+                                    </ul>
+                                    <a href="#" class="btn-gold open-lead-popup" style="margin-top: auto;">Select Package</a>
+                                </div>
+                                <div class="pricing-card">
+                                    <span class="package-name">Premium Package</span>
+                                    <div class="rate">₹2,650</div>
+                                    <span class="rate-unit">per sq.ft</span>
+                                    <ul class="pricing-spec-list">
+                                        <li><i class="fas fa-check"></i> Coromandel/UltraTech Cement</li>
+                                        <li><i class="fas fa-check"></i> Tata/JSW Steel</li>
+                                        <li><i class="fas fa-check"></i> Machine Clay Bricks</li>
+                                        <li><i class="fas fa-check"></i> Full African Teak Frames</li>
+                                    </ul>
+                                    <a href="#" class="btn-outline open-lead-popup" style="margin-top: auto;">Select Package</a>
+                                </div>
+                            </div>
+                            <p class="pricing-disclaimer">
+                                * Pricing calculations depend on specific site conditions, soil profiles, architectural approvals, and chosen materials. Site-specific structural designs should be carried out by qualified professionals.
+                            </p>
+                        </div>
+                    </section>
+                    <!-- 08 Portfolio / Case Studies Section -->
+                    <section class="lhi-lp-portfolio section-padding">
+                        <div class="container">
+                            <h2 style="margin-bottom: 50px;">Realized Residences</h2>
+                            <div class="portfolio-grid">
+                                <div class="portfolio-card">
+                                    <div class="portfolio-img">
+                                        <img src="../../assets/images/banner/23.webp" alt="Hashwin Residence" loading="lazy">
+                                    </div>
+                                    <div class="portfolio-info">
+                                        <h4>Hashwin Residence</h4>
+                                        <p>A contemporary turnkey home featuring customized masonry, modern UPVC windows, and open-layout spaces.</p>
+                                    </div>
+                                </div>
+                                <div class="portfolio-card">
+                                    <div class="portfolio-img">
+                                        <img src="../../assets/images/banner/24.webp" alt="Andrew Farmhouse" loading="lazy">
+                                    </div>
+                                    <div class="portfolio-info">
+                                        <h4>Andrew Farmhouse</h4>
+                                        <p>A luxury vacation villa in Chennai, designed for open living. The structure uses stable raft foundations and custom wood finishes.</p>
+                                    </div>
+                                </div>
+                                <div class="portfolio-card">
+                                    <div class="portfolio-img">
+                                        <img src="../../assets/images/banner/25.webp" alt="Sri Mandir Residency" loading="lazy">
+                                    </div>
+                                    <div class="portfolio-info">
+                                        <h4>Sri Mandir Residency</h4>
+                                        <p>A signature Vastu-compliant villa in Chennai, built with Standard specifications and customized exterior finishes.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- 09 SEO / Accordions Section -->
+                    <section class="lhi-lp-seo section-padding">
+                        <div class="container">
+                            <div class="seo-split">
+                                <div class="seo-article">
+                                    <h2>Expert Turnkey Residential Construction</h2>
+                                    <p>Our turnkey residential construction services provide a single point of responsibility. We take care of all project phases so you receive a move-in ready luxury home.</p>
+                                    <h3>Key Specifications & Structural Integrity</h3>
+                                    <p>LHI recommends JSW Neosteel Fe 550D TMT or Tata Tiscon rebars and UltraTech 53 grade cement for main concrete works. Our onsite construction engineers supervise slump margins, moisture ratios, and execute regular concrete cube crush lab reports for structural safety verification.</p>
+                                </div>
+                                <div class="seo-faq">
+                                    <h2 style="border: none; padding-left: 0; margin-bottom: 40px;">Frequently Asked Questions</h2>
+                                    <div class="faq-item">
+                                        <div class="faq-header">
+                                            <span class="faq-question">What does turnkey construction include?</span>
+                                            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                                        </div>
+                                        <div class="faq-body">
+                                            <p>LHI turnkey packages cover architectural design, soil testing, civil structure, electrical, plumbing, sanitary ware, flooring, painting, and basic elevation work.</p>
+                                        </div>
+                                    </div>
+                                    <div class="faq-item">
+                                        <div class="faq-header">
+                                            <span class="faq-question">What are the standard packages for house construction in Chennai?</span>
+                                            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                                        </div>
+                                        <div class="faq-body">
+                                            <p>LHI offers three construction packages: Basic at ₹2,250/sq.ft, Standard at ₹2,450/sq.ft, and Premium at ₹2,650/sq.ft, subject to specifications.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 10 Final CTA Section -->
+                    <section class="lhi-lp-final-cta" style="background-image: url('../../assets/images/banner/21.webp');">
+                        <div class="final-cta-wrap">
+                            <h2>Your home starts with a conversation.</h2>
+                            <a href="#" class="btn-gold open-lead-popup">Begin Your Home Journey <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </section>
+                    """
+                else:
+                    # Build Service Page Content Fallback
+                    body_html = f"""
+                    <section class="hero" style="height: 60vh;">
+                        <div class="hero-overlay" style="background: rgba(0,0,0,0.85);"></div>
+                        <div class="hero-content">
+                            <h1 class="gold-text">{page["h1"]}</h1>
+                            <p>{page["intro"]}</p>
+                        </div>
+                    </section>
+
+                    <section id="details">
+                        <div class="faq-container">
+                            <h2 class="gold-text" style="margin-bottom: 20px;">Premium Residential Services</h2>
+                            <p style="color: #ccc; margin-bottom: 20px;">LHI provides turnkey engineering execution in Chennai, utilizing Tata/JSW steel, machine-cut bricks, and African Teakwood frame fittings according to official quotation plans.</p>
+                            
+                            {"<h3>Approved Cost Estimation Guide</h3>" + make_pricing_table() if "cost" in page_key else ""}
+                        </div>
+                    </section>
+                    
+                    {make_faq_accordions(page["faqs"])}
+
+                    <section id="cta" style="text-align: center; background: var(--black-matte);">
+                        <h2 class="gold-text">Consult With Our Construction Experts</h2>
+                        <p style="margin-bottom: 30px; color: #888;">Begin your legacy home layout planning today. Talk to a turnkey advisor.</p>
+                        <a href="#" class="btn btn-gold open-lead-popup">Request Consultation</a>
+                    </section>
+                    """
                 html_content = generate_layout(page_key, body_html)
                 dest_path = os.path.join(WORKSPACE_ROOT, page_key, "index.html")
                 os.makedirs(os.path.dirname(dest_path), exist_ok=True)
@@ -522,7 +838,7 @@ def build_localities():
             <section id="cta" style="text-align: center; background: var(--black-matte);">
                 <h2 class="gold-text">Begin Your Project in {loc["name"]}</h2>
                 <p style="margin-bottom: 30px; color: #888;">Calculate costs or contact our engineers to plan your villa foundation design.</p>
-                <a href="javascript:void(0)" onclick="openModal('enquiryModal')" class="btn btn-gold">Request Site Consultation</a>
+                <a href="#" class="btn btn-gold open-lead-popup">Request Site Consultation</a>
             </section>
             """
             html_content = generate_layout(page_key, body_html)
@@ -570,7 +886,7 @@ def build_tamil_nadu_hub():
     <section id="cta" style="text-align: center; background: var(--black-matte);">
         <h2 class="gold-text">Request Services Across Tamil Nadu</h2>
         <p style="margin-bottom: 30px; color: #888;">Connect with our structural engineers to verify service availability in your locality.</p>
-        <a href="javascript:void(0)" onclick="openModal('enquiryModal')" class="btn btn-gold">Contact Turnkey Team</a>
+        <a href="#" class="btn btn-gold open-lead-popup">Contact Turnkey Team</a>
     </section>
     """
     html_content = generate_layout(page_key, body_html)
@@ -654,7 +970,7 @@ def build_projects():
                 <section id="cta" style="text-align: center; background: var(--black-matte);">
                     <h2 class="gold-text">Build Your Custom Home Layout</h2>
                     <p style="margin-bottom: 30px; color: #888;">Connect with our turnkey builders to start planning your home today.</p>
-                    <a href="javascript:void(0)" onclick="openModal('enquiryModal')" class="btn btn-gold">Plan Your Home</a>
+                    <a href="#" class="btn btn-gold open-lead-popup">Plan Your Home</a>
                 </section>
                 """
                 html_content = generate_layout(page_key, body_html)
