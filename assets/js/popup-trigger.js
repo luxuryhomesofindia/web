@@ -222,8 +222,33 @@
 
         const formData = new FormData(form);
 
-        // Fetch to backend script (using origin to resolve absolutely from any subfolder)
-        const submitUrl = window.location.origin + '/api/submit-lead';
+        // Web3Forms Configuration
+        formData.set('access_key', '271c3543-15df-4d8c-8057-ffbc1d09e5df');
+        formData.set('subject', 'New Luxury Homes of India Lead');
+        formData.set('from_name', 'Luxury Homes of India');
+        formData.set('replyto', emailVal);
+
+        // Custom fields and page attribution
+        formData.set('page_url', window.location.href);
+
+        // Cleanly serialize multiple checked services
+        const selectedServices = [];
+        form.querySelectorAll('input[name="services[]"]:checked').forEach(cb => {
+            selectedServices.push(cb.value);
+        });
+        formData.set('services_required', selectedServices.join(', '));
+        formData.delete('services[]'); // Remove array version
+
+        // Inject hidden botcheck spam check dynamically
+        if (!form.querySelector('input[name="botcheck"]')) {
+            const botcheckInput = document.createElement('input');
+            botcheckInput.type = 'checkbox';
+            botcheckInput.name = 'botcheck';
+            botcheckInput.style.display = 'none';
+            form.appendChild(botcheckInput);
+        }
+
+        const submitUrl = 'https://api.web3forms.com/submit';
 
         fetch(submitUrl, {
             method: 'POST',
@@ -250,7 +275,7 @@
             return data;
         })
         .then(res => {
-            if (res.status === 'success') {
+            if (res.success) { // Web3Forms API returns { success: true }
                 // Forward to FormBold client-side to bypass GoDaddy outbound cURL block
                 fetch('https://formbold.com/s/6QXkY', {
                     method: 'POST',
@@ -266,7 +291,7 @@
                         <div class="background"></div>
                         <div class="checkmark draw"></div>
                     </div>
-                    <p style="color:#d4af37; font-weight:700; margin-top:10px;">${res.message}</p>
+                    <p style="color:#d4af37; font-weight:700; margin-top:10px;">Enquiry submitted successfully.</p>
                 </div>`;
                 
                 // Track Conversion Events
@@ -290,16 +315,6 @@
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = originalBtnText;
                 }, 3000);
-            } else if (res.status === 'validation_error') {
-                // Server-side validation errors
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnText;
-                Object.keys(res.errors).forEach(key => {
-                    const field = form.querySelector(`[name="${key}"]`) || form.querySelector(`[name="${key}[]"]`);
-                    if (field) {
-                        showFieldError(field, res.errors[key]);
-                    }
-                });
             } else {
                 // General Server Error
                 submitBtn.disabled = false;
