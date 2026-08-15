@@ -135,8 +135,15 @@ $article_schema = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $post['title']; ?> | Luxury Homes of India</title>
-    <meta name="description" content="<?php echo htmlspecialchars($post['excerpt']); ?>">
+
+    <title><?php echo htmlspecialchars($post['title']); ?> | Luxury Homes of India</title>
+    <?php
+    $meta_desc = $post['excerpt'] ?? '';
+    if (mb_strlen($meta_desc) > 160) {
+        $meta_desc = mb_substr($meta_desc, 0, 157) . '...';
+    }
+    ?>
+    <meta name="description" content="<?php echo htmlspecialchars($meta_desc); ?>">
     <link rel="canonical" href="https://luxuryhomesofindia.in/blog/<?php echo $post['slug']; ?>" />
     <link rel="shortcut icon" type="image/x-icon" href="../assets/images/fav.png">
 

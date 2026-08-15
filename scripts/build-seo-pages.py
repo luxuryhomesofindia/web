@@ -51,9 +51,12 @@ def get_base_template(title, description, canonical_url, robots_meta="index, fol
     head_str = re.sub(r"<meta name=\"robots\" content=\".*?\"[^>]*>", f'<meta name="robots" content="{robots_meta}">', head_str)
 
     # Dynamic OpenGraph and Twitter tags
-    head_str = re.sub(r"<meta property=\"og:title\" content=\".*?\"[^>]*>", f'<meta property="og:title" content="{title}">', head_str)
-    head_str = re.sub(r"<meta property=\"og:description\" content=\".*?\"[^>]*>", f'<meta property="og:description" content="{description}">', head_str)
-    head_str += f'\n    <meta property="og:url" content="{canonical_url}">'
+    head_str = re.sub(r"<meta property=\"og:title\" content=\".*?\"[^>]*>", f'<meta property="og:title" content="{title}">', head_str, flags=re.IGNORECASE)
+    head_str = re.sub(r"<meta property=\"og:description\" content=\".*?\"[^>]*>", f'<meta property="og:description" content="{description}">', head_str, flags=re.IGNORECASE)
+    if re.search(r'<meta\s+property=["\']og:url["\']\s+content=["\'].*?["\'][^>]*>', head_str, re.IGNORECASE):
+        head_str = re.sub(r'<meta\s+property=["\']og:url["\']\s+content=["\'].*?["\'][^>]*>', f'<meta property="og:url" content="{canonical_url}" />', head_str, flags=re.IGNORECASE)
+    else:
+        head_str += f'\n    <meta property="og:url" content="{canonical_url}" />'
     head_str += f'\n    <meta name="twitter:card" content="summary_large_image">'
     head_str += f'\n    <meta name="twitter:title" content="{title}">'
     head_str += f'\n    <meta name="twitter:description" content="{description}">'
@@ -982,11 +985,45 @@ def build_projects():
 def build_sitemap():
     sitemap_path = os.path.join(WORKSPACE_ROOT, "sitemap.xml")
     xml_urls = ""
+    
+    # Core static pages
+    core_pages = [
+        "",
+        "about",
+        "contact",
+        "career",
+        "gallery",
+        "projects",
+        "faq",
+        "civil_engineering_and_construction",
+        "sustainable_construction_solutions",
+        "smart_home_technology_integration",
+        "turnkey_project_solutions",
+        "luxury_vila_development",
+        "structural_engineer",
+        "team",
+        "privacy-policy",
+        "terms-and-conditions",
+        "cost-calculator"
+    ]
+    
+    for page in core_pages:
+        if page != "":
+            canonical_url = f"https://luxuryhomesofindia.in/{page}"
+        else:
+            canonical_url = "https://luxuryhomesofindia.in/"
+        xml_urls += f"""  <url>
+    <loc>{canonical_url}</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.00</priority>
+  </url>\n"""
+
     for page_key in pages_data.keys():
         canonical_url = f"https://luxuryhomesofindia.in/{page_key}/" if page_key != "chennai" else "https://luxuryhomesofindia.in/chennai/"
         xml_urls += f"""  <url>
     <loc>{canonical_url}</loc>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.85</priority>
   </url>\n"""
