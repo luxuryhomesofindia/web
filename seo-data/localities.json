@@ -3,13 +3,17 @@
     "name": "OMR",
     "fullName": "Old Mahabalipuram Road",
     "overview": "OMR is Chennai's primary IT Corridor, characterized by rapid development and high demand for luxury villas and custom residences.",
-    "construction_context": "Soil profiles vary along Old Mahabalipuram Road. Site-specific soil investigation and structural design should be carried out by qualified professionals to determine the appropriate foundation design.",
-    "approvals": "Applicable approvals depend on the specific site and development. Permissions typically fall under the Chennai Metropolitan Development Authority (CMDA) or local local bodies.",
-    "services": ["Luxury Home Construction", "Villa Construction", "Turnkey Construction"],
+    "construction_context": "Soil subgrades vary within OMR. Geotechnical soil parameters and structural foundation depths should be determined from site-specific soil investigation reports to prevent structural settlement.",
+    "approvals": "Residential layouts along OMR are subject to CMDA planning parameters, local panchayat guidelines, and public road width setbacks.",
+    "services": [
+      "Luxury Home Construction",
+      "Villa Construction",
+      "Turnkey Construction"
+    ],
     "faqs": [
       {
-        "question": "What type of foundation is required for home construction in OMR?",
-        "answer": "Soil characteristics vary across OMR. Site-specific soil testing is recommended to design the appropriate foundation for your structure."
+        "question": "How deep should a foundation be on OMR?",
+        "answer": "Foundation design and pile depth bounds must be determined from site-specific geotechnical investigations and structural analysis."
       }
     ]
   },
@@ -17,13 +21,17 @@
     "name": "ECR",
     "fullName": "East Coast Road",
     "overview": "ECR is a premium seaside corridor renowned for elite luxury beach villas and residential projects.",
-    "construction_context": "ECR's proximity to the coast influences local site conditions. Site-specific soil investigation and structural design should be carried out by qualified professionals to address foundation and weathering needs.",
-    "approvals": "Applicable approvals depend on the specific site and development, including any relevant Coastal Regulation Zone (CRZ) guidelines where applicable.",
-    "services": ["Luxury Villa Construction", "Architecture", "Smart Home Integration"],
+    "construction_context": "ECR beachside construction requires specialized material specifications. Structural durability and concrete parameters should be finalized based on site-specific engineering audits to protect against coastal humidity and salinity.",
+    "approvals": "Applicable planning setbacks and Coastal Regulation Zone (CRZ) clearances depend on the specific site, HTL markings, and local body approvals.",
+    "services": [
+      "Luxury Villa Construction",
+      "Architecture",
+      "Smart Home Integration"
+    ],
     "faqs": [
       {
-        "question": "Are there special rules for building on East Coast Road (ECR)?",
-        "answer": "Yes, site-specific restrictions, including CRZ regulations where applicable, must be evaluated. Appropriate protective coatings should be selected based on coastal proximity."
+        "question": "What is required for building compliance along ECR?",
+        "answer": "Clearances depend on specific site coordinates, zoning categories, and municipal planning setbacks under coastal regulation rules."
       }
     ]
   },
@@ -33,7 +41,11 @@
     "overview": "An established IT residential zone housing major technology parks and high-value gated villa projects.",
     "construction_context": "Site-specific soil investigation and structural design should be carried out by qualified professionals to determine soil characteristics and foundation requirements.",
     "approvals": "Applicable approvals depend on the specific site, road width, and development parameters under local planning regulations.",
-    "services": ["House Construction", "Turnkey Construction", "Interior Design"],
+    "services": [
+      "House Construction",
+      "Turnkey Construction",
+      "Interior Design"
+    ],
     "faqs": [
       {
         "question": "What is the average construction time for a villa in Sholinganallur?",
@@ -47,7 +59,11 @@
     "overview": "Perungudi is a popular residential hub adjacent to the IT corridor, experiencing high demand for custom builder floors.",
     "construction_context": "Site-specific soil investigation and structural design should be carried out by qualified professionals to assess the water table and load-bearing capacity of the soil.",
     "approvals": "Applicable approvals depend on the specific site and development, complying with local municipal planning rules.",
-    "services": ["Turnkey Home Construction", "Architecture", "Home Renovation"],
+    "services": [
+      "Turnkey Home Construction",
+      "Architecture",
+      "Home Renovation"
+    ],
     "faqs": [
       {
         "question": "Why is soil testing critical in Perungudi?",
@@ -61,7 +77,11 @@
     "overview": "Thoraipakkam is a prime central OMR locality with a mix of commercial and residential developments.",
     "construction_context": "Site-specific soil investigation and structural design should be carried out by qualified professionals to determine optimal plinth levels and foundation specifications.",
     "approvals": "Applicable approvals depend on the specific site and development under local planning guidelines.",
-    "services": ["House Construction", "Interior Design", "Smart Home"],
+    "services": [
+      "House Construction",
+      "Interior Design",
+      "Smart Home"
+    ],
     "faqs": [
       {
         "question": "How do you prevent monsoon waterlogging in Thoraipakkam homes?",
@@ -75,7 +95,11 @@
     "overview": "A rapidly developing suburb on the southern stretch of OMR, popular for large villa communities.",
     "construction_context": "Site-specific soil investigation and structural design should be carried out by qualified professionals to determine soil conditions and foundation structures.",
     "approvals": "Applicable approvals depend on the specific site, district, and development coordinates.",
-    "services": ["Villa Construction", "Turnkey Construction", "Architecture"],
+    "services": [
+      "Villa Construction",
+      "Turnkey Construction",
+      "Architecture"
+    ],
     "faqs": [
       {
         "question": "Do I need DTCP or CMDA approval in Navalur?",
@@ -89,7 +113,11 @@
     "overview": "Located at the junction of ECR and OMR, Kelambakkam is a key residential hub for families and professionals.",
     "construction_context": "Site-specific soil investigation and structural design should be carried out by qualified professionals to plan foundation specifications.",
     "approvals": "Applicable approvals depend on the specific site layout and development boundaries.",
-    "services": ["House Construction", "Interior Design", "Home Renovation"],
+    "services": [
+      "House Construction",
+      "Interior Design",
+      "Home Renovation"
+    ],
     "faqs": [
       {
         "question": "Is groundwater quality an issue in Kelambakkam?",
@@ -101,13 +129,17 @@
     "name": "Velachery",
     "fullName": "Velachery",
     "overview": "Velachery is a highly commercialized and dense residential hub in South Chennai.",
-    "construction_context": "Site-specific soil investigation and structural design should be carried out by qualified professionals to plan appropriate plinth levels and water barrier systems.",
-    "approvals": "Applicable approvals depend on the specific site and development under local corporation guidelines.",
-    "services": ["Turnkey Home Construction", "Home Renovation", "Interior Design"],
+    "construction_context": "Velachery's topography is prone to seasonal monsoon waterlogging. Building layouts should design elevated plinth heights and retaining structures based on specific street markings and drainage parameters.",
+    "approvals": "Building permits are governed by the Corporation of Chennai, requiring municipal drainage connections and local rainwater harvesting configurations.",
+    "services": [
+      "Turnkey Home Construction",
+      "Home Renovation",
+      "Interior Design"
+    ],
     "faqs": [
       {
-        "question": "How does LHI flood-proof houses in Velachery?",
-        "answer": "Plinth elevations should be designed based on municipal guidelines and historical flood levels, incorporating appropriate waterproofing measures."
+        "question": "How does LHI construct flood-resilient houses in Velachery?",
+        "answer": "We Finished floor and plinth levels should be determined through site-level assessment, drainage/flood-risk considerations, and appropriate engineering design. above local road markings, apply waterproofing applications selected by project engineers coatings on lower concrete levels, and install automated sump drainage pumps."
       }
     ]
   },
@@ -117,7 +149,11 @@
     "overview": "Tambaram is a major residential hub and transit junction in South-West Chennai.",
     "construction_context": "Site-specific soil investigation and structural design should be carried out by qualified professionals to evaluate rock depth and load-bearing requirements.",
     "approvals": "Governed by the Tambaram Municipal Corporation under DTCP/CMDA guidelines.",
-    "services": ["House Construction", "Villa Construction", "Architecture"],
+    "services": [
+      "House Construction",
+      "Villa Construction",
+      "Architecture"
+    ],
     "faqs": [
       {
         "question": "Is foundation construction cheaper in Tambaram?",
@@ -131,7 +167,11 @@
     "overview": "A prime residential area connecting OMR and Velachery, preferred by IT professionals.",
     "construction_context": "Site-specific soil investigation and structural design should be carried out by qualified professionals to assess clay profiles and structural needs.",
     "approvals": "Applicable approvals depend on the specific site boundaries and development guidelines.",
-    "services": ["House Construction", "Turnkey Construction", "Interior Design"],
+    "services": [
+      "House Construction",
+      "Turnkey Construction",
+      "Interior Design"
+    ],
     "faqs": [
       {
         "question": "What type of foundation does LHI use in Medavakkam?",
@@ -145,7 +185,11 @@
     "overview": "Porur is a prominent residential and industrial hub in Western Chennai.",
     "construction_context": "Site-specific soil investigation and structural design should be carried out by qualified professionals to assess soil stability and foundation requirements.",
     "approvals": "Applicable approvals depend on the specific site and development under corporate bylaws.",
-    "services": ["House Construction", "Interior Design", "Smart Home"],
+    "services": [
+      "House Construction",
+      "Interior Design",
+      "Smart Home"
+    ],
     "faqs": [
       {
         "question": "What structural considerations are needed in Porur?",
@@ -157,13 +201,17 @@
     "name": "Adyar",
     "fullName": "Adyar",
     "overview": "One of Chennai's most prestigious and established premium residential neighborhoods.",
-    "construction_context": "Site-specific soil investigation and structural design should be carried out by qualified professionals to determine sandy loam or alluvial specifications.",
-    "approvals": "Applicable approvals depend on the specific site, zoning, and development parameters under local master plans.",
-    "services": ["Luxury Home Construction", "Architecture", "Luxury Interior Design"],
+    "construction_context": "Located near the Adyar river basin, the soil consists of alluvial deposits and sandy loam. Raft foundations or deep isolated column footings are typically required to prevent settlement. Site elevation is designed above historical basin flood markers.",
+    "approvals": "Governed by the Corporation of Chennai under strict FSI guidelines. Setbacks and planning permissions require CMDA approval for residential villas.",
+    "services": [
+      "Luxury Home Construction",
+      "Architecture",
+      "Luxury Interior Design"
+    ],
     "faqs": [
       {
-        "question": "What are the FSI limits for luxury villas in Adyar?",
-        "answer": "Zoning and development parameters should comply with local planning regulations and master plans."
+        "question": "What is the typical foundation type for Adyar custom villas?",
+        "answer": "Due to river basin alluvial soil, LHI utilizes raft foundations or deep reinforced isolated columns to distribute weight and prevent structural settlement."
       }
     ]
   },
@@ -171,27 +219,35 @@
     "name": "Anna Nagar",
     "fullName": "Anna Nagar",
     "overview": "Anna Nagar is a premium, highly structured residential locality in North-West Chennai.",
-    "construction_context": "Site-specific soil investigation and structural design should be carried out by qualified professionals to evaluate load-bearing profiles.",
-    "approvals": "Applicable approvals depend on the specific site and development setbacks under municipal bylaws.",
-    "services": ["Luxury Home Construction", "Architecture", "Smart Home Automation"],
+    "construction_context": "Features soil profiles that must be assessed before foundation selection. Drainage layouts are engineered to connect with municipal grids, elevating plinths above street level.",
+    "approvals": "All building designs must strictly conform to CMDA setback rules and road width parameters to secure approvals.",
+    "services": [
+      "Luxury Home Construction",
+      "Architecture",
+      "Smart Home Automation"
+    ],
     "faqs": [
       {
-        "question": "How are setbacks managed in Anna Nagar residential construction?",
-        "answer": "All setback requirements must be designed in accordance with local municipal building bylaws."
+        "question": "Do Anna Nagar villa projects require special clearances?",
+        "answer": "Yes. Clearances are required from CMDA and the Metro Water board for sewage/water grid connections."
       }
     ]
   },
   "alwarpet": {
     "name": "Alwarpet",
     "fullName": "Alwarpet",
-    "overview": "An ultra-premium central Chennai neighborhood home to diplomats, celebrities, and high-net-worth individuals.",
-    "construction_context": "Site-specific soil investigation and structural design should be carried out by qualified professionals to assess structural requirements.",
-    "approvals": "Applicable approvals depend on the specific site parameters and development permits.",
-    "services": ["Luxury Home Construction", "Architecture", "Luxury Interior Design"],
+    "overview": "An ultra-premium central Chennai neighborhood home to HNIs, diplomats, and business leaders.",
+    "construction_context": "Features dense clay and sand layers with a moderate water table. Raft foundations are preferred for reconstruction projects to prevent damage to adjoining premium structures during excavation.",
+    "approvals": "Corporation of Chennai approvals govern redevelopment, including demolition planning, structural safety certificates for neighboring structures, and tree preservation rules.",
+    "services": [
+      "Luxury Home Construction",
+      "Architecture",
+      "Luxury Interior Design"
+    ],
     "faqs": [
       {
-        "question": "Does LHI do rebuilding or reconstruction projects in Alwarpet?",
-        "answer": "Yes, LHI specializes in high-end demolition and premium reconstruction of independent luxury villas in Alwarpet."
+        "question": "What precautions does LHI take during Alwarpet reconstruction projects?",
+        "answer": "We install structural shoring to support adjacent property boundary walls, utilize raft foundations to prevent vibration cracks, and implement strict noise/dust barriers."
       }
     ]
   },
@@ -199,13 +255,77 @@
     "name": "Nungambakkam",
     "fullName": "Nungambakkam",
     "overview": "A central Chennai premium locality combining heritage charm with modern residential luxury.",
-    "construction_context": "Site-specific soil investigation and structural design should be carried out by qualified professionals to plan service lines and foundation structures.",
-    "approvals": "Applicable approvals depend on the specific site, height limits, and development permits.",
-    "services": ["Luxury Home Construction", "Smart Home Automation", "Architecture"],
+    "construction_context": "Clayey soil profile with narrow street networks. Construction requires careful structural load calculations and structural shoring during foundation execution to protect neighboring walls.",
+    "approvals": "CMDA planning permission is mandatory, requiring compliance with zoning guidelines, height restrictions based on road width, and corporation fire safety rules.",
+    "services": [
+      "Luxury Home Construction",
+      "Smart Home Automation",
+      "Architecture"
+    ],
     "faqs": [
       {
-        "question": "Are there height restrictions in Nungambakkam for villas?",
-        "answer": "Building height permissions are governed by local road width criteria and planning bylaws."
+        "question": "Are there heights restrictions on villas in Nungambakkam?",
+        "answer": "Yes. Permitted building height is tied to the width of the abutting public road under corporation bylaws."
+      }
+    ]
+  },
+  "besant-nagar": {
+    "name": "Besant Nagar",
+    "overview": "Besant Nagar is a prestigious residential neighborhood in South Chennai, combining elite beachside custom villas with established urban layouts.",
+    "construction_context": "Geotechnical characteristics near the coast vary. Foundation types and design parameters must be determined based on site-specific geotechnical investigations and structural engineering calculations to address loose sandy soil structures and moisture parameters.",
+    "approvals": "Clearances depend on the specific site coordinates, zoning limits, and municipal setbacks under corporation planning guidelines. Beachside development is subject to Coastal Regulation Zone (CRZ) clearances.",
+    "faqs": [
+      {
+        "question": "Do Besant Nagar custom villas require CRZ clearances?",
+        "answer": "Yes. Proximity to the beach requires verification of CRZ buffer lines, HTL coordinates, and site-specific zone classifications."
+      }
+    ]
+  },
+  "ecr-akkarai": {
+    "name": "ECR Akkarai",
+    "overview": "ECR Akkarai is a high-value coastal enclave along East Coast Road, home to premium independent seaside villas and luxury beach houses.",
+    "construction_context": "Seaside construction requires specialized material specifications. Structural durability and concrete parameters should be finalized based on site-specific engineering audits to protect against coastal humidity and salinity.",
+    "approvals": "Applicable requirements depend on the specific site, CRZ zoning classifications, and municipal planning approvals.",
+    "faqs": [
+      {
+        "question": "Are there material restrictions for beachside villas in Akkarai?",
+        "answer": "Yes. Coastal weathering requires anti-salinity specifications and moisture-resistant concrete mixes evaluated through engineering audits."
+      }
+    ]
+  },
+  "ecr-injambakkam": {
+    "name": "ECR Injambakkam",
+    "overview": "ECR Injambakkam is a premium coastal residential corridor on ECR, renowned for custom beachside estates and luxury gated villa communities.",
+    "construction_context": "Proximity to the shore requires waterproofing applications selected by project engineers applications and anti-corrosive structural designs determined through expert engineering audits based on specific site coordinates.",
+    "approvals": "Zoning setbacks and CRZ clearance criteria depend on site-specific maps, high-tide line classifications, and CZMA planning parameters.",
+    "faqs": [
+      {
+        "question": "How are foundations designed for beach houses in Injambakkam?",
+        "answer": "Foundation type and structural designs must be determined based on geotechnical assessments to ensure safety against sand shifting and water table fluctuations."
+      }
+    ]
+  },
+  "t-nagar": {
+    "name": "T Nagar",
+    "overview": "T Nagar is Chennai's primary central shopping district and an ultra-premium redevelopment hub for luxury residential apartments and villas.",
+    "construction_context": "Reconstruction in dense residential neighborhoods requires specialized safety planning. Structural shoring design parameters must be determined from site-specific geotechnical investigation and structural engineering to protect adjacent boundary walls.",
+    "approvals": "Municipal setbacks and construction height limits are governed by corporation bylaws and abutting road width parameters.",
+    "faqs": [
+      {
+        "question": "What is structural shoring in reconstruction?",
+        "answer": "Shoring installs temporary structural supports to stabilize adjacent walls during demolition and foundation excavation."
+      }
+    ]
+  },
+  "anna-nagar-west": {
+    "name": "Anna Nagar West",
+    "overview": "Anna Nagar West is an established, highly structured premium residential neighborhood in North-West Chennai.",
+    "construction_context": "Soil subgrades vary within a locality. Soil testing and site-specific geotechnical assessment should be completed before foundation design to determine stable isolated column or raft requirements.",
+    "approvals": "Building permits require compliance with Corporation of Chennai setback codes and planning approvals.",
+    "faqs": [
+      {
+        "question": "What foundation is standard for Anna Nagar West villas?",
+        "answer": "Isolated column footings are common, but site-specific soil bearing capacity testing must confirm the design parameters."
       }
     ]
   }

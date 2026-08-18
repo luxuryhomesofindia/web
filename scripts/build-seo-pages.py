@@ -902,7 +902,7 @@ def build_tamil_nadu_hub():
 def build_guides():
     for page_key, page in pages_data.items():
         if page_type := page.get("page_type"):
-            if page_type == "guide" or page_key in ["questions", "projects"]:
+            if page_type in ["guide", "landing"] or page_key in ["questions", "projects"]:
                 # Build Guide content
                 body_html = f"""
                 <section class="hero" style="height: 50vh;">
@@ -938,12 +938,21 @@ def build_guides():
                 with open(dest_path, "w", encoding="utf-8") as f:
                     f.write(html_content)
 
+
 # 7. GENERATE PROJECT PAGES
 def build_projects():
     for page_key, page in pages_data.items():
         if page_type := page.get("page_type"):
             if page_type == "project":
-                body_html = f"""
+                # Extracted variables
+                loc = page.get("actual_location", "Chennai Core")
+                p_type = page.get("property_type", "Turnkey Residence")
+                area = page.get("built_up_area", "N/A")
+                year = page.get("completion_year", "N/A")
+                val = page.get("verified_project_value", "N/A")
+                scope = page.get("scope_of_work", "Turnkey Project Solutions")
+                
+                overview_block = f"""
                 <section class="hero" style="height: 50vh;">
                     <div class="hero-overlay" style="background: rgba(0,0,0,0.85);"></div>
                     <div class="hero-content">
@@ -952,30 +961,36 @@ def build_projects():
                     </div>
                 </section>
 
-                <section id="case-study">
-                    <div class="faq-container">
+                <section id="case-study" style="padding: 60px 0;">
+                    <div class="faq-container" style="max-width: 850px; margin: 0 auto; padding: 0 20px;">
                         <h2 class="gold-text" style="margin-bottom: 20px;">Project Overview & Specifications</h2>
-                        <p style="color: #ccc; margin-bottom: 30px;">
-                            This residence represents LHI's dedication to architectural craftsmanship, featuring robust structural foundations, custom African Teak woodwork, premium weathering layers, and structural FSI optimizations.
-                        </p>
-
                         <div style="background: var(--charcoal); padding: 30px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 30px;">
-                            <h4 style="color: var(--gold-primary); margin-bottom: 10px;">Verification Metrics</h4>
-                            <ul style="list-style: none; color: #ccc;">
-                                <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--gold-primary);"></i> Structural Quality: Premium LHI Specification Grade</li>
-                                <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--gold-primary);"></i> Design Conformity: CMDA / Vastu Compliant</li>
-                                <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--gold-primary);"></i> Status: Fully Completed & Handed Over</li>
-                            </ul>
+                            <h4 style="color: var(--gold-primary); margin-bottom: 20px;">Verification Metrics</h4>
+                            <table style="width: 100%; border-collapse: collapse; color: #ccc;">
+                                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 10px 0; font-weight: bold;">Location:</td><td style="padding: 10px 0;">{loc}</td></tr>
+                                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 10px 0; font-weight: bold;">Project Type:</td><td style="padding: 10px 0;">{p_type}</td></tr>
+                                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 10px 0; font-weight: bold;">Built-up Area:</td><td style="padding: 10px 0;">{area}</td></tr>
+                                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 10px 0; font-weight: bold;">Completion Year:</td><td style="padding: 10px 0;">{year}</td></tr>
+                                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 10px 0; font-weight: bold;">Project Value:</td><td style="padding: 10px 0;">{val}</td></tr>
+                                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 10px 0; font-weight: bold;">Scope:</td><td style="padding: 10px 0;">{scope}</td></tr>
+                            </table>
                         </div>
                     </div>
                 </section>
-
-                <section id="cta" style="text-align: center; background: var(--black-matte);">
-                    <h2 class="gold-text">Build Your Custom Home Layout</h2>
+                """
+                
+                # Check for other sections
+                body_html = overview_block
+                
+                # CTA block
+                body_html += f"""
+                <section id="cta" style="text-align: center; background: var(--black-matte); padding: 60px 0;">
+                    <h2 class="gold-text">Request Site Consultation</h2>
                     <p style="margin-bottom: 30px; color: #888;">Connect with our turnkey builders to start planning your home today.</p>
-                    <a href="#" class="btn btn-gold open-lead-popup">Plan Your Home</a>
+                    <a href="/contact/" class="btn btn-gold">Plan Your Home</a>
                 </section>
                 """
+                
                 html_content = generate_layout(page_key, body_html)
                 dest_path = os.path.join(WORKSPACE_ROOT, page_key, "index.html")
                 os.makedirs(os.path.dirname(dest_path), exist_ok=True)
@@ -995,15 +1010,8 @@ def build_sitemap():
         "gallery",
         "projects",
         "faq",
-        "civil_engineering_and_construction",
-        "sustainable_construction_solutions",
-        "smart_home_technology_integration",
-        "turnkey_project_solutions",
-        "luxury_vila_development",
-        "structural_engineer",
-        "team",
         "privacy-policy",
-        "terms-and-conditions",
+        "terms-of-condition",
         "cost-calculator"
     ]
     

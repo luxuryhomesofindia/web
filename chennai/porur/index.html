@@ -291,6 +291,36 @@
     </style>
   <meta name="robots" content="index, follow">
 
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GT-MJSH26NL');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Q7C4XN7BF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7Q7C4XN7BF');
+    gtag('config', 'AW-17674541365');
+  </script>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "xxlkeydv0r");
+  </script>
+
+  <!-- LHI Universal Tracking -->
+  <script defer src="/assets/js/analytics-tracking.js"></script>
+
     <meta property="og:url" content="https://luxuryhomesofindia.in/chennai/porur/" />
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Independent House Construction in Porur Chennai | LHI">
@@ -543,91 +573,11 @@
 
     <script defer src="../../assets/js/popup-trigger.js"></script>
     <script>
-        
-        // MOBILE MENU
-        function toggleMobileMenu() {
-            document.getElementById('mobileNav').classList.toggle('active');
-        }
-
-        // HERO SLIDER
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        function rotateSlides() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-        setInterval(rotateSlides, 5000);
-
-        // HEADER SCROLL
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('mainHeader');
-            if (window.scrollY > 80) header.classList.add('scrolled');
-            else header.classList.remove('scrolled');
-        });
-
-        // DYNAMIC GALLERY
-        const galleryData = [
-            { id: 1, type: 'villa', title: 'The Chola Residency', img: 'https://images.pexels.com/photos/33575697/pexels-photo-33575697.jpeg' },
-            { id: 2, type: 'interior', title: 'Taj Skyline Penthouse', img: 'https://images.pexels.com/photos/32269123/pexels-photo-32269123.png' },
-            { id: 3, type: 'resort', title: 'The Emerald Farmhouse', img: 'https://images.pexels.com/photos/6872320/pexels-photo-6872320.jpeg' },
-            { id: 4, type: 'exterior', title: 'Modern Agra Elevation', img: 'https://images.pexels.com/photos/32666364/pexels-photo-32666364.jpeg' },
-            { id: 5, type: 'villa', title: 'Nizam Estate', img: 'https://images.pexels.com/photos/36466231/pexels-photo-36466231.jpeg' },
-            { id: 6, type: 'interior', title: 'Vastu Dining Hall', img: 'https://images.pexels.com/photos/32473245/pexels-photo-32473245.png' }
-        ];
-
-        const galleryGrid = document.getElementById('mainGallery');
-        const filterBtns = document.querySelectorAll('.filter-btn');
-
-        function renderGallery(filter = 'all') {
-            galleryGrid.innerHTML = '';
-            const filtered = filter === 'all' ? galleryData : galleryData.filter(item => item.type === filter);
-            
-            filtered.forEach(item => {
-                const div = document.createElement('div');
-                div.className = 'gallery-item';
-                div.innerHTML = `
-                    <img src="${item.img}" alt="${item.title}" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span style="font-weight:700; letter-spacing:2px; text-transform:uppercase; font-size:0.8rem;">${item.title}</span>
-                    </div>
-                `;
-                galleryGrid.appendChild(div);
-            });
-        }
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                renderGallery(btn.dataset.filter);
-            });
-        });
-
-        // ACCORDION
-        document.querySelectorAll('.faq-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const item = header.parentElement;
-                const wasActive = item.classList.contains('active');
-                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-                if (!wasActive) item.classList.add('active');
-            });
-        });
-
-        // MODALS
-        window.openModal = function(id) {
-            document.getElementById(id).style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-        window.closeAllModals = function(e) {
-            document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
-            document.body.style.overflow = 'auto';
-        }
-
-        window.onload = () => {
-            renderGallery();
-        }
-    
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GT-MJSH26NL');
         
     </script>
 </body>
