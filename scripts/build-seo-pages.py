@@ -1017,7 +1017,7 @@ def build_sitemap():
     
     for page in core_pages:
         if page != "":
-            canonical_url = f"https://luxuryhomesofindia.in/{page}"
+            canonical_url = f"https://luxuryhomesofindia.in/{page}/"
         else:
             canonical_url = "https://luxuryhomesofindia.in/"
         xml_urls += f"""  <url>
