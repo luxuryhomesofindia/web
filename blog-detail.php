@@ -38,46 +38,20 @@ if (!$post) {
         <link rel="stylesheet" href="../assets/css/vendor/bootstrap.min.css">
         <link rel="stylesheet" href="../assets/css/style.css">
     
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GT-MJSH26NL');</script>
-  <!-- End Google Tag Manager -->
-
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Q7C4XN7BF"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-7Q7C4XN7BF');
-    gtag('config', 'AW-17674541365');
-  </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=GT-MJSH26NL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-      (function(c,l,a,r,i,t,y){
-          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "xxlkeydv0r");
-  </script>
-
-  <!-- LHI Universal Tracking -->
-  <script defer src="/assets/js/analytics-tracking.js"></script>
-
-</head>
+  gtag('config', 'GT-MJSH26NL');
+  gtag('config', 'G-7Q7C4XN7BF');
+  gtag('config', 'AW-17674541365');
+</script></head>
     <body style="background:#050505; color:#fff; text-align:center; padding:100px 20px;">
 
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GT-MJSH26NL"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
-        <h2 style="color:#c6a25a; font-weight:800; margin-bottom:20px;">Article Not Found</h2>
-        <p>The requested blog article does not exist or has been moved.</p>
+  moved.</p>
         <a href="/blog" class="rts-btn btn-primary" style="margin-top:20px; display:inline-block; text-decoration:none; padding:10px 25px; background:#c6a25a; color:#000;">Back to Blog Hub</a>
     </body>
     </html>
