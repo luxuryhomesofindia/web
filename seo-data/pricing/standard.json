@@ -1,0 +1,42 @@
+{
+  "cement": "Zurari or Chettinad or ISI Certified Equivalent.",
+  "steel": "ARS or Suryadev or ISI Certified Equivalent.",
+  "brick": "Chamber clay brick.",
+  "sand": "R Sand used for roof concrete based on availability. M Sand for other concrete works, brick work and tile work. P Sand for plastering.",
+  "metal": "Best quality material available near site.",
+  "grill_work": "ARS or Suryadev or ISI Certified Equivalent.",
+  "wood_work": {
+    "main_door": {
+      "fitting_material_cost": 9000,
+      "door_frame": "African Teak (₹18,000)",
+      "door_panel": "African Teak (₹25,000)"
+    },
+    "other_room_doors": {
+      "fitting_material_cost": 2000,
+      "door_frame": "African Teak (₹6,000)",
+      "door_panel": "Readymade membrane up to ₹5,000"
+    },
+    "toilet_doors": {
+      "door": "Readymade PVC door up to ₹5,000"
+    },
+    "windows": "UPVC or Country wood - ₹550/sq.ft",
+    "ventilators": "UPVC/Country wood - ₹2,500 each"
+  },
+  "floor_finishing": {
+    "tiles_granite": "Vitrified tile up to ₹60/sq.ft",
+    "wall_tiles": "Wall tile up to ₹45/sq.ft",
+    "antiskid_tiles": "Antiskid tile up to ₹45/sq.ft",
+    "step_tiles": "Step tile up to ₹45/sq.ft"
+  },
+  "ss_handrail": "SS304 - standard design",
+  "weathering_course": "White flat tiles up to ₹40/sq.ft",
+  "painting": "Asian Premium Emulsion - inner, up to ₹450/litre",
+  "plumbing": {
+    "pipes": "Star/Prince pipes & Parryware fittings",
+    "mixer": "Wall mixer tap up to ₹4,500",
+    "shower": "Shower set up to ₹1,500"
+  },
+  "electrical": "Anchor Roma/GM switches & Orbit wires",
+  "sanitary_ware": "Parryware white",
+  "elevation": "Architecture view with Texture paint"
+}

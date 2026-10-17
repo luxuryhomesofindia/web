@@ -1,0 +1,42 @@
+{
+  "cement": "Priya or Maha or ISI Certified Equivalent.",
+  "steel": "Arun or Kamachi or ISI Certified Equivalent.",
+  "brick": "Flyash brick or AAC blocks.",
+  "sand": "M Sand for concrete, brick work and tile work. P Sand for plastering.",
+  "metal": "Best quality material available near site.",
+  "grill_work": "Arun or Kamachi or ISI Certified Equivalent.",
+  "wood_work": {
+    "main_door": {
+      "fitting_material_cost": 6500,
+      "door_frame": "African Teak (₹15,000)",
+      "door_panel": "African Teak (₹20,000)"
+    },
+    "other_room_doors": {
+      "fitting_material_cost": 1500,
+      "door_frame": "Country wood (₹4,500)",
+      "door_panel": "Readymade membrane up to ₹3,500"
+    },
+    "toilet_doors": {
+      "door": "Readymade PVC door up to ₹3,000"
+    },
+    "windows": "UPVC window - ₹400/sq.ft",
+    "ventilators": "UPVC/Country wood - ₹2,000 each"
+  },
+  "floor_finishing": {
+    "tiles_granite": "Vitrified tile up to ₹50/sq.ft",
+    "wall_tiles": "Wall tile up to ₹35/sq.ft",
+    "antiskid_tiles": "Antiskid tile up to ₹35/sq.ft",
+    "step_tiles": "Step stone tile up to ₹35/sq.ft"
+  },
+  "ss_handrail": "SS304 - simple design",
+  "weathering_course": "White flat tiles up to ₹35/sq.ft",
+  "painting": "Asian Emulsion - inner, up to ₹250/litre",
+  "plumbing": {
+    "pipes": "Star/Prince pipes & Parryware fittings",
+    "mixer": "Wall mixer tap up to ₹3,500",
+    "shower": "Shower set up to ₹1,000"
+  },
+  "electrical": "Hi-fi switches & Kundhan wires",
+  "sanitary_ware": "Parryware white",
+  "elevation": "Architecture view with civil finish"
+}

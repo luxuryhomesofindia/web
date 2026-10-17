@@ -311,6 +311,12 @@ $messageAdmin .= "--{$boundary}--";
 
 @mail(NOTIFICATION_EMAIL, $subjectAdmin, $messageAdmin, $headersAdmin);
 
+// Secondary API-based guaranteed email delivery via Resend
+if (file_exists(__DIR__ . '/resend_helper.php')) {
+    include_once __DIR__ . '/resend_helper.php';
+    send_via_resend(NOTIFICATION_EMAIL, $subjectAdmin, $bodyHtmlAdmin, $email);
+}
+
 // Customer Acknowledgement Email
 $subjectUser = "Consultation Scheduled - Luxury Homes of India";
 $boundaryUser = md5(uniqid(time()));
@@ -363,6 +369,10 @@ $messageUser .= $bodyHtmlUser . "\r\n";
 $messageUser .= "--{$boundaryUser}--";
 
 @mail($email, $subjectUser, $messageUser, $headersUser);
+
+if (function_exists('send_via_resend')) {
+    send_via_resend($email, $subjectUser, $bodyHtmlUser, FROM_EMAIL);
+}
 
 // Set session timestamp to prevent rapid submissions
 $_SESSION['lhi_last_submit'] = $currentTime;

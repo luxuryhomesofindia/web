@@ -1,0 +1,9 @@
+{
+  "name": "luxury-homes-of-india",
+  "version": "1.0.0",
+  "description": "Luxury Homes of India Website & Architecture Portal",
+  "private": true,
+  "devDependencies": {
+    "vercel-php": "^0.9.0"
+  }
+}

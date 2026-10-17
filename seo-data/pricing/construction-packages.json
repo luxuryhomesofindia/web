@@ -1,0 +1,22 @@
+{
+  "currency": "INR",
+  "unit": "sqft",
+  "source": "LHI Premium Residential Construction Quotation",
+  "packages": {
+    "premium": {
+      "name": "Premium",
+      "rate": 2650,
+      "positioning": "Premium residential package"
+    },
+    "standard": {
+      "name": "Standard",
+      "rate": 2450,
+      "positioning": "Standard residential package"
+    },
+    "basic": {
+      "name": "Basic",
+      "rate": 2250,
+      "positioning": "Basic residential package"
+    }
+  }
+}
