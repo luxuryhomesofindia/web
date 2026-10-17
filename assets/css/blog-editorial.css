@@ -488,10 +488,60 @@ h1, h2, h3, h4, h5, h6 {
     padding-left: 4px;
 }
 
+/* ── Recent Posts Auto-Scroll Widget ───────────────────────── */
+.sidebar-recent-posts-wrapper {
+    position: relative;
+}
+
+.sidebar-recent-posts-controls {
+    display: flex;
+    gap: 6px;
+    position: absolute;
+    top: -38px;
+    right: 0;
+}
+
+.rp-arrow-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(176,141,87,0.45);
+    background: rgba(176,141,87,0.08);
+    color: var(--accent, #b08d57);
+    cursor: pointer;
+    font-size: 11px;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.rp-arrow-btn:hover {
+    background: var(--accent, #b08d57);
+    border-color: var(--accent, #b08d57);
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.rp-arrow-btn:disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.sidebar-recent-posts-scroll {
+    max-height: 370px;
+    overflow: hidden;
+    position: relative;
+}
+
 .sidebar-recent-posts {
     display: flex;
     flex-direction: column;
     gap: 14px;
+    transition: transform 0.45s cubic-bezier(0.4,0,0.2,1);
+    will-change: transform;
 }
 
 .sidebar-post-item {
